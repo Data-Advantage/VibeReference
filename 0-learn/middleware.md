@@ -1,6 +1,6 @@
 # Middleware
 
-Middleware in Next.js is a powerful feature that allows you to run code before a request is completed, enabling request manipulation, authentication checks, redirects, and more. In VibeStack applications, middleware serves as a critical component for controlling navigation flow and implementing authentication.
+Middleware in Next.js is a powerful feature that allows you to run code before a request is completed, enabling request manipulation, authentication checks, redirects, and more. In VibeReference applications, middleware serves as a critical component for controlling navigation flow and implementing authentication.
 
 ## Introduction to Next.js Middleware
 
@@ -15,7 +15,7 @@ Middleware runs on the Edge runtime and executes before a page is rendered, maki
 
 ## Basic Middleware Implementation
 
-In a VibeStack project, create a `middleware.ts` file at the project root:
+In a VibeReference project, create a `middleware.ts` file at the project root:
 
 ```typescript
 // middleware.ts
@@ -43,7 +43,7 @@ export const config = {
 
 ## Authentication Middleware with Supabase
 
-Protecting routes in a VibeStack application using Supabase authentication:
+Protecting routes in a VibeReference application using Supabase authentication:
 
 ```typescript
 // middleware.ts
@@ -108,7 +108,7 @@ export const config = {
 
 ## Middleware for Route Groups
 
-In a VibeStack application with different route groups (e.g., marketing, app, admin), you can apply specific middleware to each group:
+In a VibeReference application with different route groups (e.g., marketing, app, admin), you can apply specific middleware to each group:
 
 ```typescript
 // middleware.ts

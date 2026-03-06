@@ -26,6 +26,6 @@ Email marketing is a digital marketing strategy that involves sending targeted m
 - [Mailchimp Resources](https://mailchimp.com/resources/) - Email marketing guides and best practices
 - [Email on Acid](https://www.emailonacid.com/blog/) - Technical email development resources
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
-In Day 4 of the VibeStack workflow, you'll develop comprehensive email marketing sequences for your SaaS application. This includes planning welcome sequences for free users, onboarding sequences for paid users, and re-engagement sequences for inactive users. Effective email marketing helps drive user activation, engagement, and conversion throughout your application's lifecycle. 
+In Day 4 of the VibeReference workflow, you'll develop comprehensive email marketing sequences for your SaaS application. This includes planning welcome sequences for free users, onboarding sequences for paid users, and re-engagement sequences for inactive users. Effective email marketing helps drive user activation, engagement, and conversion throughout your application's lifecycle. 

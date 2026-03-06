@@ -9,7 +9,7 @@ npm consists of three main components:
 - **CLI**: Terminal tool for installing and managing packages
 - **Registry**: Public and private package database
 
-As the world's largest software registry, npm plays a crucial role in the JavaScript ecosystem and in VibeStack development.
+As the world's largest software registry, npm plays a crucial role in the JavaScript ecosystem and in VibeReference development.
 
 ## Basic Commands
 
@@ -76,9 +76,9 @@ The `package.json` file is the heart of any Node.js project:
 
 ```json
 {
-  "name": "my-vibestack-app",
+  "name": "my-vibereference-app",
   "version": "1.0.0",
-  "description": "A VibeStack application",
+  "description": "A VibeReference application",
   "main": "index.js",
   "scripts": {
     "dev": "next dev",
@@ -129,7 +129,7 @@ npm test
 npm run build
 ```
 
-Example script usage in VibeStack:
+Example script usage in VibeReference:
 
 ```json
 "scripts": {
@@ -169,11 +169,11 @@ Example script usage in VibeStack:
 - Ensures reproducible builds
 - Should be committed to version control
 
-## npm in VibeStack
+## npm in VibeReference
 
 ### Core Dependencies
 
-Typical VibeStack applications use these npm packages:
+Typical VibeReference applications use these npm packages:
 
 ```bash
 # Core packages
@@ -196,7 +196,7 @@ For monorepo management, npm workspaces allow managing multiple packages:
 
 ```json
 {
-  "name": "vibestack-monorepo",
+  "name": "vibereference-monorepo",
   "private": true,
   "workspaces": [
     "apps/*",

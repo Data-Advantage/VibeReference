@@ -1,6 +1,6 @@
 # Zod
 
-[Zod](https://zod.dev/) is a TypeScript-first schema validation library with static type inference that helps ensure data integrity in your VibeStack applications.
+[Zod](https://zod.dev/) is a TypeScript-first schema validation library with static type inference that helps ensure data integrity in your VibeReference applications.
 
 ## Introduction to Zod
 
@@ -60,7 +60,7 @@ function safeProcessUserData(data: unknown) {
 }
 ```
 
-## Form Validation in VibeStack
+## Form Validation in VibeReference
 
 Zod excels at form validation in Next.js applications:
 

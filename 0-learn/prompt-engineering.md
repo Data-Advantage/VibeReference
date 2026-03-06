@@ -15,6 +15,6 @@ Prompt engineering is the process of crafting inputs to AI systems to get desire
 - [OpenAI Prompt Engineering Guide](https://platform.openai.com/docs/guides/prompt-engineering)
 - [Anthropic's Prompt Engineering Guide](https://docs.anthropic.com/claude/docs/introduction-to-prompt-design)
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
-Prompt engineering is fundamental to VibeStack's approach, allowing you to effectively communicate with AI tools to generate the components and features you need for your SaaS application.
+Prompt engineering is fundamental to VibeReference's approach, allowing you to effectively communicate with AI tools to generate the components and features you need for your SaaS application.

@@ -23,6 +23,6 @@ Responsive design is an approach to web development that creates dynamic changes
 - [MDN Responsive Design Guide](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design)
 - [Responsive Web Design Fundamentals (web.dev)](https://web.dev/responsive-web-design-basics/)
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
-In Day 2 of the VibeStack workflow, you'll enhance your application's responsive design based on user feedback. This ensures your SaaS application provides an optimal viewing and interaction experience across a wide range of devices, from mobile phones to desktop computers.
+In Day 2 of the VibeReference workflow, you'll enhance your application's responsive design based on user feedback. This ensures your SaaS application provides an optimal viewing and interaction experience across a wide range of devices, from mobile phones to desktop computers.

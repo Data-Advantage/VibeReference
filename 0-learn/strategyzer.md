@@ -42,6 +42,6 @@ Strategyzer is a suite of business tools and methodologies designed to help entr
 - [Strategyzer Blog](https://www.strategyzer.com/blog)
 - [Strategyzer Canvas Tools](https://www.strategyzer.com/canvas)
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
-During the VibeStack workflow, particularly in Day 1 (CREATE) and Day 4 (POSITION), Strategyzer's frameworks can help you define and refine your SaaS business model. Use the Business Model Canvas to map out your overall strategy and the Value Proposition Canvas to ensure your product addresses real customer needs. These tools provide structured approaches to thinking about your business, helping translate your product idea into a viable SaaS business with clear value for users.
+During the VibeReference workflow, particularly in Day 1 (CREATE) and Day 4 (POSITION), Strategyzer's frameworks can help you define and refine your SaaS business model. Use the Business Model Canvas to map out your overall strategy and the Value Proposition Canvas to ensure your product addresses real customer needs. These tools provide structured approaches to thinking about your business, helping translate your product idea into a viable SaaS business with clear value for users.

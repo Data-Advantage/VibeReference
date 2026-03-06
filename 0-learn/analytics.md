@@ -35,6 +35,6 @@ Analytics is the systematic computational analysis of data or statistics, used t
 - [Google Analytics Academy](https://analytics.google.com/analytics/academy/)
 - [PostHog Learning Resources](https://posthog.com/tutorials)
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
-In Day 5 of the VibeStack workflow, you'll implement basic analytics to track key user actions in your SaaS application. This includes setting up Vercel Analytics, configuring event tracking for important conversion points, and monitoring Web Vitals for performance. Starting with minimal analytics helps you understand user behavior without overcomplicating your launch. 
+In Day 5 of the VibeReference workflow, you'll implement basic analytics to track key user actions in your SaaS application. This includes setting up Vercel Analytics, configuring event tracking for important conversion points, and monitoring Web Vitals for performance. Starting with minimal analytics helps you understand user behavior without overcomplicating your launch. 

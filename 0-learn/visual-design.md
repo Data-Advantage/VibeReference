@@ -24,6 +24,6 @@ Visual design is the use of imagery, color, shapes, typography, and form to enha
 - [Refactoring UI](https://www.refactoringui.com/)
 - [Design Systems Handbook](https://www.designbetter.co/design-systems-handbook)
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
-In Day 2 of the VibeStack workflow, you'll create a visual design specification that enhances your application's aesthetics and usability. This includes defining color systems, typography, component styling, and responsive design principles to create a professional, cohesive visual identity for your SaaS product. 
+In Day 2 of the VibeReference workflow, you'll create a visual design specification that enhances your application's aesthetics and usability. This includes defining color systems, typography, component styling, and responsive design principles to create a professional, cohesive visual identity for your SaaS product. 

@@ -1,4 +1,4 @@
-# Swagger in VibeStack
+# Swagger in VibeReference
 
 ## What is Swagger?
 
@@ -21,9 +21,9 @@ The OpenAPI Specification (formerly Swagger Specification) is a JSON or YAML fil
 ```yaml
 openapi: 3.0.0
 info:
-  title: VibeStack API
+  title: VibeReference API
   version: 1.0.0
-  description: API for the VibeStack platform
+  description: API for the VibeReference platform
 paths:
   /api/users:
     get:
@@ -62,7 +62,7 @@ Swagger UI is a collection of HTML, JavaScript, and CSS assets that dynamically 
 
 Online editor that helps you design and document APIs according to the OpenAPI Specification.
 
-## Integration with Next.js and VibeStack
+## Integration with Next.js and VibeReference
 
 ### Installation
 
@@ -83,9 +83,9 @@ const options = {
   definition: {
     openapi: '3.0.0',
     info: {
-      title: 'VibeStack API Documentation',
+      title: 'VibeReference API Documentation',
       version: '1.0.0',
-      description: 'Documentation for the VibeStack API',
+      description: 'Documentation for the VibeReference API',
     },
     servers: [
       {
@@ -256,9 +256,9 @@ For large APIs, consider:
 - Lazy loading Swagger UI only when needed
 - Caching the generated OpenAPI specification
 
-## Integration with VibeStack Architecture
+## Integration with VibeReference Architecture
 
-When integrating Swagger with the broader VibeStack architecture:
+When integrating Swagger with the broader VibeReference architecture:
 
 1. Consider using an API gateway to route requests and handle authentication before they reach your API endpoints
 2. Implement consistent error handling throughout your API and document error responses in your OpenAPI spec

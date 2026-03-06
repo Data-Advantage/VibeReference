@@ -1,4 +1,4 @@
-# VibeStack Process Outline
+# VibeReference Process Outline
 
 ## scratchpad
 

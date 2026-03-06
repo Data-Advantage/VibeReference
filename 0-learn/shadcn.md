@@ -15,9 +15,9 @@ shadcn/ui is a collection of re-usable components built using Radix UI and Tailw
 - [shadcn/ui Documentation](https://ui.shadcn.com)
 - [GitHub Repository](https://github.com/shadcn/ui)
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
-shadcn/ui provides the core UI components for VibeStack applications, offering a beautiful design system that's highly customizable and accessible out of the box.
+shadcn/ui provides the core UI components for VibeReference applications, offering a beautiful design system that's highly customizable and accessible out of the box.
 
 ## components.json
 

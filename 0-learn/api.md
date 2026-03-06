@@ -1,6 +1,6 @@
 # API Development
 
-Application Programming Interfaces (APIs) are a crucial component of modern web applications, allowing different software systems to communicate with each other. In VibeStack applications, APIs enable seamless data exchange between frontend, backend, and third-party services.
+Application Programming Interfaces (APIs) are a crucial component of modern web applications, allowing different software systems to communicate with each other. In VibeReference applications, APIs enable seamless data exchange between frontend, backend, and third-party services.
 
 ## Introduction to API Development
 
@@ -12,7 +12,7 @@ An API defines the methods and data formats that applications can use to request
 - **Authentication**: Methods to verify API consumers
 - **Status Codes**: Standardized responses indicating success or failure
 
-## API Types in VibeStack
+## API Types in VibeReference
 
 ### REST APIs
 
@@ -396,9 +396,9 @@ export function GET() {
   const openApiSpec = {
     openapi: '3.0.0',
     info: {
-      title: 'VibeStack API',
+      title: 'VibeReference API',
       version: '1.0.0',
-      description: 'API documentation for VibeStack'
+      description: 'API documentation for VibeReference'
     },
     paths: {
       '/api/users': {

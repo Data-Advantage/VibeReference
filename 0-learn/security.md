@@ -38,6 +38,6 @@ Web application security is the practice of protecting websites and online servi
 - [Mozilla Web Security Guidelines](https://infosec.mozilla.org/guidelines/web_security)
 - [Content Security Policy Reference](https://content-security-policy.com/)
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
-In Day 3 of the VibeStack workflow, you'll implement security best practices throughout your SaaS application. This includes securing authentication flows, implementing proper data validation, configuring security headers, and protecting against common web vulnerabilities. These security measures help safeguard your application and user data from potential threats. 
+In Day 3 of the VibeReference workflow, you'll implement security best practices throughout your SaaS application. This includes securing authentication flows, implementing proper data validation, configuring security headers, and protecting against common web vulnerabilities. These security measures help safeguard your application and user data from potential threats. 

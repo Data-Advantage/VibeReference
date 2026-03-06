@@ -20,6 +20,6 @@ A positioning statement is a concise description of your product's unique value 
 - [Geoffrey Moore's Crossing the Chasm](https://www.amazon.com/Crossing-Chasm-Marketing-High-Tech-Mainstream/dp/0060517123)
 - [Positioning: The Battle for Your Mind](https://www.amazon.com/Positioning-Battle-Your-Al-Ries/dp/0071373586) by Al Ries and Jack Trout
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
-During Day 1 of the VibeStack workflow, you'll craft a positioning statement as part of your marketing strategy. This statement guides your product development by clarifying who you're building for and why your solution is unique in the market.
+During Day 1 of the VibeReference workflow, you'll craft a positioning statement as part of your marketing strategy. This statement guides your product development by clarifying who you're building for and why your solution is unique in the market.

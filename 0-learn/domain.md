@@ -42,6 +42,6 @@ Domain names are the addresses users type into their browsers to access your web
 - [Cloudflare DNS Documentation](https://developers.cloudflare.com/dns/)
 - [Google Domains Help Center](https://support.google.com/domains/)
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
-In Day 1 of the VibeStack workflow, you'll select and register a domain name for your SaaS application. By Day 5 (LAUNCH), you'll configure your domain with the appropriate DNS settings to point to your deployed application. Proper domain setup ensures your users can access your application reliably and helps establish your brand's online presence.
+In Day 1 of the VibeReference workflow, you'll select and register a domain name for your SaaS application. By Day 5 (LAUNCH), you'll configure your domain with the appropriate DNS settings to point to your deployed application. Proper domain setup ensures your users can access your application reliably and helps establish your brand's online presence.

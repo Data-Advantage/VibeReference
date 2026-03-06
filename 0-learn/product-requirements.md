@@ -26,6 +26,6 @@ A Product Requirements Document (PRD) defines what you're building, why you're b
 - [Atlassian's Guide to Writing PRDs](https://www.atlassian.com/agile/product-management/requirements)
 - [Product Requirements Document Template](https://www.productplan.com/glossary/product-requirements-document/)
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
-In Day 1 of the VibeStack workflow, you'll create a comprehensive PRD that guides the development of your SaaS application. This document serves as the foundation for both the technical implementation and the marketing strategy of your product.
+In Day 1 of the VibeReference workflow, you'll create a comprehensive PRD that guides the development of your SaaS application. This document serves as the foundation for both the technical implementation and the marketing strategy of your product.

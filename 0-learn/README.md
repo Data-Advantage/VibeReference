@@ -1,6 +1,6 @@
 # Learning Topics Index
 
-This directory contains resources and guides on various technologies, tools, and concepts needed to build your SaaS business with VibeStack. Use these reference materials to understand the components of your tech stack and enhance your project.
+This directory contains resources and guides on various technologies, tools, and concepts needed to build your SaaS business with VibeReference. Use these reference materials to understand the components of your tech stack and enhance your project.
 
 ## Web Development Fundamentals
 

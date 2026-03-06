@@ -1,6 +1,6 @@
 # Stripe Customer Portal
 
-The Stripe Customer Portal is a pre-built, hosted page that lets your customers manage their subscriptions and billing information. This document covers how to integrate and customize the Stripe Customer Portal in your VibeStack application.
+The Stripe Customer Portal is a pre-built, hosted page that lets your customers manage their subscriptions and billing information. This document covers how to integrate and customize the Stripe Customer Portal in your VibeReference application.
 
 ## Overview
 
@@ -12,7 +12,7 @@ The Stripe Customer Portal enables your customers to:
 - Update billing information
 - Cancel subscriptions
 
-## Integration with VibeStack
+## Integration with VibeReference
 
 ### Prerequisites
 
@@ -51,7 +51,7 @@ import Stripe from 'stripe';
 export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
   apiVersion: '2023-10-16', // Use the latest API version
   appInfo: {
-    name: 'VibeStack',
+    name: 'VibeReference',
     version: '1.0.0',
   },
 });
@@ -224,9 +224,9 @@ Example portal configuration:
 async function configureCustomerPortal() {
   const configuration = await stripe.billingPortal.configurations.create({
     business_profile: {
-      headline: 'VibeStack Subscription Management',
-      privacy_policy_url: 'https://yourvibestackapp.com/privacy',
-      terms_of_service_url: 'https://yourvibestackapp.com/terms',
+      headline: 'VibeReference Subscription Management',
+      privacy_policy_url: 'https://yourvibereferenceapp.com/privacy',
+      terms_of_service_url: 'https://yourvibereferenceapp.com/terms',
     },
     features: {
       subscription_update: {
@@ -255,7 +255,7 @@ async function configureCustomerPortal() {
       invoice_history: { enabled: true },
       payment_method_update: { enabled: true },
     },
-    default_return_url: 'https://yourvibestackapp.com/account',
+    default_return_url: 'https://yourvibereferenceapp.com/account',
   });
   
   console.log('Portal configuration created:', configuration.id);

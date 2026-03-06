@@ -45,6 +45,6 @@ Groq is an AI infrastructure company that provides exceptionally fast inference 
 - [Groq JavaScript SDK](https://github.com/groq/groq-typescript)
 - [Groq Developer Discord](https://discord.gg/groq)
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
-Throughout the VibeStack workflow, Groq can be leveraged to enhance the development experience with its exceptional speed. During Day 1 (CREATE) and Day 3 (BUILD), the lightning-fast responses enable rapid iteration on code and design elements. For customer-facing AI features in your SaaS product, integrating with Groq can provide a competitive advantage through superior response times, creating a more engaging user experience without sacrificing quality of outputs.
+Throughout the VibeReference workflow, Groq can be leveraged to enhance the development experience with its exceptional speed. During Day 1 (CREATE) and Day 3 (BUILD), the lightning-fast responses enable rapid iteration on code and design elements. For customer-facing AI features in your SaaS product, integrating with Groq can provide a competitive advantage through superior response times, creating a more engaging user experience without sacrificing quality of outputs.

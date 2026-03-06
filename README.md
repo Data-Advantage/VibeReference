@@ -1,4 +1,4 @@
-# VibeStack 🚀
+# VibeReference 🚀
 
 **Build your SaaS business in just one week - no coding required.**
 
@@ -9,7 +9,7 @@ Building a SaaS business typically requires technical skills, significant time i
 ## Your Guide to Success
 In today's AI-powered world, success is no longer defined by your coding skills, educational background, or resume. What matters now is your **agency** — the ability to effectively direct AI tools through thoughtful prompting, and your **taste** — the discernment to evaluate and refine AI outputs for maximum impact. [(Garry Tan)](https://x.com/garrytan/status/1914363647897559231)
 
-VibeStack empowers you with both, bridging the gap between your vision and functional software through carefully crafted prompts for AI-powered design and development tools. Created by [Data Advantage](https://www.buildadataadvantage.com), we've helped visionaries launch successful micro-SaaS businesses without writing a single line of code, proving that your entrepreneurial spirit combined with AI's capabilities is the new unfair advantage in business creation.
+VibeReference empowers you with both, bridging the gap between your vision and functional software through carefully crafted prompts for AI-powered design and development tools. Created by [Data Advantage](https://www.buildadataadvantage.com), we've helped visionaries launch successful micro-SaaS businesses without writing a single line of code, proving that your entrepreneurial spirit combined with AI's capabilities is the new unfair advantage in business creation.
 
 ## Default Stack
 
@@ -73,7 +73,7 @@ Your journey doesn't end with launch! Use these resources to continue growing yo
 
 Check out our [Quick Start Guide](./docs/quick-start.md) to build your first component in minutes.
 
-## Who Succeeds with VibeStack
+## Who Succeeds with VibeReference
 
 - **Non-technical founders** turning ideas into MVPs without hiring developers
 - **Designers** creating functional prototypes without writing code
@@ -81,7 +81,7 @@ Check out our [Quick Start Guide](./docs/quick-start.md) to build your first com
 - **Small business owners** digitizing operations affordably
 - **Developers** accelerating their workflow with AI tools
 
-## The VibeStack Advantage
+## The VibeReference Advantage
 
 - **Skip the technical hurdles**: Avoid common pitfalls and technical debt
 - **Consistent quality**: Generate code that follows best practices by default
@@ -91,7 +91,7 @@ Check out our [Quick Start Guide](./docs/quick-start.md) to build your first com
 
 ## Before You Begin: Preparation Checklist
 
-To make the most of VibeStack and ensure a smooth building process, prepare the following before starting Day 1:
+To make the most of VibeReference and ensure a smooth building process, prepare the following before starting Day 1:
 
 ### Required Accounts
 - [ ] [Claude.ai](https://claude.ai) account (Pro subscription recommended)
@@ -133,7 +133,7 @@ To make the most of VibeStack and ensure a smooth building process, prepare the 
 
 ---
 
-VibeStack is committed to democratizing software development and empowering everyone to bring their ideas to life. No code experience needed—just your creativity and our prompts.
+VibeReference is committed to democratizing software development and empowering everyone to bring their ideas to life. No code experience needed—just your creativity and our prompts.
 
 [![X Follow](https://img.shields.io/twitter/follow/DataAdvantageAI?style=social)](https://x.com/dataadvantageai)
-[![GitHub Stars](https://img.shields.io/github/stars/vibestack/vibestack?style=social)](https://github.com/Data-Advantage/vibestack)
+[![GitHub Stars](https://img.shields.io/github/stars/vibereference/vibereference?style=social)](https://github.com/Data-Advantage/vibereference)

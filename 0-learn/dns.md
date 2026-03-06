@@ -1,6 +1,6 @@
 # DNS (Domain Name System)
 
-The Domain Name System (DNS) is a critical internet infrastructure component that translates human-friendly domain names (like example.com) into IP addresses that computers use to identify each other. Understanding DNS is essential for deploying and managing VibeStack applications.
+The Domain Name System (DNS) is a critical internet infrastructure component that translates human-friendly domain names (like example.com) into IP addresses that computers use to identify each other. Understanding DNS is essential for deploying and managing VibeReference applications.
 
 ## Introduction to DNS
 
@@ -40,7 +40,7 @@ TTL specifies how long (in seconds) DNS resolvers should cache a record before r
 - **Low TTL** (e.g., 300 seconds/5 minutes): Speeds up propagation but increases server load
 - **TTL Strategy**: Lower TTL before planned DNS changes, then increase after changes propagate
 
-## DNS Setup for VibeStack
+## DNS Setup for VibeReference
 
 ### Using Vercel DNS
 
@@ -156,7 +156,7 @@ Value: 0 issue "letsencrypt.org"
 
 ## Subdomain Strategies
 
-When building a multi-part VibeStack application, consider these subdomain strategies:
+When building a multi-part VibeReference application, consider these subdomain strategies:
 
 | Strategy | Example | Use Case |
 |----------|---------|----------|

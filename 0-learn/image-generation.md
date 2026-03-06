@@ -46,6 +46,6 @@ AI image generation refers to the creation of visual content using artificial in
 - [Getty Images AI Guidelines](https://creativeinsights.gettyimages.com/en/ai-and-creative-guidance)
 - [Lexica Prompt Search](https://lexica.art)
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
-Throughout the VibeStack workflow, AI image generation plays a crucial role in creating visual assets. During Day 1 (CREATE), it helps visualize your product concept. In Day 2 (REFINE), it enables rapid iteration on visual elements based on feedback. For Day 4 (POSITION), these tools generate consistent marketing imagery for your landing page and social media presence. Leveraging AI image generation allows entrepreneurs without design experience to create professional-looking visuals that enhance their SaaS product's appeal and brand identity.
+Throughout the VibeReference workflow, AI image generation plays a crucial role in creating visual assets. During Day 1 (CREATE), it helps visualize your product concept. In Day 2 (REFINE), it enables rapid iteration on visual elements based on feedback. For Day 4 (POSITION), these tools generate consistent marketing imagery for your landing page and social media presence. Leveraging AI image generation allows entrepreneurs without design experience to create professional-looking visuals that enhance their SaaS product's appeal and brand identity.

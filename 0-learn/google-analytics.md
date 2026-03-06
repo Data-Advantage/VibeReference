@@ -34,6 +34,6 @@ Google Analytics is a web analytics service that provides statistics and basic a
 - [Google Analytics Academy](https://analytics.google.com/analytics/academy/)
 - [GA4 Migration Guide](https://developers.google.com/analytics/devguides/migration/ua/ga4-migration-guide)
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
-In Day 5 of the VibeStack workflow, you'll implement basic analytics tracking to measure key user behaviors and conversions in your SaaS application. This data helps you understand how users interact with your product, which features they use most, and where they encounter issues, enabling data-driven product iteration.
+In Day 5 of the VibeReference workflow, you'll implement basic analytics tracking to measure key user behaviors and conversions in your SaaS application. This data helps you understand how users interact with your product, which features they use most, and where they encounter issues, enabling data-driven product iteration.

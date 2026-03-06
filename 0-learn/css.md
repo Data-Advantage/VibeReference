@@ -14,6 +14,6 @@ CSS (Cascading Style Sheets) is a stylesheet language used for describing the pr
 - [MDN Web Docs - CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
 - [CSS-Tricks](https://css-tricks.com/)
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
 CSS (primarily through Tailwind CSS) provides the styling for your SaaS application. Understanding CSS helps you customize your application's look and feel beyond the default styles.

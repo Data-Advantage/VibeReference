@@ -44,6 +44,6 @@ Cohere is an AI company specializing in large language models (LLMs) that are de
 - [Cohere Coral](https://coral.cohere.com/)
 - [GitHub Repositories](https://github.com/cohere-ai)
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
-In the VibeStack workflow, Cohere models can be leveraged throughout your SaaS development process. During Day 1 (CREATE) and Day 3 (BUILD), you can use Command models to generate code and content. In Day 4 (POSITION), the same models can help create marketing materials. Particularly valuable is Cohere's Embed models for implementing semantic search in your application, allowing users to find relevant information using natural language queries rather than exact keyword matching.
+In the VibeReference workflow, Cohere models can be leveraged throughout your SaaS development process. During Day 1 (CREATE) and Day 3 (BUILD), you can use Command models to generate code and content. In Day 4 (POSITION), the same models can help create marketing materials. Particularly valuable is Cohere's Embed models for implementing semantic search in your application, allowing users to find relevant information using natural language queries rather than exact keyword matching.

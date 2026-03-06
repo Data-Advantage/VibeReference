@@ -23,6 +23,6 @@ SQL migrations are a way to manage and version control changes to your database 
 - [Supabase CLI Migrations Guide](https://supabase.com/docs/guides/cli/migrations)
 - [Database Schema Migration Tools](https://supabase.com/docs/guides/database/migrations)
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
-In Day 1 of the VibeStack workflow, you'll create an initial SQL migration file that sets up your Supabase database schema with tables, relationships, and security policies. This provides the data foundation for your SaaS application.
+In Day 1 of the VibeReference workflow, you'll create an initial SQL migration file that sets up your Supabase database schema with tables, relationships, and security policies. This provides the data foundation for your SaaS application.

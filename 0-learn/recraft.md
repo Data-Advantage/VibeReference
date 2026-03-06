@@ -47,6 +47,6 @@ Recraft is an AI design platform that helps users create and iterate on design a
 - [Tutorial Videos](https://www.youtube.com/@recraftai)
 - [Community Showcase](https://www.recraft.ai/community)
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
-During Day 2 (REFINE) and Day 4 (POSITION) of the VibeStack workflow, Recraft helps create consistent visual assets for your SaaS application. Use it to generate custom icons and illustrations that align with your brand identity, create UI components that enhance user experience, and develop marketing visuals that communicate your value proposition. With Recraft, you can establish a professional visual identity without requiring advanced design skills, ensuring your product looks polished and trustworthy to potential customers.
+During Day 2 (REFINE) and Day 4 (POSITION) of the VibeReference workflow, Recraft helps create consistent visual assets for your SaaS application. Use it to generate custom icons and illustrations that align with your brand identity, create UI components that enhance user experience, and develop marketing visuals that communicate your value proposition. With Recraft, you can establish a professional visual identity without requiring advanced design skills, ensuring your product looks polished and trustworthy to potential customers.

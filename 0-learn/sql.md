@@ -1,6 +1,6 @@
 # SQL (Structured Query Language)
 
-SQL is the standard language for interacting with relational databases like PostgreSQL, which forms the backbone of your Supabase implementation in VibeStack.
+SQL is the standard language for interacting with relational databases like PostgreSQL, which forms the backbone of your Supabase implementation in VibeReference.
 
 ## Core SQL Concepts
 
@@ -47,7 +47,7 @@ FROM users
 LEFT JOIN subscriptions ON users.id = subscriptions.user_id;
 ```
 
-## Best Practices for VibeStack
+## Best Practices for VibeReference
 
 1. **Use Parameterized Queries**: Prevent SQL injection by using parameterized queries instead of string concatenation.
 

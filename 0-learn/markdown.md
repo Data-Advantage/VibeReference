@@ -1,6 +1,6 @@
-# Markdown in VibeStack
+# Markdown in VibeReference
 
-Markdown is a lightweight markup language with plain text formatting syntax designed to be converted to HTML and many other formats. It's widely used for documentation, README files, forum posts, and more. In VibeStack, we use Markdown extensively for documentation and content management.
+Markdown is a lightweight markup language with plain text formatting syntax designed to be converted to HTML and many other formats. It's widely used for documentation, README files, forum posts, and more. In VibeReference, we use Markdown extensively for documentation and content management.
 
 ## Why Use Markdown?
 
@@ -142,11 +142,11 @@ Term
 :smile: :heart: :thumbsup:
 ```
 
-## Markdown in VibeStack Components
+## Markdown in VibeReference Components
 
 ### Using Markdown in Next.js Components
 
-In VibeStack, we often need to render Markdown content in our React components. We use libraries like `react-markdown` to accomplish this:
+In VibeReference, we often need to render Markdown content in our React components. We use libraries like `react-markdown` to accomplish this:
 
 ```typescript
 import ReactMarkdown from 'react-markdown';
@@ -225,7 +225,7 @@ type Document = {
 };
 ```
 
-## Best Practices for Markdown in VibeStack
+## Best Practices for Markdown in VibeReference
 
 1. **Consistency**: Use a consistent style throughout your Markdown files
 2. **Readability**: Format your Markdown with line breaks and spacing for better readability
@@ -251,7 +251,7 @@ import { Button } from '@/components/ui/button';
 
 # Getting Started
 
-This guide will help you set up your VibeStack project.
+This guide will help you set up your VibeReference project.
 
 <Button variant="primary">Download Starter Kit</Button>
 
@@ -260,7 +260,7 @@ This guide will help you set up your VibeStack project.
 Run the following command:
 
 ```bash
-npm install vibestack
+npm install vibereference
 ```
 ```
 

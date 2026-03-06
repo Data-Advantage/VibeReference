@@ -23,6 +23,6 @@ A Unique Selling Proposition is a clear statement that describes the benefit of 
 - [Rosser Reeves' Reality in Advertising](https://www.amazon.com/Reality-Advertising-Rosser-Reeves/dp/1258811081)
 - [The 22 Immutable Laws of Marketing](https://www.amazon.com/22-Immutable-Laws-Marketing-Violate/dp/0887306667)
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
-When building your SaaS application with VibeStack, you'll develop a USP during Day 1 as part of your marketing strategy. This USP will guide your product development, ensuring you create features that deliver on your unique value promise.
+When building your SaaS application with VibeReference, you'll develop a USP during Day 1 as part of your marketing strategy. This USP will guide your product development, ensuring you create features that deliver on your unique value promise.

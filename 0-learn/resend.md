@@ -1,6 +1,6 @@
 # Resend
 
-[Resend](https://resend.com) is a developer-focused email API service that makes it easy to send transactional and marketing emails from your VibeStack application.
+[Resend](https://resend.com) is a developer-focused email API service that makes it easy to send transactional and marketing emails from your VibeReference application.
 
 ## Introduction to Resend
 
@@ -15,7 +15,7 @@ Resend provides a modern, developer-friendly platform for sending emails, offeri
 
 ## Installation & Setup
 
-To get started with Resend in your VibeStack application:
+To get started with Resend in your VibeReference application:
 
 ```bash
 # Install the Resend SDK for Node.js
@@ -110,7 +110,7 @@ export default function WelcomeEmail({ username, userEmail }: WelcomeEmailProps)
       <Head />
       <Body style={{ fontFamily: 'Arial, sans-serif', padding: '20px' }}>
         <Container>
-          <Heading as="h1">Welcome to VibeStack, {username}!</Heading>
+          <Heading as="h1">Welcome to VibeReference, {username}!</Heading>
           <Text>We're excited to have you on board.</Text>
           <Text>Your account has been created with the email: {userEmail}</Text>
           <Section style={{ textAlign: 'center', margin: '30px 0' }}>
@@ -152,7 +152,7 @@ export async function sendWelcomeEmail(user: { name: string; email: string }) {
     const { data, error } = await resend.emails.send({
       from: 'Your App <noreply@yourdomain.com>',
       to: user.email,
-      subject: 'Welcome to VibeStack!',
+      subject: 'Welcome to VibeReference!',
       react: WelcomeEmail({ username: user.name, userEmail: user.email }),
     });
     
@@ -164,7 +164,7 @@ export async function sendWelcomeEmail(user: { name: string; email: string }) {
 }
 ```
 
-## Common Email Types in VibeStack
+## Common Email Types in VibeReference
 
 | Email Type | Purpose | Tips |
 |------------|---------|------|
@@ -205,9 +205,9 @@ export async function sendWelcomeEmail(
   
   try {
     const { data, error } = await resend.emails.send({
-      from: 'VibeStack <onboarding@yourdomain.com>',
+      from: 'VibeReference <onboarding@yourdomain.com>',
       to: email,
-      subject: 'Welcome to VibeStack!',
+      subject: 'Welcome to VibeReference!',
       react: WelcomeEmail({ username: name, userEmail: email }),
     });
     

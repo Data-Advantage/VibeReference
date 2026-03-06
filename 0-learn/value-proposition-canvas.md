@@ -21,6 +21,6 @@ The Value Proposition Canvas is a strategic tool created by Alexander Osterwalde
 - [Strategyzer's Value Proposition Canvas](https://www.strategyzer.com/library/the-value-proposition-canvas)
 - [Value Proposition Design book](https://www.strategyzer.com/books/value-proposition-design)
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
-In Day 1 of the VibeStack workflow, the Value Proposition Canvas helps you define and articulate your product's unique value to customers. This becomes the foundation for both your product requirements and your marketing strategy.
+In Day 1 of the VibeReference workflow, the Value Proposition Canvas helps you define and articulate your product's unique value to customers. This becomes the foundation for both your product requirements and your marketing strategy.

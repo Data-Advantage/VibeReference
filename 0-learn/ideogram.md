@@ -46,6 +46,6 @@ Ideogram is an AI image generation platform that specializes in creating high-qu
 - [Prompt Library Examples](https://ideogram.ai/examples)
 - [Ideogram API Documentation](https://docs.ideogram.ai/)
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
-During Day 4 (POSITION) of the VibeStack workflow, Ideogram becomes particularly valuable for creating marketing materials and branded content for your SaaS product. Use it to generate social media graphics, landing page visuals, and other marketing assets that require text integration. The ability to produce images with readable text means you can create consistent brand messaging across all visual touchpoints, enhancing your product's professional appearance without requiring specialized design skills.
+During Day 4 (POSITION) of the VibeReference workflow, Ideogram becomes particularly valuable for creating marketing materials and branded content for your SaaS product. Use it to generate social media graphics, landing page visuals, and other marketing assets that require text integration. The ability to produce images with readable text means you can create consistent brand messaging across all visual touchpoints, enhancing your product's professional appearance without requiring specialized design skills.

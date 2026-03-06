@@ -1,6 +1,6 @@
 # OpenAPI
 
-The OpenAPI Specification (formerly known as Swagger) is a standardized format for describing, producing, consuming, and visualizing RESTful APIs. In VibeStack applications, OpenAPI provides a structured approach to API documentation and integration.
+The OpenAPI Specification (formerly known as Swagger) is a standardized format for describing, producing, consuming, and visualizing RESTful APIs. In VibeReference applications, OpenAPI provides a structured approach to API documentation and integration.
 
 ## Introduction to OpenAPI
 
@@ -25,13 +25,13 @@ Basic information about the API:
 ```yaml
 openapi: 3.0.0
 info:
-  title: VibeStack API
-  description: API for managing VibeStack resources
+  title: VibeReference API
+  description: API for managing VibeReference resources
   version: 1.0.0
   contact:
-    name: VibeStack Support
-    url: https://vibestack.example.com/support
-    email: support@vibestack.example.com
+    name: VibeReference Support
+    url: https://vibereference.example.com/support
+    email: support@vibereference.example.com
 ```
 
 ### 2. Servers
@@ -40,9 +40,9 @@ Defines server URLs for the API:
 
 ```yaml
 servers:
-  - url: https://api.vibestack.example.com/v1
+  - url: https://api.vibereference.example.com/v1
     description: Production server
-  - url: https://staging-api.vibestack.example.com/v1
+  - url: https://staging-api.vibereference.example.com/v1
     description: Staging server
   - url: http://localhost:3000/api/v1
     description: Local development
@@ -180,7 +180,7 @@ security:
   - BearerAuth: []
 ```
 
-## Implementing OpenAPI in VibeStack
+## Implementing OpenAPI in VibeReference
 
 ### Generate API Documentation Endpoint
 
@@ -390,7 +390,7 @@ Setup in `public/swagger-ui/index.html`:
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>VibeStack API Documentation</title>
+  <title>VibeReference API Documentation</title>
   <link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist@5.1.0/swagger-ui.css">
   <style>
     body { margin: 0; }

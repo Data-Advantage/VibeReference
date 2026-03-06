@@ -1,6 +1,6 @@
 # SSL (Secure Sockets Layer)
 
-SSL and its successor TLS (Transport Layer Security) are cryptographic protocols designed to provide secure communication over a computer network. For VibeStack applications, implementing proper SSL/TLS is essential for security and user trust.
+SSL and its successor TLS (Transport Layer Security) are cryptographic protocols designed to provide secure communication over a computer network. For VibeReference applications, implementing proper SSL/TLS is essential for security and user trust.
 
 ## Introduction to SSL/TLS
 
@@ -24,7 +24,7 @@ An SSL certificate is a digital document that:
 
 ### Types of SSL Certificates
 
-| Type | Description | Use Case in VibeStack |
+| Type | Description | Use Case in VibeReference |
 |------|-------------|------------------------|
 | Domain Validated (DV) | Basic verification of domain ownership | Development environments |
 | Organization Validated (OV) | Verifies organization details | Standard production sites |
@@ -32,11 +32,11 @@ An SSL certificate is a digital document that:
 | Wildcard | Covers main domain and all subdomains | Multi-tenant applications |
 | Multi-Domain (SAN) | Covers multiple specified domains | Applications with multiple domains |
 
-## SSL Implementation in VibeStack
+## SSL Implementation in VibeReference
 
 ### With Vercel (Recommended)
 
-Vercel automatically provisions and renews SSL certificates for all domains connected to your VibeStack project:
+Vercel automatically provisions and renews SSL certificates for all domains connected to your VibeReference project:
 
 1. Add your custom domain in the Vercel dashboard
 2. Verify domain ownership (usually through DNS configuration)
@@ -64,7 +64,7 @@ For applications not hosted on platforms with automatic SSL:
 
 ## Next.js Security Headers
 
-For a VibeStack application, implementing security headers in `next.config.js` enhances your SSL implementation:
+For a VibeReference application, implementing security headers in `next.config.js` enhances your SSL implementation:
 
 ```javascript
 // next.config.js

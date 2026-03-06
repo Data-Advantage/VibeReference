@@ -5,7 +5,7 @@
 Develop a complete application with all features, connected systems, and responsive design.
 
 ## Introduction
-Welcome to Day 3 of the VibeStack workflow! Today focuses on transforming your refined prototype into a complete application:
+Welcome to Day 3 of the VibeReference workflow! Today focuses on transforming your refined prototype into a complete application:
 - **Morning**: Implement core functionality and set up key API integrations
 - **Afternoon**: Add payment processing, advanced features, and custom dashboards
 

@@ -48,6 +48,6 @@ Discord is a communication platform designed for creating communities through te
 - [Discord Server Templates](https://discord.com/templates)
 - [Discord Community Guidelines](https://discord.com/guidelines)
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
-During Day 5 (LAUNCH) of the VibeStack workflow, setting up a Discord server creates a direct communication channel with your early users. This community becomes invaluable for gathering feedback, providing support, and building relationships with customers. As your SaaS business grows, your Discord server can evolve into a vibrant community that drives product improvements, increases user retention, and serves as a source of organic growth through word-of-mouth referrals.
+During Day 5 (LAUNCH) of the VibeReference workflow, setting up a Discord server creates a direct communication channel with your early users. This community becomes invaluable for gathering feedback, providing support, and building relationships with customers. As your SaaS business grows, your Discord server can evolve into a vibrant community that drives product improvements, increases user retention, and serves as a source of organic growth through word-of-mouth referrals.

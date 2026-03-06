@@ -24,6 +24,6 @@ User feedback collection is the process of gathering input from users about thei
 - [How to Conduct User Interviews](https://www.interaction-design.org/literature/article/how-to-conduct-user-interviews)
 - [The Mom Test](http://momtestbook.com/) by Rob Fitzpatrick
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
-In Day 2 of the VibeStack workflow, you'll collect and analyze feedback on your prototype from actual users. This feedback drives the refinement of your SaaS application, ensuring you address real user pain points and create a product people actually want to use. 
+In Day 2 of the VibeReference workflow, you'll collect and analyze feedback on your prototype from actual users. This feedback drives the refinement of your SaaS application, ensuring you address real user pain points and create a product people actually want to use. 

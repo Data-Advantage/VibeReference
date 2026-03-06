@@ -54,6 +54,6 @@ Stable Diffusion is an open-source AI model that generates high-quality images f
 - [Civitai Model Community](https://civitai.com/)
 - [Lexica Prompt Search Engine](https://lexica.art/)
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
-During Day 2 (REFINE) and Day 4 (POSITION) of the VibeStack workflow, Stable Diffusion can be leveraged to create visual assets for your SaaS application. Use it to generate unique illustrations for your UI, create consistent imagery for marketing materials, or develop a visual identity for your brand. The ability to rapidly iterate on visual concepts aligns perfectly with VibeStack's goal of accelerating the journey from idea to launch.
+During Day 2 (REFINE) and Day 4 (POSITION) of the VibeReference workflow, Stable Diffusion can be leveraged to create visual assets for your SaaS application. Use it to generate unique illustrations for your UI, create consistent imagery for marketing materials, or develop a visual identity for your brand. The ability to rapidly iterate on visual concepts aligns perfectly with VibeReference's goal of accelerating the journey from idea to launch.

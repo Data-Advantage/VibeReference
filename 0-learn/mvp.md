@@ -15,6 +15,6 @@ MVP (Minimum Viable Product) is a development strategy focused on creating a pro
 - [Lean Startup by Eric Ries](http://theleanstartup.com/)
 - [The MVP Guide](https://www.productplan.com/glossary/minimum-viable-product/)
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
-Day 1 of the VibeStack workflow focuses on defining and building an MVP version of your SaaS application. This involves prioritizing the most essential features that deliver your core value proposition, while deferring less critical functionality to later development stages.
+Day 1 of the VibeReference workflow focuses on defining and building an MVP version of your SaaS application. This involves prioritizing the most essential features that deliver your core value proposition, while deferring less critical functionality to later development stages.

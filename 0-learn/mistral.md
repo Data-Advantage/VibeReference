@@ -43,6 +43,6 @@ Mistral AI is a French AI company that develops and provides open-source large l
 - [Mistral GitHub](https://github.com/mistralai)
 - [La Plateforme Console](https://console.mistral.ai/)
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
-Throughout the VibeStack workflow, Mistral models can be leveraged as an alternative or complement to other AI tools. During Day 1 (CREATE) and Day 3 (BUILD), these models can assist with code generation, while in Day 4 (POSITION), they can help generate marketing content. The open-source nature of Mistral's models provides flexibility for entrepreneurs who want control over their AI stack or need to self-host models for privacy or compliance reasons.
+Throughout the VibeReference workflow, Mistral models can be leveraged as an alternative or complement to other AI tools. During Day 1 (CREATE) and Day 3 (BUILD), these models can assist with code generation, while in Day 4 (POSITION), they can help generate marketing content. The open-source nature of Mistral's models provides flexibility for entrepreneurs who want control over their AI stack or need to self-host models for privacy or compliance reasons.

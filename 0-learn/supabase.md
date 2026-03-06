@@ -1,6 +1,6 @@
 # Supabase (Legacy)
 
-[Supabase](https://supabase.com/) is an open-source Firebase alternative that provides a suite of tools for building modern applications. In earlier versions of VibeStack, Supabase served as the foundation for database, authentication, storage, and realtime features. VibeStack now defaults to Clerk (auth/billing) and Convex (database/functions/storage). See `docs/convex-setup-workflow.md`.
+[Supabase](https://supabase.com/) is an open-source Firebase alternative that provides a suite of tools for building modern applications. In earlier versions of VibeReference, Supabase served as the foundation for database, authentication, storage, and realtime features. VibeReference now defaults to Clerk (auth/billing) and Convex (database/functions/storage). See `docs/convex-setup-workflow.md`.
 
 ## Introduction to Supabase
 
@@ -13,7 +13,7 @@ Supabase combines several powerful open-source tools into a developer-friendly p
 - **Edge Functions**: Serverless functions for custom backend logic
 - **Vector**: AI vector embeddings and similarity search
 
-## Setting Up Supabase in VibeStack
+## Setting Up Supabase in VibeReference
 
 ### Configuration
 

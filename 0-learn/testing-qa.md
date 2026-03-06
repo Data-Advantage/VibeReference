@@ -37,6 +37,6 @@ Testing and Quality Assurance (QA) are systematic processes used to evaluate sof
 - [Web Accessibility Testing Guide](https://www.w3.org/WAI/test-evaluate/)
 - [Test-Driven Development Introduction](https://martinfowler.com/bliki/TestDrivenDevelopment.html)
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
-In Day 3 of the VibeStack workflow, you'll implement a comprehensive testing strategy for your SaaS application. This includes testing core user flows, checking for edge cases, ensuring cross-browser compatibility, verifying accessibility, and performing security checks. This rigorous testing process helps identify and fix issues before launch, ensuring a high-quality product for your users. 
+In Day 3 of the VibeReference workflow, you'll implement a comprehensive testing strategy for your SaaS application. This includes testing core user flows, checking for edge cases, ensuring cross-browser compatibility, verifying accessibility, and performing security checks. This rigorous testing process helps identify and fix issues before launch, ensuring a high-quality product for your users. 

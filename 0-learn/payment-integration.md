@@ -24,6 +24,6 @@ Payment integration refers to the process of connecting your application with pa
 - [Implementing Subscriptions with Stripe](https://stripe.com/docs/billing/subscriptions/overview)
 - [Webhook Security Best Practices](https://stripe.com/docs/webhooks/signatures)
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
-In Day 3 of the VibeStack workflow, you'll implement Stripe payment integration for your SaaS application. This includes setting up subscription plans, implementing the checkout process, tracking subscription status, and handling payment-related events through webhooks. This enables your application to offer free and paid tiers with different feature sets. 
+In Day 3 of the VibeReference workflow, you'll implement Stripe payment integration for your SaaS application. This includes setting up subscription plans, implementing the checkout process, tracking subscription status, and handling payment-related events through webhooks. This enables your application to offer free and paid tiers with different feature sets. 

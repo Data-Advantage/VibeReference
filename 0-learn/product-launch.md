@@ -36,6 +36,6 @@ Product launch is the process of releasing a new product or service to the marke
 - [Y Combinator Launch Guide](https://www.ycombinator.com/library/8g-how-to-launch)
 - [Indie Hackers Launch Resources](https://www.indiehackers.com/start/launch)
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
-In Day 5 of the VibeStack workflow, you'll launch your SaaS application by deploying it to production, announcing it on selected platforms, and personally inviting potential users to try it. This focused approach helps you get your product in front of real users quickly, gather valuable feedback, and begin iterating based on actual usage. 
+In Day 5 of the VibeReference workflow, you'll launch your SaaS application by deploying it to production, announcing it on selected platforms, and personally inviting potential users to try it. This focused approach helps you get your product in front of real users quickly, gather valuable feedback, and begin iterating based on actual usage. 

@@ -39,6 +39,6 @@ Landing pages are specialized web pages designed with a single focused objective
 - [CXL Blog](https://cxl.com/blog/category/landing-pages/) - Conversion optimization resources
 - [Landing Page Examples](https://landinglove.com/) - Inspiration and case studies
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
-In Day 4 of the VibeStack workflow, you'll plan and create static marketing pages, including your homepage, features page, pricing page, and about page. These pages serve as specialized landing pages that communicate your SaaS application's value proposition, features, and benefits to visitors, with the goal of converting them into users. 
+In Day 4 of the VibeReference workflow, you'll plan and create static marketing pages, including your homepage, features page, pricing page, and about page. These pages serve as specialized landing pages that communicate your SaaS application's value proposition, features, and benefits to visitors, with the goal of converting them into users. 

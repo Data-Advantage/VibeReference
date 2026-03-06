@@ -1,8 +1,8 @@
 # Amazon Web Services (AWS)
 
-AWS is a comprehensive cloud platform offering over 200 services from data centers globally. In VibeStack, AWS provides infrastructure for hosting, storage, and various application services.
+AWS is a comprehensive cloud platform offering over 200 services from data centers globally. In VibeReference, AWS provides infrastructure for hosting, storage, and various application services.
 
-## Core AWS Services for VibeStack
+## Core AWS Services for VibeReference
 
 ### EC2 (Elastic Compute Cloud)
 
@@ -30,7 +30,7 @@ const s3Client = new S3Client({ region: "us-east-1" });
 
 export async function uploadFile(fileBuffer, fileName, contentType) {
   const params = {
-    Bucket: "your-vibestack-bucket",
+    Bucket: "your-vibereference-bucket",
     Key: fileName,
     Body: fileBuffer,
     ContentType: contentType,
@@ -40,7 +40,7 @@ export async function uploadFile(fileBuffer, fileName, contentType) {
   try {
     const command = new PutObjectCommand(params);
     await s3Client.send(command);
-    return `https://your-vibestack-bucket.s3.amazonaws.com/${fileName}`;
+    return `https://your-vibereference-bucket.s3.amazonaws.com/${fileName}`;
   } catch (error) {
     console.error("Error uploading file:", error);
     throw error;
@@ -64,7 +64,7 @@ import { Pool } from 'pg';
 const pool = new Pool({
   host: 'your-db-instance.region.rds.amazonaws.com',
   port: 5432,
-  database: 'vibestack',
+  database: 'vibereference',
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   ssl: {
@@ -176,7 +176,7 @@ Configuration best practices:
 - Configure cache behaviors based on content type
 - Set appropriate TTLs for different content types
 
-## AWS Infrastructure for VibeStack
+## AWS Infrastructure for VibeReference
 
 ### VPC (Virtual Private Cloud)
 
@@ -184,7 +184,7 @@ Create an isolated network environment:
 
 ```bash
 # Creating a VPC using AWS CLI
-aws ec2 create-vpc --cidr-block 10.0.0.0/16 --tag-specifications 'ResourceType=vpc,Tags=[{Key=Name,Value=VibeStack-VPC}]'
+aws ec2 create-vpc --cidr-block 10.0.0.0/16 --tag-specifications 'ResourceType=vpc,Tags=[{Key=Name,Value=VibeReference-VPC}]'
 ```
 
 Recommended architecture:
@@ -210,7 +210,7 @@ Secure access to AWS services:
         "s3:DeleteObject"
       ],
       "Resource": [
-        "arn:aws:s3:::your-vibestack-bucket/uploads/${aws:userid}/*"
+        "arn:aws:s3:::your-vibereference-bucket/uploads/${aws:userid}/*"
       ]
     },
     {
@@ -218,7 +218,7 @@ Secure access to AWS services:
       "Action": [
         "s3:ListBucket"
       ],
-      "Resource": "arn:aws:s3:::your-vibestack-bucket",
+      "Resource": "arn:aws:s3:::your-vibereference-bucket",
       "Condition": {
         "StringLike": {
           "s3:prefix": [
@@ -289,10 +289,10 @@ Simplified deployment service that handles provisioning, load balancing, and sca
 # .elasticbeanstalk/config.yml example
 branch-defaults:
   main:
-    environment: vibestack-prod
+    environment: vibereference-prod
     group_suffix: null
 global:
-  application_name: vibestack
+  application_name: vibereference
   branch: null
   default_ec2_keyname: aws-eb
   default_platform: Node.js 16
@@ -319,13 +319,13 @@ Container orchestration service for Docker containers:
 ```yaml
 # Task definition example
 {
-  "family": "vibestack-app",
+  "family": "vibereference-app",
   "executionRoleArn": "arn:aws:iam::123456789012:role/ecsTaskExecutionRole",
   "networkMode": "awsvpc",
   "containerDefinitions": [
     {
-      "name": "vibestack-web",
-      "image": "123456789012.dkr.ecr.us-east-1.amazonaws.com/vibestack:latest",
+      "name": "vibereference-web",
+      "image": "123456789012.dkr.ecr.us-east-1.amazonaws.com/vibereference:latest",
       "essential": true,
       "portMappings": [
         {
@@ -343,7 +343,7 @@ Container orchestration service for Docker containers:
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
-          "awslogs-group": "/ecs/vibestack-app",
+          "awslogs-group": "/ecs/vibereference-app",
           "awslogs-region": "us-east-1",
           "awslogs-stream-prefix": "ecs"
         }

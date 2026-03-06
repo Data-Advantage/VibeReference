@@ -40,6 +40,6 @@ DeepSeek is an AI research company and language model provider that offers power
 - [DeepSeek Model Documentation](https://huggingface.co/deepseek-ai)
 - [Integration Guides](https://deepseek.ai/docs)
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
-In the VibeStack workflow, DeepSeek models can be utilized during Day 1 (CREATE) and Day 3 (BUILD) phases to generate code for your application components. The open-source nature of DeepSeek models offers an alternative to proprietary AI coding assistants, providing flexibility in how you build your SaaS product. For entrepreneurs looking to control their AI stack, DeepSeek represents a powerful option that can be integrated into your development workflow.
+In the VibeReference workflow, DeepSeek models can be utilized during Day 1 (CREATE) and Day 3 (BUILD) phases to generate code for your application components. The open-source nature of DeepSeek models offers an alternative to proprietary AI coding assistants, providing flexibility in how you build your SaaS product. For entrepreneurs looking to control their AI stack, DeepSeek represents a powerful option that can be integrated into your development workflow.

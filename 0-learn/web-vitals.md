@@ -36,6 +36,6 @@ Web Vitals are a set of quality signals that measure the user experience of a we
 - [PageSpeed Insights](https://pagespeed.web.dev/)
 - [Lighthouse](https://developers.google.com/web/tools/lighthouse)
 
-## How They're Used in VibeStack
+## How They're Used in VibeReference
 
-In Day 3 of the VibeStack workflow, you'll measure and optimize your application's Web Vitals as part of the performance optimization process. This ensures your SaaS application provides a fast, responsive, and stable user experience, which is crucial for user satisfaction and retention. You'll implement strategies to improve each core metric through code splitting, image optimization, and other techniques.
+In Day 3 of the VibeReference workflow, you'll measure and optimize your application's Web Vitals as part of the performance optimization process. This ensures your SaaS application provides a fast, responsive, and stable user experience, which is crucial for user satisfaction and retention. You'll implement strategies to improve each core metric through code splitting, image optimization, and other techniques.

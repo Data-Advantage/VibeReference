@@ -32,6 +32,6 @@ Web accessibility refers to the practice of designing and developing websites an
 - [WCAG Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/)
 - [The A11Y Project](https://www.a11yproject.com/)
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
-In Day 2 of the VibeStack workflow, you'll integrate accessibility improvements into your application based on user feedback and best practices. This ensures your SaaS product is usable by as many people as possible, including those with disabilities, which expands your potential user base and may also help with legal compliance.
+In Day 2 of the VibeReference workflow, you'll integrate accessibility improvements into your application based on user feedback and best practices. This ensures your SaaS product is usable by as many people as possible, including those with disabilities, which expands your potential user base and may also help with legal compliance.

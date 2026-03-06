@@ -47,6 +47,6 @@ Meta Llama (formerly known as LLaMA) is a series of open-source large language m
 - [Llama Documentation](https://llama.meta.com/docs/)
 - [Hugging Face Llama Models](https://huggingface.co/meta-llama)
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
-Throughout the VibeStack workflow, Meta Llama models can be leveraged as alternatives to proprietary models. During Day 1 (CREATE) and Day 3 (BUILD), they can assist with generating code for your application. The open-source nature of these models offers flexibility for entrepreneurs who want more control over their AI stack or need to customize models for specific business needs. For developers comfortable with self-hosting or using third-party inference APIs, Llama models provide powerful capabilities while potentially reducing costs compared to commercial alternatives.
+Throughout the VibeReference workflow, Meta Llama models can be leveraged as alternatives to proprietary models. During Day 1 (CREATE) and Day 3 (BUILD), they can assist with generating code for your application. The open-source nature of these models offers flexibility for entrepreneurs who want more control over their AI stack or need to customize models for specific business needs. For developers comfortable with self-hosting or using third-party inference APIs, Llama models provide powerful capabilities while potentially reducing costs compared to commercial alternatives.

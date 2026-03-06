@@ -35,6 +35,6 @@ API integration is the process of connecting different software systems through 
 - [Supabase REST API Documentation](https://supabase.com/docs/reference/javascript/select)
 - [Webhook.site](https://webhook.site/) - Testing webhook integrations
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
-In Day 3 of the VibeStack workflow, you'll implement API integrations for your SaaS application, ensuring proper connections with Supabase for database operations, Stripe for payments, and any other third-party services required by your application. This includes implementing secure authentication, efficient data fetching, proper error handling, and webhook processing. 
+In Day 3 of the VibeReference workflow, you'll implement API integrations for your SaaS application, ensuring proper connections with Supabase for database operations, Stripe for payments, and any other third-party services required by your application. This includes implementing secure authentication, efficient data fetching, proper error handling, and webhook processing. 

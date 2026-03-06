@@ -24,6 +24,6 @@ User Experience (UX) Design is the process of creating products that provide mea
 - [Laws of UX](https://lawsofux.com/) - Principles of user psychology
 - [Don't Make Me Think](https://sensible.com/dont-make-me-think/) by Steve Krug
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
-In Day 2 of the VibeStack workflow, you'll create a UX improvement plan based on user feedback. This plan will address usability issues, enhance key user flows, and ensure your SaaS application provides an intuitive, efficient experience that keeps users engaged and satisfied. 
+In Day 2 of the VibeReference workflow, you'll create a UX improvement plan based on user feedback. This plan will address usability issues, enhance key user flows, and ensure your SaaS application provides an intuitive, efficient experience that keeps users engaged and satisfied. 

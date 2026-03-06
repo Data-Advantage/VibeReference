@@ -32,11 +32,11 @@ When a workflow runs, n8n creates an execution, which:
 - Maintains a log of operation results
 - Can be viewed, debugged, and retried
 
-## Setup with VibeStack
+## Setup with VibeReference
 
 ### Self-Hosted Installation
 
-For production use with VibeStack, you can self-host n8n:
+For production use with VibeReference, you can self-host n8n:
 
 ```bash
 # Using Docker
@@ -51,7 +51,7 @@ docker run -it --rm \
 
 Alternatively, you can use [n8n.cloud](https://www.n8n.cloud/) for a managed solution without the overhead of self-hosting.
 
-## Common Use Cases in VibeStack
+## Common Use Cases in VibeReference
 
 ### User Onboarding Automation
 
@@ -123,7 +123,7 @@ You can use n8n to respond to Supabase auth events by setting up webhook trigger
 1. **Error Handling**: Use Error Trigger nodes to catch and respond to failures
 2. **Credentials Security**: Store sensitive credentials in n8n's encrypted storage
 3. **Modular Workflows**: Break complex processes into smaller, reusable workflows
-4. **Version Control**: Export workflows and store in version control alongside your VibeStack code
+4. **Version Control**: Export workflows and store in version control alongside your VibeReference code
 5. **Monitoring**: Set up notifications for workflow failures
 
 ## Advanced Features

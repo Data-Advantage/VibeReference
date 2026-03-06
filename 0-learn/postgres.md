@@ -1,6 +1,6 @@
 # PostgreSQL (Legacy)
 
-[PostgreSQL](https://www.postgresql.org/) is a powerful, open-source relational database management system that forms the foundation of Supabase. VibeStack's new default backend uses Convex instead of Postgres. Keep this as reference if you maintain legacy projects.
+[PostgreSQL](https://www.postgresql.org/) is a powerful, open-source relational database management system that forms the foundation of Supabase. VibeReference's new default backend uses Convex instead of Postgres. Keep this as reference if you maintain legacy projects.
 
 ## Introduction to PostgreSQL
 
@@ -15,7 +15,7 @@ PostgreSQL (often called "Postgres") is an advanced, enterprise-class database s
 
 ## Connection Through Supabase
 
-In VibeStack, you'll typically interact with PostgreSQL through Supabase, which provides a user-friendly interface and API for database operations:
+In VibeReference, you'll typically interact with PostgreSQL through Supabase, which provides a user-friendly interface and API for database operations:
 
 ```typescript
 // lib/supabase/client.ts
@@ -37,7 +37,7 @@ const { data, error } = await supabase
 
 ### Basic Schema Example
 
-Here's a simple schema example for a VibeStack application:
+Here's a simple schema example for a VibeReference application:
 
 ```sql
 -- Users table (extends Supabase auth.users)
@@ -89,7 +89,7 @@ PostgreSQL supports a rich set of data types:
 
 ## Row Level Security (RLS)
 
-PostgreSQL's Row Level Security feature is a cornerstone of securing your VibeStack application. RLS allows you to define policies that restrict which rows a user can access.
+PostgreSQL's Row Level Security feature is a cornerstone of securing your VibeReference application. RLS allows you to define policies that restrict which rows a user can access.
 
 ### Example RLS Policy
 
@@ -205,7 +205,7 @@ const channel = supabase
 
 ## Migrations and Schema Management
 
-For VibeStack projects, it's recommended to manage your PostgreSQL schema using migration files:
+For VibeReference projects, it's recommended to manage your PostgreSQL schema using migration files:
 
 ```sql
 -- migrations/001_initial_schema.sql

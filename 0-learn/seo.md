@@ -26,6 +26,6 @@ Search Engine Optimization (SEO) is the practice of improving a website's visibi
 - [Moz SEO Learning Center](https://moz.com/learn/seo) - Comprehensive SEO guides
 - [Ahrefs Blog](https://ahrefs.com/blog) - Advanced SEO tactics and research
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
-In Day 4 of the VibeStack workflow, you'll develop an SEO strategy for your SaaS application. This includes keyword research, creating content plans for both editorial and programmatic SEO, optimizing for AI search, and implementing technical SEO best practices. Effective SEO helps your application gain visibility in search results, driving organic traffic that can convert to users. 
+In Day 4 of the VibeReference workflow, you'll develop an SEO strategy for your SaaS application. This includes keyword research, creating content plans for both editorial and programmatic SEO, optimizing for AI search, and implementing technical SEO best practices. Effective SEO helps your application gain visibility in search results, driving organic traffic that can convert to users. 

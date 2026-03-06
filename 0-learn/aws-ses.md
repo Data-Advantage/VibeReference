@@ -1,6 +1,6 @@
 # AWS SES (Simple Email Service)
 
-Amazon Simple Email Service (SES) is a cloud-based email sending service designed to help digital marketers and application developers send marketing, notification, and transactional emails. In VibeStack applications, SES provides a reliable and cost-effective way to incorporate email communications.
+Amazon Simple Email Service (SES) is a cloud-based email sending service designed to help digital marketers and application developers send marketing, notification, and transactional emails. In VibeReference applications, SES provides a reliable and cost-effective way to incorporate email communications.
 
 ## Introduction to AWS SES
 
@@ -92,7 +92,7 @@ To move out of the sandbox:
 3. Fill out the form with details about your use case
 4. Wait for AWS to approve your request (typically 1-2 business days)
 
-## Integrating SES with VibeStack
+## Integrating SES with VibeReference
 
 ### Installation
 
@@ -198,10 +198,10 @@ interface WelcomeEmailParams {
 
 export function welcomeEmailTemplate({ userName, verificationLink }: WelcomeEmailParams) {
   return {
-    subject: `Welcome to VibeStack, ${userName}!`,
+    subject: `Welcome to VibeReference, ${userName}!`,
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-        <h1>Welcome to VibeStack!</h1>
+        <h1>Welcome to VibeReference!</h1>
         <p>Hi ${userName},</p>
         <p>Thank you for signing up. We're excited to have you on board!</p>
         <p>Please verify your email address by clicking the button below:</p>
@@ -211,11 +211,11 @@ export function welcomeEmailTemplate({ userName, verificationLink }: WelcomeEmai
           </a>
         </div>
         <p>If you didn't create this account, you can safely ignore this email.</p>
-        <p>Best regards,<br>The VibeStack Team</p>
+        <p>Best regards,<br>The VibeReference Team</p>
       </div>
     `,
     text: `
-      Welcome to VibeStack!
+      Welcome to VibeReference!
       
       Hi ${userName},
       
@@ -227,7 +227,7 @@ export function welcomeEmailTemplate({ userName, verificationLink }: WelcomeEmai
       If you didn't create this account, you can safely ignore this email.
       
       Best regards,
-      The VibeStack Team
+      The VibeReference Team
     `,
   };
 }
@@ -337,7 +337,7 @@ async function setupEventTracking() {
   // Step 1: Create a Configuration Set
   const configSetCommand = new CreateConfigurationSetCommand({
     ConfigurationSet: {
-      Name: "VibeStackEmailTracking",
+      Name: "VibeReferenceEmailTracking",
     },
   });
   
@@ -345,7 +345,7 @@ async function setupEventTracking() {
   
   // Step 2: Create an Event Destination (SNS Topic)
   const eventDestinationCommand = new CreateConfigurationSetEventDestinationCommand({
-    ConfigurationSetName: "VibeStackEmailTracking",
+    ConfigurationSetName: "VibeReferenceEmailTracking",
     EventDestination: {
       Name: "EmailEventsDestination",
       Enabled: true,
@@ -373,7 +373,7 @@ To use a configuration set when sending an email:
 ```typescript
 const params = {
   // ... other email parameters
-  ConfigurationSetName: "VibeStackEmailTracking",
+  ConfigurationSetName: "VibeReferenceEmailTracking",
 };
 ```
 
@@ -482,7 +482,7 @@ export const WelcomeEmail: React.FC<WelcomeEmailProps> = ({
       <Body style={{ fontFamily: 'Arial, sans-serif', margin: '0', padding: '0' }}>
         <Container style={{ maxWidth: '600px', margin: '0 auto' }}>
           <Section>
-            <Heading as="h1">Welcome to VibeStack!</Heading>
+            <Heading as="h1">Welcome to VibeReference!</Heading>
             <Text>Hi {userName},</Text>
             <Text>Thank you for signing up. We're excited to have you on board!</Text>
             <Text>Please verify your email address by clicking the button below:</Text>
@@ -507,7 +507,7 @@ export const WelcomeEmail: React.FC<WelcomeEmailProps> = ({
             <Hr />
             <Text style={{ fontSize: '14px', color: '#666' }}>
               Best regards,<br />
-              The VibeStack Team
+              The VibeReference Team
             </Text>
           </Section>
         </Container>
@@ -613,7 +613,7 @@ export const handler = async (event) => {
 ```typescript
 // Add tracking pixel to email template
 function addTrackingPixel(html: string, emailId: string) {
-  const trackingUrl = `https://yourvibestackapp.com/api/email/track?id=${emailId}&event=open`;
+  const trackingUrl = `https://yourvibereferenceapp.com/api/email/track?id=${emailId}&event=open`;
   const trackingPixel = `<img src="${trackingUrl}" width="1" height="1" alt="" style="display: none;" />`;
   
   // Insert before closing body tag
@@ -633,7 +633,7 @@ function wrapLinksWithTracking(html: string, emailId: string) {
     const originalUrl = link.getAttribute('href');
     if (originalUrl) {
       const encodedUrl = encodeURIComponent(originalUrl);
-      const trackingUrl = `https://yourvibestackapp.com/api/email/track?id=${emailId}&event=click&url=${encodedUrl}`;
+      const trackingUrl = `https://yourvibereferenceapp.com/api/email/track?id=${emailId}&event=click&url=${encodedUrl}`;
       link.setAttribute('href', trackingUrl);
     }
   });

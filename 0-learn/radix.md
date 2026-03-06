@@ -1,6 +1,6 @@
 # Radix UI
 
-[Radix UI](https://www.radix-ui.com/) is a low-level UI component library focused on accessibility, customization, and developer experience that powers many of the components in VibeStack.
+[Radix UI](https://www.radix-ui.com/) is a low-level UI component library focused on accessibility, customization, and developer experience that powers many of the components in VibeReference.
 
 ## Introduction to Radix UI
 
@@ -58,7 +58,7 @@ function DeleteConfirmation() {
 }
 ```
 
-## Common Radix Primitives in VibeStack
+## Common Radix Primitives in VibeReference
 
 | Component | Description | Usage |
 |-----------|-------------|-------|
@@ -72,7 +72,7 @@ function DeleteConfirmation() {
 
 ## Integration with shadcn/ui
 
-In VibeStack, we use [shadcn/ui](shadcn.md), which builds upon Radix primitives by adding Tailwind styling. This gives us the best of both worlds:
+In VibeReference, we use [shadcn/ui](shadcn.md), which builds upon Radix primitives by adding Tailwind styling. This gives us the best of both worlds:
 
 - Radix's robust accessibility and functionality
 - Beautiful, consistent styling with Tailwind

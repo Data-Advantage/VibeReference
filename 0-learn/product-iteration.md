@@ -36,6 +36,6 @@ Product iteration is the process of continuously improving a product based on us
 - [Continuous Discovery Habits](https://www.producttalk.org/continuous-discovery-habits/) by Teresa Torres
 - [User Story Mapping](https://www.jpattonassociates.com/user-story-mapping/) by Jeff Patton
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
-In Day 5 of the VibeStack workflow, you'll establish your product iteration process by capturing initial user feedback, identifying the most critical issues to address, and creating a plan for your first week of improvements. This structured approach to iteration helps you rapidly improve your product based on real user needs rather than assumptions. 
+In Day 5 of the VibeReference workflow, you'll establish your product iteration process by capturing initial user feedback, identifying the most critical issues to address, and creating a plan for your first week of improvements. This structured approach to iteration helps you rapidly improve your product based on real user needs rather than assumptions. 

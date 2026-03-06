@@ -1,6 +1,6 @@
 # Azure OpenAI Service
 
-Azure OpenAI Service is Microsoft's cloud-based offering that provides access to OpenAI's powerful language models, including GPT-4, GPT-3.5-Turbo, and DALL-E, with the added benefits of Azure's enterprise security, compliance, and regional availability. In VibeStack applications, Azure OpenAI enables advanced AI capabilities with enterprise-grade reliability and privacy controls.
+Azure OpenAI Service is Microsoft's cloud-based offering that provides access to OpenAI's powerful language models, including GPT-4, GPT-3.5-Turbo, and DALL-E, with the added benefits of Azure's enterprise security, compliance, and regional availability. In VibeReference applications, Azure OpenAI enables advanced AI capabilities with enterprise-grade reliability and privacy controls.
 
 ## Introduction to Azure OpenAI
 
@@ -64,7 +64,7 @@ After resource creation:
 6. Configure advanced options if needed (e.g., content filter settings)
 7. Click "Create"
 
-## Integrating with VibeStack
+## Integrating with VibeReference
 
 ### Installation
 
@@ -320,7 +320,7 @@ export default async function handler(
     // Create a system message for the bot
     const systemMessage: ChatRequestMessage = {
       role: "system",
-      content: `You are a helpful customer support assistant for VibeStack, a SaaS platform for building web applications. 
+      content: `You are a helpful customer support assistant for VibeReference, a SaaS platform for building web applications. 
       Be concise, friendly, and focus on solving the user's problem. If you don't know the answer, 
       suggest escalating to a human support agent. Current date: ${new Date().toISOString().split('T')[0]}`
     };
@@ -454,7 +454,7 @@ export default async function handler(
 }
 ```
 
-## AI-Powered Features for VibeStack
+## AI-Powered Features for VibeReference
 
 ### Semantic Search with Embeddings
 
@@ -567,7 +567,7 @@ export default function ProductDescriptionGenerator() {
         <Input
           value={productName}
           onChange={(e) => setProductName(e.target.value)}
-          placeholder="E.g., VibeStack Pro"
+          placeholder="E.g., VibeReference Pro"
         />
       </div>
       

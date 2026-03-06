@@ -1,6 +1,6 @@
-# Sitemaps in VibeStack
+# Sitemaps in VibeReference
 
-A sitemap is a file that provides information about the pages, videos, and other files on your website, and the relationships between them. In VibeStack, sitemaps are crucial for helping search engines discover and crawl your website efficiently, which can improve your SEO performance.
+A sitemap is a file that provides information about the pages, videos, and other files on your website, and the relationships between them. In VibeReference, sitemaps are crucial for helping search engines discover and crawl your website efficiently, which can improve your SEO performance.
 
 ## Why Sitemaps Matter
 
@@ -22,19 +22,19 @@ The most common format, used primarily for search engines:
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://yourvibestackapp.com/</loc>
+    <loc>https://yourvibereferenceapp.com/</loc>
     <lastmod>2023-09-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://yourvibestackapp.com/features</loc>
+    <loc>https://yourvibereferenceapp.com/features</loc>
     <lastmod>2023-09-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourvibestackapp.com/pricing</loc>
+    <loc>https://yourvibereferenceapp.com/pricing</loc>
     <lastmod>2023-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -50,15 +50,15 @@ For large sites with multiple sitemaps:
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
-    <loc>https://yourvibestackapp.com/sitemap-pages.xml</loc>
+    <loc>https://yourvibereferenceapp.com/sitemap-pages.xml</loc>
     <lastmod>2023-09-10</lastmod>
   </sitemap>
   <sitemap>
-    <loc>https://yourvibestackapp.com/sitemap-products.xml</loc>
+    <loc>https://yourvibereferenceapp.com/sitemap-products.xml</loc>
     <lastmod>2023-09-08</lastmod>
   </sitemap>
   <sitemap>
-    <loc>https://yourvibestackapp.com/sitemap-blog.xml</loc>
+    <loc>https://yourvibereferenceapp.com/sitemap-blog.xml</loc>
     <lastmod>2023-09-12</lastmod>
   </sitemap>
 </sitemapindex>
@@ -96,14 +96,14 @@ Specifically for image content:
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://yourvibestackapp.com/gallery</loc>
+    <loc>https://yourvibereferenceapp.com/gallery</loc>
     <image:image>
-      <image:loc>https://yourvibestackapp.com/images/sample1.jpg</image:loc>
+      <image:loc>https://yourvibereferenceapp.com/images/sample1.jpg</image:loc>
       <image:title>Sample Image 1</image:title>
       <image:caption>This is a caption for sample image 1</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://yourvibestackapp.com/images/sample2.jpg</image:loc>
+      <image:loc>https://yourvibereferenceapp.com/images/sample2.jpg</image:loc>
       <image:title>Sample Image 2</image:title>
       <image:caption>This is a caption for sample image 2</image:caption>
     </image:image>
@@ -120,12 +120,12 @@ For websites featuring video content:
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
-    <loc>https://yourvibestackapp.com/videos/tutorial</loc>
+    <loc>https://yourvibereferenceapp.com/videos/tutorial</loc>
     <video:video>
-      <video:thumbnail_loc>https://yourvibestackapp.com/thumbnails/tutorial.jpg</video:thumbnail_loc>
-      <video:title>Getting Started with VibeStack</video:title>
-      <video:description>A beginner's guide to using VibeStack</video:description>
-      <video:content_loc>https://yourvibestackapp.com/videos/tutorial.mp4</video:content_loc>
+      <video:thumbnail_loc>https://yourvibereferenceapp.com/thumbnails/tutorial.jpg</video:thumbnail_loc>
+      <video:title>Getting Started with VibeReference</video:title>
+      <video:description>A beginner's guide to using VibeReference</video:description>
+      <video:content_loc>https://yourvibereferenceapp.com/videos/tutorial.mp4</video:content_loc>
       <video:duration>360</video:duration>
     </video:video>
   </url>
@@ -153,7 +153,7 @@ async function generateSitemap() {
     '!pages/api',
   ]);
 
-  const baseUrl = 'https://yourvibestackapp.com';
+  const baseUrl = 'https://yourvibereferenceapp.com';
   const currentDate = new Date().toISOString();
 
   // Create sitemap items for each page
@@ -236,14 +236,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
       <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
         <url>
-          <loc>https://yourvibestackapp.com/</loc>
+          <loc>https://yourvibereferenceapp.com/</loc>
           <lastmod>${new Date().toISOString()}</lastmod>
           <changefreq>daily</changefreq>
           <priority>1.0</priority>
         </url>
         ${products.map(product => `
           <url>
-            <loc>https://yourvibestackapp.com/products/${product.slug}</loc>
+            <loc>https://yourvibereferenceapp.com/products/${product.slug}</loc>
             <lastmod>${new Date(product.updated_at).toISOString()}</lastmod>
             <changefreq>weekly</changefreq>
             <priority>0.8</priority>
@@ -293,14 +293,14 @@ Create `next-sitemap.config.js` in your project root:
 ```javascript
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://yourvibestackapp.com',
+  siteUrl: 'https://yourvibereferenceapp.com',
   generateRobotsTxt: true,
   changefreq: 'weekly',
   priority: 0.7,
   exclude: ['/admin/*', '/dashboard/*'],
   robotsTxtOptions: {
     additionalSitemaps: [
-      'https://yourvibestackapp.com/server-sitemap.xml',
+      'https://yourvibereferenceapp.com/server-sitemap.xml',
     ],
   },
 };
@@ -334,7 +334,7 @@ Example robots.txt with sitemap reference:
 User-agent: *
 Allow: /
 
-Sitemap: https://yourvibestackapp.com/sitemap.xml
+Sitemap: https://yourvibereferenceapp.com/sitemap.xml
 ```
 
 ## Validating Your Sitemap
@@ -354,16 +354,16 @@ Track how search engines are crawling your sitemap:
 2. **Server Logs**: Check for search engine bot activity
 3. **Regular Testing**: Periodically test URLs in your sitemap
 
-## Sitemap Design Patterns for VibeStack
+## Sitemap Design Patterns for VibeReference
 
 ### Multi-tenant SaaS Pattern
 
-For VibeStack applications with multiple customer accounts:
+For VibeReference applications with multiple customer accounts:
 
 ```typescript
 // Separate sitemaps for public content and customer-specific content
 async function generateSitemapIndex() {
-  const publicSitemap = 'https://yourvibestackapp.com/public-sitemap.xml';
+  const publicSitemap = 'https://yourvibereferenceapp.com/public-sitemap.xml';
   const customerSitemaps = await getCustomerDomains().map(
     domain => `https://${domain}/customer-sitemap.xml`
   );
@@ -388,7 +388,7 @@ async function generateSitemapIndex() {
 
 ### Localized Content Pattern
 
-For multi-language VibeStack applications:
+For multi-language VibeReference applications:
 
 ```typescript
 // Generate language-specific sitemaps
@@ -397,7 +397,7 @@ const languages = ['en', 'fr', 'es', 'de'];
 const languageSitemaps = languages.map(lang => {
   return `
     <sitemap>
-      <loc>https://yourvibestackapp.com/sitemaps/sitemap-${lang}.xml</loc>
+      <loc>https://yourvibereferenceapp.com/sitemaps/sitemap-${lang}.xml</loc>
       <lastmod>${new Date().toISOString()}</lastmod>
     </sitemap>
   `;

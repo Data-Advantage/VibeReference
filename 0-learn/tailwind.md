@@ -14,6 +14,6 @@ Tailwind CSS is a utility-first CSS framework that allows you to build custom de
 - [Tailwind CSS Documentation](https://tailwindcss.com/docs)
 - [Tailwind UI](https://tailwindui.com/) - Component library (paid)
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
-Tailwind CSS is the primary styling solution for VibeStack applications. It allows for rapid UI development and consistent styling across your entire SaaS application.
+Tailwind CSS is the primary styling solution for VibeReference applications. It allows for rapid UI development and consistent styling across your entire SaaS application.

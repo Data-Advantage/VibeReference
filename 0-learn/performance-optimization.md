@@ -42,6 +42,6 @@ Performance optimization is the process of improving the speed, responsiveness, 
 - [Next.js Performance Optimization](https://nextjs.org/docs/advanced-features/performance)
 - [Database Indexing Strategies](https://use-the-index-luke.com/)
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
-In Day 3 of the VibeStack workflow, you'll implement performance optimizations across your SaaS application. This includes asset optimization, rendering performance improvements, database query optimization, caching strategies, and responsive design enhancements. These optimizations ensure your application loads quickly and responds efficiently, providing a smooth user experience across all devices. 
+In Day 3 of the VibeReference workflow, you'll implement performance optimizations across your SaaS application. This includes asset optimization, rendering performance improvements, database query optimization, caching strategies, and responsive design enhancements. These optimizations ensure your application loads quickly and responds efficiently, providing a smooth user experience across all devices. 

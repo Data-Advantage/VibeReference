@@ -26,6 +26,6 @@ Social media marketing is the practice of using social media platforms to connec
 - [Buffer Resources](https://buffer.com/resources/) - Social media marketing guides
 - [Sprout Social Insights](https://sproutsocial.com/insights/) - Data-driven social media tips
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
-In Day 4 of the VibeStack workflow, you'll develop a social media strategy for your SaaS application. This includes selecting appropriate platforms based on your target audience, creating content pillars and a content calendar, developing platform-specific strategies, and planning community building tactics. Effective social media marketing helps build brand awareness, engage with potential users, and drive traffic to your application. 
+In Day 4 of the VibeReference workflow, you'll develop a social media strategy for your SaaS application. This includes selecting appropriate platforms based on your target audience, creating content pillars and a content calendar, developing platform-specific strategies, and planning community building tactics. Effective social media marketing helps build brand awareness, engage with potential users, and drive traffic to your application. 

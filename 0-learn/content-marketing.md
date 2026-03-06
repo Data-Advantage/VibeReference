@@ -26,6 +26,6 @@ Content marketing is a strategic marketing approach focused on creating and dist
 - [Ahrefs Blog](https://ahrefs.com/blog) - SEO and content marketing guides
 - [HubSpot Resources](https://www.hubspot.com/resources) - Marketing and content strategy guidance
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
-In Day 4 of the VibeStack workflow, you'll develop a content marketing strategy for your SaaS application. This includes planning both static marketing pages and SEO-focused content to build authority in your niche, attract potential users through search, and provide educational resources that help users get the most value from your application. Effective content marketing establishes your expertise and drives organic growth for your product. 
+In Day 4 of the VibeReference workflow, you'll develop a content marketing strategy for your SaaS application. This includes planning both static marketing pages and SEO-focused content to build authority in your niche, attract potential users through search, and provide educational resources that help users get the most value from your application. Effective content marketing establishes your expertise and drives organic growth for your product. 

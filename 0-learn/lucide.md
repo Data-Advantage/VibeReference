@@ -1,10 +1,10 @@
 # Lucide Icons
 
-[Lucide](https://lucide.dev/) is a beautiful, consistent, and open-source icon library used in VibeStack for UI elements, providing a clean and modern look to your application.
+[Lucide](https://lucide.dev/) is a beautiful, consistent, and open-source icon library used in VibeReference for UI elements, providing a clean and modern look to your application.
 
 ## Installation & Setup
 
-Lucide is already integrated with your VibeStack project. The icons are available through the `lucide-react` package.
+Lucide is already integrated with your VibeReference project. The icons are available through the `lucide-react` package.
 
 ```bash
 # For reference, this is how it was installed
@@ -85,7 +85,7 @@ You can customize Lucide icons with these props:
    </div>
    ```
 
-## Common Icons Used in VibeStack
+## Common Icons Used in VibeReference
 
 | Icon | Import | Usage |
 |------|--------|-------|

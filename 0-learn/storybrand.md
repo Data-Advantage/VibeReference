@@ -19,6 +19,6 @@ The StoryBrand framework consists of 7 elements (SB7 framework):
 - [Building a StoryBrand](https://www.amazon.com/Building-StoryBrand-Clarify-Message-Customers/dp/0718033329) by Donald Miller
 - [StoryBrand Official Website](https://storybrand.com/)
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
-In Day 1 of the VibeStack workflow, the StoryBrand framework helps you craft compelling marketing messaging for your SaaS application. This narrative approach ensures your communication resonates with potential users by positioning them as the hero of the story and your product as the guide that helps them succeed.
+In Day 1 of the VibeReference workflow, the StoryBrand framework helps you craft compelling marketing messaging for your SaaS application. This narrative approach ensures your communication resonates with potential users by positioning them as the hero of the story and your product as the guide that helps them succeed.

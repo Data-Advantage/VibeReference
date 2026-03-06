@@ -1,6 +1,6 @@
 # Webhooks
 
-Webhooks are user-defined HTTP callbacks that are triggered by specific events in a source system and sent to a destination URL. In VibeStack applications, webhooks provide a powerful way to integrate with external services and build event-driven architectures.
+Webhooks are user-defined HTTP callbacks that are triggered by specific events in a source system and sent to a destination URL. In VibeReference applications, webhooks provide a powerful way to integrate with external services and build event-driven architectures.
 
 ## Introduction to Webhooks
 
@@ -13,7 +13,7 @@ At their core, webhooks implement a simple concept:
 
 Webhooks enable real-time integration, eliminate polling, and support a decoupled architecture.
 
-## Common Webhook Use Cases in VibeStack
+## Common Webhook Use Cases in VibeReference
 
 | Source | Event | Webhook Purpose |
 |--------|-------|-----------------|
@@ -111,7 +111,7 @@ create or replace function public.handle_new_user()
 returns trigger as $$
 begin
   perform net.http_post(
-    'https://your-vibestack-app.vercel.app/api/webhooks/new-user',
+    'https://your-vibereference-app.vercel.app/api/webhooks/new-user',
     json_build_object('user_id', new.id, 'created_at', new.created_at)::text,
     'application/json'
   );
@@ -190,7 +190,7 @@ async function setupNewUserDefaults(userId: string) {
 }
 ```
 
-## Sending Webhooks from Your VibeStack App
+## Sending Webhooks from Your VibeReference App
 
 Your application can also be a webhook provider:
 

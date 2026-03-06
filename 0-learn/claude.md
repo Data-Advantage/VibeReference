@@ -44,6 +44,6 @@ Claude is a family of large language models (LLMs) developed by Anthropic, desig
 - [Claude 3 Model Cards](https://www.anthropic.com/claude-3-model-cards)
 - [Claude Prompt Library](https://docs.anthropic.com/claude/prompt-library)
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
-Claude is a core tool throughout the VibeStack workflow. During Day 1 (CREATE), it helps generate initial application designs and components. In Day 2 (REFINE), it assists with improving designs based on feedback. For Day 3 (BUILD), Claude generates and explains code for implementation. During Day 4 (POSITION) and Day 5 (LAUNCH), it creates marketing content and helps prepare launch materials. The model's ability to understand context and provide helpful, accurate responses makes it invaluable for turning ideas into functional SaaS products without requiring deep technical expertise.
+Claude is a core tool throughout the VibeReference workflow. During Day 1 (CREATE), it helps generate initial application designs and components. In Day 2 (REFINE), it assists with improving designs based on feedback. For Day 3 (BUILD), Claude generates and explains code for implementation. During Day 4 (POSITION) and Day 5 (LAUNCH), it creates marketing content and helps prepare launch materials. The model's ability to understand context and provide helpful, accurate responses makes it invaluable for turning ideas into functional SaaS products without requiring deep technical expertise.

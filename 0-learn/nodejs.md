@@ -1,6 +1,6 @@
 # Node.js
 
-[Node.js](https://nodejs.org/) is a JavaScript runtime built on Chrome's V8 JavaScript engine that allows you to run JavaScript on the server-side and is a foundational technology for VibeStack applications.
+[Node.js](https://nodejs.org/) is a JavaScript runtime built on Chrome's V8 JavaScript engine that allows you to run JavaScript on the server-side and is a foundational technology for VibeReference applications.
 
 ## Introduction to Node.js
 
@@ -14,7 +14,7 @@ Node.js enables building scalable network applications with an event-driven, non
 
 ## Installation & Setup
 
-For VibeStack development, it's recommended to use the latest LTS (Long Term Support) version:
+For VibeReference development, it's recommended to use the latest LTS (Long Term Support) version:
 
 ```bash
 # Using Node Version Manager (nvm) - recommended
@@ -70,9 +70,9 @@ import { myFunction } from './moduleB.js';
 myFunction(); // "Hello from moduleB"
 ```
 
-## Node.js in VibeStack
+## Node.js in VibeReference
 
-Within the VibeStack architecture, Node.js serves several crucial roles:
+Within the VibeReference architecture, Node.js serves several crucial roles:
 
 1. **Next.js Server Runtime**: Powers server-side rendering and API routes
 2. **Build System**: Compiles and bundles application assets
@@ -142,7 +142,7 @@ const nodeEnv = process.env.NODE_ENV || 'development';
 
 console.log(`Running in ${nodeEnv} mode on port ${port}`);
 
-// In VibeStack projects, environment variables are typically
+// In VibeReference projects, environment variables are typically
 // loaded from .env files using dotenv or Next.js built-in support
 ```
 

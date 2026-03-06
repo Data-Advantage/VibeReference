@@ -1,8 +1,8 @@
 # Cloudflare
 
-Cloudflare is a global cloud services provider that offers a range of performance and security solutions for websites and applications. In VibeStack, Cloudflare provides CDN, DNS management, and security features.
+Cloudflare is a global cloud services provider that offers a range of performance and security solutions for websites and applications. In VibeReference, Cloudflare provides CDN, DNS management, and security features.
 
-## Core Cloudflare Services for VibeStack
+## Core Cloudflare Services for VibeReference
 
 ### Content Delivery Network (CDN)
 
@@ -12,7 +12,7 @@ Cloudflare's CDN caches content at edge locations worldwide, reducing latency an
 // Example of using Cloudflare CDN URLs in Next.js
 const imageLoader = ({ src, width, quality }) => {
   // Use Cloudflare's Image Resizing service
-  return `https://cdn.yourvibestackapp.com/cdn-cgi/image/width=${width},quality=${quality || 75}/${src}`;
+  return `https://cdn.yourvibereferenceapp.com/cdn-cgi/image/width=${width},quality=${quality || 75}/${src}`;
 };
 
 // In your Image component
@@ -34,13 +34,13 @@ Configuration best practices:
 Cloudflare provides authoritative DNS services with advanced features:
 
 ```bash
-# Example DNS records for a VibeStack application
+# Example DNS records for a VibeReference application
 # A record for apex domain
 example.com   A     192.0.2.1
 # CNAME for www subdomain
 www           CNAME example.com
 # CNAME for API subdomain
-api           CNAME yourvibestack.vercel.app
+api           CNAME yourvibereference.vercel.app
 # MX records for email
 @             MX    10 mail.protonmail.ch
 @             MX    20 mailsec.protonmail.ch
@@ -148,11 +148,11 @@ Jamstack platform for frontend deployment:
 
 ```yaml
 # Example wrangler.toml configuration for Cloudflare Pages
-name = "vibestack-app"
+name = "vibereference-app"
 type = "javascript"
 account_id = "your-account-id"
 workers_dev = true
-route = "app.vibestack.com/*"
+route = "app.vibereference.com/*"
 zone_id = "your-zone-id"
 
 [site]
@@ -250,7 +250,7 @@ const nextConfig = {
     loader: 'custom',
     loaderFile: './lib/cloudflare-image-loader.js',
     // List domains that can serve images
-    domains: ['cdn.yourvibestackapp.com'],
+    domains: ['cdn.yourvibereferenceapp.com'],
   },
   // Other Next.js configuration options
 };
@@ -265,7 +265,7 @@ export default function cloudflareLoader({ src, width, quality }) {
   if (quality) {
     params.push(`quality=${quality}`);
   }
-  return `https://cdn.yourvibestackapp.com/cdn-cgi/image/${params.join(',')}/${src}`;
+  return `https://cdn.yourvibereferenceapp.com/cdn-cgi/image/${params.join(',')}/${src}`;
 }
 ```
 
@@ -511,7 +511,7 @@ async function handleRequest(event) {
   
   // Send analytics data to your backend (fire and forget)
   event.waitUntil(
-    fetch('https://analytics-api.yourvibestackapp.com/collect', {
+    fetch('https://analytics-api.yourvibereferenceapp.com/collect', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(analyticsData)
@@ -546,7 +546,7 @@ Strategies to reduce bandwidth costs:
 | Analytics | Basic | Extended | Full | Custom |
 | Support | Community | 24/7 Email | 24/7 Phone/Email | Dedicated |
 
-Recommendation for VibeStack:
+Recommendation for VibeReference:
 - **Startup**: Pro plan
 - **Growth stage**: Business plan
 - **Enterprise**: Enterprise plan with custom contract

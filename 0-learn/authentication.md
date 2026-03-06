@@ -26,9 +26,9 @@ Authentication is the process of verifying a user's identity, ensuring they are 
 - [OWASP Authentication Best Practices](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html)
 - [Auth0 Identity Management Blog](https://auth0.com/blog)
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
-In Day 3 of the VibeStack workflow, you'll implement a complete authentication system for your SaaS application. This includes user signup with email verification, login/logout functionality, password reset flows, profile management, and role-based access control.
+In Day 3 of the VibeReference workflow, you'll implement a complete authentication system for your SaaS application. This includes user signup with email verification, login/logout functionality, password reset flows, profile management, and role-based access control.
 
 ## Technical Information
 

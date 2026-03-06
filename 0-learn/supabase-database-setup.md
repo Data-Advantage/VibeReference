@@ -1,6 +1,6 @@
 # Legacy: Database Setup (Supabase/Postgres)
 
-This guide preserves the previous Day 1 database setup workflow using Supabase and PostgreSQL. VibeStack now defaults to Convex + Clerk. Use this only for legacy projects.
+This guide preserves the previous Day 1 database setup workflow using Supabase and PostgreSQL. VibeReference now defaults to Convex + Clerk. Use this only for legacy projects.
 
 ---
 

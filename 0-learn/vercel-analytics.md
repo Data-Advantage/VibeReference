@@ -33,6 +33,6 @@ Vercel Analytics is a built-in analytics solution for applications deployed on t
 - [Next.js Analytics Guide](https://nextjs.org/docs/advanced-features/measuring-performance)
 - [Web Vitals Documentation](https://web.dev/vitals/)
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
-In Day 5 of the VibeStack workflow, you'll implement Vercel Analytics to track key performance metrics and user behaviors in your SaaS application. This provides essential data about how users interact with your product without adding complex analytics infrastructure, allowing you to focus on launch and initial user feedback.
+In Day 5 of the VibeReference workflow, you'll implement Vercel Analytics to track key performance metrics and user behaviors in your SaaS application. This provides essential data about how users interact with your product without adding complex analytics infrastructure, allowing you to focus on launch and initial user feedback.

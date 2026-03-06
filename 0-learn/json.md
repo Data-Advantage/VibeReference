@@ -1,6 +1,6 @@
-# JSON in VibeStack
+# JSON in VibeReference
 
-JSON (JavaScript Object Notation) is a lightweight data-interchange format that's easy for humans to read and write and easy for machines to parse and generate. In VibeStack, JSON is used extensively for configuration, API communication, data storage, and more.
+JSON (JavaScript Object Notation) is a lightweight data-interchange format that's easy for humans to read and write and easy for machines to parse and generate. In VibeReference, JSON is used extensively for configuration, API communication, data storage, and more.
 
 ## What is JSON?
 
@@ -145,11 +145,11 @@ console.log(prettyJson);
 // }
 ```
 
-## JSON in VibeStack Applications
+## JSON in VibeReference Applications
 
 ### API Requests and Responses
 
-In VibeStack, JSON is the standard format for API communication:
+In VibeReference, JSON is the standard format for API communication:
 
 ```typescript
 // Making a POST request with JSON data
@@ -174,7 +174,7 @@ const newUser = await createUser({
 
 ### Configuration Files
 
-JSON is commonly used for configuration files in VibeStack projects:
+JSON is commonly used for configuration files in VibeReference projects:
 
 ```json
 // example-config.json
@@ -336,7 +336,7 @@ try {
 }
 ```
 
-## Common JSON Patterns in VibeStack
+## Common JSON Patterns in VibeReference
 
 ### Configuration Objects
 

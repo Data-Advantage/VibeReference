@@ -51,6 +51,6 @@ DALL-E is a series of advanced text-to-image AI models developed by OpenAI that 
 - [OpenAI Examples Gallery](https://platform.openai.com/examples?category=images)
 - [OpenAI Usage Policies](https://openai.com/policies/usage-policies)
 
-## How It's Used in VibeStack
+## How It's Used in VibeReference
 
-Throughout the VibeStack workflow, DALL-E can be leveraged to enhance your SaaS application's visual identity. During Day 2 (REFINE), use it to iterate on visual designs for your UI. In Day 4 (POSITION), generate consistent marketing imagery for your landing page and promotional materials. DALL-E's reliable output quality and commercial licensing make it particularly valuable when creating professional assets for your product launch.
+Throughout the VibeReference workflow, DALL-E can be leveraged to enhance your SaaS application's visual identity. During Day 2 (REFINE), use it to iterate on visual designs for your UI. In Day 4 (POSITION), generate consistent marketing imagery for your landing page and promotional materials. DALL-E's reliable output quality and commercial licensing make it particularly valuable when creating professional assets for your product launch.
