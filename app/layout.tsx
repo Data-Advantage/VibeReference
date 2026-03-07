@@ -4,6 +4,7 @@ import "./globals.css";
 import { CATEGORIES } from "@/lib/directory";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://vibereference.com"),
   title: {
     default: "VibeReference — The AI Development Directory",
     template: "%s — VibeReference",
@@ -15,13 +16,26 @@ export const metadata: Metadata = {
     description:
       "A curated directory of AI tools, frameworks, and techniques for building software with AI.",
     type: "website",
+    url: "https://vibereference.com",
     siteName: "VibeReference",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "VibeReference — The AI Development Directory",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "VibeReference — The AI Development Directory",
     description:
       "A curated directory of AI tools, frameworks, and techniques for building software with AI.",
+    images: ["/og-image.png"],
+  },
+  alternates: {
+    canonical: "https://vibereference.com",
   },
 };
 

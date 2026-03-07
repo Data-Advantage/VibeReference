@@ -17,9 +17,19 @@ export async function generateMetadata({
   const category = getCategory(slug);
   if (!category) return {};
   return {
-    title: `${category.label} — VibeReference`,
+    title: category.label,
     description: category.description,
+    alternates: {
+      canonical: `/${slug}`,
+    },
     openGraph: {
+      title: `${category.label} — VibeReference`,
+      description: category.description,
+      type: "website",
+      url: `https://vibereference.com/${slug}`,
+    },
+    twitter: {
+      card: "summary_large_image",
       title: `${category.label} — VibeReference`,
       description: category.description,
     },
