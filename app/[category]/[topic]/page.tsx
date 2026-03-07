@@ -69,7 +69,7 @@ export default async function TopicPage({
     "@type": "Article",
     name: topic.title,
     description: topic.description,
-    url: `/${category}/${topicSlug}`,
+    url: `https://www.vibereference.com/${category}/${topicSlug}`,
     articleSection: cat?.label,
     isPartOf: {
       "@type": "WebSite",

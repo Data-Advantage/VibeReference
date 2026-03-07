@@ -26,7 +26,7 @@ export async function generateMetadata({
       title: `${category.label} — VibeReference`,
       description: category.description,
       type: "website",
-      url: `https://vibereference.com/${slug}`,
+      url: `https://www.vibereference.com/${slug}`,
     },
     twitter: {
       card: "summary_large_image",

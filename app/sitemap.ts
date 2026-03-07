@@ -3,7 +3,7 @@ import { CATEGORIES, getAllTopics } from "@/lib/directory";
 
 export const dynamic = "force-static";
 
-const BASE_URL = "https://vibereference.com";
+const BASE_URL = "https://www.vibereference.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const topics = getAllTopics();
