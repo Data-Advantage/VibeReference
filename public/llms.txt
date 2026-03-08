@@ -1,0 +1,22 @@
+# VibeReference
+
+> VibeReference is a curated prompt and tool library for vibe coders. Find battle-tested prompts, AI tool comparisons, and resources for building products with AI — organized by category and use case.
+
+## Sections
+
+- [Home](https://vibereference.com) — Browse all prompts and resources by category
+- [Prompts](https://vibereference.com/prompts) — Curated AI prompts for building, writing, and designing
+- [Tools](https://vibereference.com/tools) — AI tool comparisons and setup guides
+
+## Quick Links
+
+- Browse prompts: https://vibereference.com
+- Build guides: https://vibeweek.ai
+- Launch guides: https://launchweek.ai
+- AI model comparison: https://llmreference.com
+
+## Key Facts
+
+- Free, no sign-up required
+- Curated by Data Advantage for the vibe coding community
+- Every prompt has been tested building real products
