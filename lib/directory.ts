@@ -234,6 +234,12 @@ const TOPIC_CATEGORIES: Record<string, string> = {
   "value-proposition-canvas": "marketing-and-seo",
   "discord": "marketing-and-seo",
   "sitemap": "marketing-and-seo",
+  "market-research": "marketing-and-seo",
+  "competitor-analysis": "marketing-and-seo",
+  "ideal-customer-profile": "marketing-and-seo",
+  "demand-validation": "marketing-and-seo",
+  "brand-voice": "marketing-and-seo",
+  "pitch-deck": "marketing-and-seo",
 
   // DevOps & Tools
   "github": "devops-and-tools",
