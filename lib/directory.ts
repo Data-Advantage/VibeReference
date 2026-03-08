@@ -240,6 +240,10 @@ const TOPIC_CATEGORIES: Record<string, string> = {
   "demand-validation": "marketing-and-seo",
   "brand-voice": "marketing-and-seo",
   "pitch-deck": "marketing-and-seo",
+  "what-is-a-value-proposition": "marketing-and-seo",
+  "seo-keyword-types": "marketing-and-seo",
+  "how-ai-answer-engines-work": "marketing-and-seo",
+  "saas-pricing-models": "marketing-and-seo",
 
   // DevOps & Tools
   "github": "devops-and-tools",
