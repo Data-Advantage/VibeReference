@@ -54,7 +54,7 @@ export default async function CategoryPage({
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10">
           <div className="mb-4 flex items-center gap-2 text-sm text-gray-400">
             <Link href="/" className="hover:text-gray-600 transition-colors">
-              Directory
+              Home
             </Link>
             <span>/</span>
             <span className="text-gray-600">{category.label}</span>

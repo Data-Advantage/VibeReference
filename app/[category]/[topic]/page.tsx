@@ -89,7 +89,7 @@ export default async function TopicPage({
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
           <nav className="mb-4 flex items-center gap-2 text-sm text-gray-400">
             <Link href="/" className="hover:text-gray-600 transition-colors">
-              Directory
+              Home
             </Link>
             <span>/</span>
             <Link
