@@ -22,16 +22,35 @@
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   max-width: 100%;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  padding: 1rem;
 }
 
 .prose pre code {
   white-space: pre;
   word-break: normal;
   overflow-wrap: normal;
+  background: transparent !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  font-size: inherit !important;
+  color: inherit !important;
 }
 
 .prose code {
   word-break: break-word;
+}
+
+@media (max-width: 640px) {
+  .prose pre {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    padding: 0.875rem;
+    border-radius: 0.5rem;
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+  }
 }
 
 /* Ensure tables scroll on mobile without breaking column layout */
