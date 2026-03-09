@@ -109,7 +109,11 @@ async function mdToHtml(content: string): Promise<string> {
     .use(remarkGfm)
     .use(remarkHtml, { sanitize: false })
     .process(content);
-  return result.toString();
+  // Wrap <table> elements in a scrollable container for mobile
+  return result
+    .toString()
+    .replace(/<table>/g, '<div class="table-scroll-wrapper"><table>')
+    .replace(/<\/table>/g, '</table></div>');
 }
 
 function extractTitle(content: string, fallback: string): string {

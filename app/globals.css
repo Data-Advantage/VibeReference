@@ -53,10 +53,13 @@
   }
 }
 
-/* Ensure tables scroll on mobile without breaking column layout */
-.prose :where(table) {
-  display: table;
-  width: 100%;
+/* Scrollable table wrapper for mobile */
+.table-scroll-wrapper {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+}
+
+.table-scroll-wrapper table {
+  width: 100%;
 }
