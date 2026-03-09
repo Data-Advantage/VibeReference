@@ -83,7 +83,7 @@ export const CATEGORIES: Category[] = [
     slug: "guides",
     label: "Guides",
     description:
-      "Step-by-step workflow guides for building and launching SaaS products.",
+      "Practical how-to guides for vibe coding, from choosing your stack to launching and growing your SaaS.",
   },
 ];
 
@@ -116,7 +116,12 @@ async function mdToHtml(content: string): Promise<string> {
     .replace(/<\/table>/g, '</table></div>');
 }
 
-function extractTitle(content: string, fallback: string): string {
+function extractTitle(
+  content: string,
+  fallback: string,
+  frontmatterTitle?: string,
+): string {
+  if (frontmatterTitle) return frontmatterTitle;
   const match = content.match(/^#\s+(.+)$/m);
   return match ? match[1].trim() : fallback;
 }
@@ -175,8 +180,8 @@ export function getAllTopics(): Topic[] {
     for (const file of files) {
       const slug = file.replace(/\.md$/, "");
       const raw = fs.readFileSync(path.join(catDir, file), "utf8");
-      const { content } = matter(raw);
-      const title = extractTitle(content, slugToLabel(slug));
+      const { data, content } = matter(raw);
+      const title = extractTitle(content, slugToLabel(slug), data.title);
       const description = extractDescription(content);
       topics.push({
         slug,
