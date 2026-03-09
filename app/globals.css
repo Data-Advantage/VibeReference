@@ -16,3 +16,28 @@
     overflow: hidden;
   }
 }
+
+/* Mobile-friendly code blocks */
+.prose pre {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+}
+
+.prose pre code {
+  white-space: pre;
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
+.prose code {
+  word-break: break-word;
+}
+
+/* Ensure tables scroll on mobile */
+.prose table {
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+}

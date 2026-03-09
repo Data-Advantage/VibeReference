@@ -9,7 +9,7 @@ export default function MarkdownContent({ html }: { html: string }) {
         prose-p:leading-7 prose-p:text-gray-600
         prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline
         prose-code:bg-gray-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:font-normal
-        prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-pre:rounded-lg
+        prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-pre:rounded-lg prose-pre:overflow-x-auto
         prose-table:text-sm prose-table:border prose-table:border-gray-200
         prose-th:bg-gray-50 prose-th:font-semibold
         prose-td:border prose-td:border-gray-200 prose-td:px-3 prose-td:py-2
