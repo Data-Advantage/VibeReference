@@ -1,1 +1,0 @@
-https://sdk.vercel.ai/docs/ai-sdk-ui/object-generation

@@ -6,15 +6,15 @@ import { CATEGORIES } from "@/lib/directory";
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.vibereference.com"),
   title: {
-    default: "VibeReference — The AI Development Directory",
+    default: "VibeReference — Learn AI Development",
     template: "%s — VibeReference",
   },
   description:
-    "A curated directory of AI tools, frameworks, and techniques for building software with AI. Browse 150+ topics across AI models, development tools, cloud platforms, and more.",
+    "Learn AI development with 150+ educational articles covering AI models, frameworks, tools, and techniques for building software with AI.",
   openGraph: {
-    title: "VibeReference — The AI Development Directory",
+    title: "VibeReference — Learn AI Development",
     description:
-      "A curated directory of AI tools, frameworks, and techniques for building software with AI.",
+      "Learn AI development with 150+ educational articles covering AI models, frameworks, tools, and techniques.",
     type: "website",
     url: "https://www.vibereference.com",
     siteName: "VibeReference",
@@ -23,15 +23,15 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "VibeReference — The AI Development Directory",
+        alt: "VibeReference — Learn AI Development",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "VibeReference — The AI Development Directory",
+    title: "VibeReference — Learn AI Development",
     description:
-      "A curated directory of AI tools, frameworks, and techniques for building software with AI.",
+      "Learn AI development with 150+ educational articles covering AI models, frameworks, tools, and techniques.",
     images: ["/og-image.png"],
   },
   alternates: {
@@ -105,6 +105,25 @@ export default function RootLayout({
                 </div>
               ))}
             </div>
+            <div className="border-t border-gray-100 pt-6 mb-6">
+              <p className="text-sm font-semibold text-gray-900 mb-3">
+                Also from Data Advantage
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <a
+                  href="https://www.vibeweek.ai"
+                  className="text-sm text-blue-600 hover:text-blue-800 transition-colors"
+                >
+                  VibeWeek.ai — Build a SaaS in a week with AI
+                </a>
+                <a
+                  href="https://www.launchweek.ai"
+                  className="text-sm text-blue-600 hover:text-blue-800 transition-colors"
+                >
+                  LaunchWeek.ai — Launch and grow your product
+                </a>
+              </div>
+            </div>
             <div className="border-t border-gray-100 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
               <p className="text-sm text-gray-400">
                 Built by{" "}
@@ -116,7 +135,7 @@ export default function RootLayout({
                 </a>
               </p>
               <p className="text-sm text-gray-400">
-                The AI development directory
+                Learn AI development
               </p>
             </div>
           </div>
