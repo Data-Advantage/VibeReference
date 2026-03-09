@@ -34,10 +34,10 @@
   word-break: break-word;
 }
 
-/* Ensure tables scroll on mobile */
-.prose table {
-  display: block;
+/* Ensure tables scroll on mobile without breaking column layout */
+.prose :where(table) {
+  display: table;
+  width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  max-width: 100%;
 }

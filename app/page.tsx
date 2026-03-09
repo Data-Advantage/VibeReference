@@ -20,10 +20,10 @@ export default function HomePage() {
       <section className="bg-white border-b border-gray-200">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
           <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 mb-4">
-            The AI Development Directory
+            Learn AI Development
           </h1>
           <p className="text-lg text-gray-500 max-w-2xl mb-8">
-            Browse {totalCount}+ curated topics covering AI models, development
+            {totalCount}+ educational articles on AI models, development
             tools, frameworks, and techniques for building software with AI.
           </p>
           <SearchBar items={searchItems} />
