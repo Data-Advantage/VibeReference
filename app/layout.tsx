@@ -56,7 +56,7 @@ export default function RootLayout({
               >
                 VibeReference
               </Link>
-              <nav className="hidden md:flex items-center gap-1 overflow-x-auto">
+              <nav className="hidden md:flex items-center gap-1 overflow-hidden">
                 {CATEGORIES.slice(0, 6).map((c) => (
                   <Link
                     key={c.slug}

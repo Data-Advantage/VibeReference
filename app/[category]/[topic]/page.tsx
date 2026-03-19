@@ -84,9 +84,9 @@ export default async function TopicPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* Breadcrumb + header */}
+      {/* Breadcrumb + header — matches site max-w-6xl */}
       <section className="bg-white border-b border-gray-200">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
           <nav className="mb-4 flex items-center gap-2 text-sm text-gray-400">
             <Link href="/" className="hover:text-gray-600 transition-colors">
               Home
@@ -115,45 +115,92 @@ export default async function TopicPage({
         </div>
       </section>
 
-      {/* Content */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 py-10">
-        <MarkdownContent html={contentHtml} />
-      </section>
+      {/* Content + Sidebar — two-column on desktop, fills max-w-6xl */}
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-10">
+        <div className="lg:grid lg:grid-cols-3 lg:gap-12">
+          {/* Main article content */}
+          <div className="lg:col-span-2">
+            <MarkdownContent html={contentHtml} />
 
-      {/* Cross-promotion CTA */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6">
-        <div className="bg-blue-50 border border-blue-100 rounded-lg p-6">
-          <p className="text-sm font-semibold text-blue-900 mb-1">
-            Ready to build?
-          </p>
-          <p className="text-sm text-blue-700 mb-3">
-            Go from idea to launched product in a week with AI-assisted development.
-          </p>
-          <div className="flex flex-wrap gap-3">
-            <a
-              href="https://www.vibeweek.ai"
-              className="inline-block text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md transition-colors"
-            >
-              Start with VibeWeek.ai
-            </a>
-            <a
-              href="https://www.launchweek.ai"
-              className="inline-block text-sm font-medium text-blue-600 bg-white border border-blue-200 hover:border-blue-300 px-4 py-2 rounded-md transition-colors"
-            >
-              Launch with LaunchWeek.ai
-            </a>
+            {/* Cross-promotion CTA */}
+            <div className="mt-10 bg-blue-50 border border-blue-100 rounded-lg p-6">
+              <p className="text-sm font-semibold text-blue-900 mb-1">
+                Ready to build?
+              </p>
+              <p className="text-sm text-blue-700 mb-3">
+                Go from idea to launched product in a week with AI-assisted development.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="https://www.vibeweek.ai"
+                  className="inline-block text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md transition-colors"
+                >
+                  Start with VibeWeek.ai
+                </a>
+                <a
+                  href="https://www.launchweek.ai"
+                  className="inline-block text-sm font-medium text-blue-600 bg-white border border-blue-200 hover:border-blue-300 px-4 py-2 rounded-md transition-colors"
+                >
+                  Launch with LaunchWeek.ai
+                </a>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
 
-      {/* Related topics */}
-      {related.length > 0 && (
-        <section className="max-w-4xl mx-auto px-4 sm:px-6 py-8 pb-16">
-          <div className="border-t border-gray-200 pt-8">
+          {/* Sidebar: related topics + other categories (desktop only) */}
+          <aside className="hidden lg:block">
+            {related.length > 0 && (
+              <div className="mb-8">
+                <h2 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">
+                  Related Topics
+                </h2>
+                <div className="flex flex-col gap-2">
+                  {related.map((r) => (
+                    <Link
+                      key={r.slug}
+                      href={`/${category}/${r.slug}`}
+                      className="block border border-gray-200 rounded-lg p-3 hover:border-blue-300 hover:shadow-sm transition-all bg-white"
+                    >
+                      <p className="font-medium text-gray-900 text-sm">
+                        {r.title}
+                      </p>
+                      {r.description && (
+                        <p className="text-xs text-gray-500 mt-1 line-clamp-2">
+                          {r.description}
+                        </p>
+                      )}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            <div>
+              <h2 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">
+                Other Categories
+              </h2>
+              <div className="flex flex-wrap gap-1.5">
+                {CATEGORIES.filter((c) => c.slug !== category).map((c) => (
+                  <Link
+                    key={c.slug}
+                    href={`/${c.slug}`}
+                    className="text-xs px-2.5 py-1 bg-white border border-gray-200 rounded-full hover:border-blue-300 hover:text-blue-600 transition-all text-gray-600"
+                  >
+                    {c.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </aside>
+        </div>
+
+        {/* Mobile: related topics below article */}
+        {related.length > 0 && (
+          <div className="lg:hidden mt-10 border-t border-gray-200 pt-8 pb-8">
             <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">
               Related Topics in {cat?.label}
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {related.map((r) => (
                 <Link
                   key={r.slug}
@@ -172,8 +219,8 @@ export default async function TopicPage({
               ))}
             </div>
           </div>
-        </section>
-      )}
+        )}
+      </section>
     </div>
   );
 }
