@@ -18,7 +18,7 @@ export default function HomePage() {
     <div>
       {/* Hero */}
       <section className="bg-white border-b border-gray-200">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 sm:py-20">
           <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 mb-4">
             Learn AI Development
           </h1>
@@ -31,7 +31,8 @@ export default function HomePage() {
       </section>
 
       {/* Categories grid */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+      <section className="px-6 lg:px-8 py-12">
+        <div className="max-w-7xl mx-auto">
         <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-6">
           Browse by Category
         </h2>
@@ -46,10 +47,12 @@ export default function HomePage() {
             />
           ))}
         </div>
+        </div>
       </section>
 
       {/* All topics by category */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-8 pb-16">
+      <section className="px-6 lg:px-8 py-8 pb-16">
+        <div className="max-w-7xl mx-auto">
         <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-8">
           All Topics
         </h2>
@@ -81,6 +84,7 @@ export default function HomePage() {
             </div>
           );
         })}
+        </div>
       </section>
     </div>
   );

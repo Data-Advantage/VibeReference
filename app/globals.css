@@ -3,8 +3,23 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --background: #f9fafb;
+    --foreground: #111827;
+    --color-border: #e5e7eb;
+    --color-muted: #6b7280;
+    --color-accent: #2563eb;
+    --color-accent-hover: #1d4ed8;
+    --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+    --font-mono: var(--font-geist-mono), monospace;
+  }
+
   html {
     scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
   }
 }
 

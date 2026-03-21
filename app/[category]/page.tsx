@@ -51,7 +51,7 @@ export default async function CategoryPage({
     <div>
       {/* Category header */}
       <section className="bg-white border-b border-gray-200">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-10">
           <div className="mb-4 flex items-center gap-2 text-sm text-gray-400">
             <Link href="/" className="hover:text-gray-600 transition-colors">
               Home
@@ -72,7 +72,8 @@ export default async function CategoryPage({
       </section>
 
       {/* Topic grid */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-10">
+      <section className="px-6 lg:px-8 py-10">
+        <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {topics.map((topic) => (
             <TopicCard
@@ -83,10 +84,12 @@ export default async function CategoryPage({
             />
           ))}
         </div>
+        </div>
       </section>
 
       {/* Other categories */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-8 pb-16">
+      <section className="px-6 lg:px-8 py-8 pb-16">
+        <div className="max-w-7xl mx-auto">
         <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">
           Other Categories
         </h2>
@@ -100,6 +103,7 @@ export default async function CategoryPage({
               {c.label}
             </Link>
           ))}
+        </div>
         </div>
       </section>
     </div>

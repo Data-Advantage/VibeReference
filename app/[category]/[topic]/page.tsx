@@ -84,9 +84,9 @@ export default async function TopicPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* Breadcrumb + header — matches site max-w-6xl */}
+      {/* Breadcrumb + header — matches site max-w-7xl */}
       <section className="bg-white border-b border-gray-200">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-8">
           <nav className="mb-4 flex items-center gap-2 text-sm text-gray-400">
             <Link href="/" className="hover:text-gray-600 transition-colors">
               Home
@@ -115,8 +115,9 @@ export default async function TopicPage({
         </div>
       </section>
 
-      {/* Content + Sidebar — two-column on desktop, fills max-w-6xl */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-10">
+      {/* Content + Sidebar — two-column on desktop, fills max-w-7xl */}
+      <section className="px-6 lg:px-8 py-10">
+        <div className="max-w-7xl mx-auto">
         <div className="lg:grid lg:grid-cols-3 lg:gap-12">
           {/* Main article content */}
           <div className="lg:col-span-2">
@@ -220,6 +221,7 @@ export default async function TopicPage({
             </div>
           </div>
         )}
+        </div>
       </section>
     </div>
   );

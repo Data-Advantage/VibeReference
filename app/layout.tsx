@@ -1,7 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { CATEGORIES } from "@/lib/directory";
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.vibereference.com"),
@@ -46,9 +59,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-gray-50 text-gray-900 antialiased">
-        <header className="border-b border-gray-200 sticky top-0 bg-white/95 backdrop-blur-sm z-20">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      <body className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-background text-foreground font-sans antialiased`}>
+        <header className="border-b border-gray-200 sticky top-0 bg-white/95 backdrop-blur-sm z-20 px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
             <div className="flex items-center justify-between h-14">
               <Link
                 href="/"
@@ -91,8 +104,8 @@ export default function RootLayout({
 
         <main>{children}</main>
 
-        <footer className="border-t border-gray-200 bg-white mt-20">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+        <footer className="border-t border-gray-200 bg-white mt-20 px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto py-12">
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 mb-10">
               {CATEGORIES.map((c) => (
                 <div key={c.slug}>
