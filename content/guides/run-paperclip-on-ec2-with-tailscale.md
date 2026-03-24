@@ -378,30 +378,65 @@ In the Paperclip dashboard, log in and **bootstrap CEO**.
 
 ## 10. Backup Retention
 
-Paperclip creates hourly database backups in `~/.paperclip/instances/default/data/backups/`. These can grow to ~3 GB/day and will silently fill your disk.
+Paperclip creates hourly database backups in `~/.paperclip/instances/default/data/backups/`. These can grow to ~3 GB/day and will silently fill your disk if you don't clean them up. Follow the steps below to check how much space backups are using, safely remove old ones, and set up automatic cleanup so you never have to think about it again.
 
-Check current backup size:
+### Step 1: Check your current backup size
+
+This command shows you how much disk space your backups are using. It adds up every file in the backups folder and prints a single human-readable number (e.g. "1.2G"):
 
 ```bash
 du -sh ~/.paperclip/instances/default/data/backups/
 ```
 
-Prune backups older than 7 days:
+If the number is small (under a few hundred MB), you're fine for now. If it's multiple gigabytes, move on to Step 2.
+
+### Step 2: Do a dry run to see what would be deleted
+
+Before deleting anything, preview which files are older than 7 days. The `find` command searches through a folder for files matching certain criteria. Here, `-type f` means "only files" (not folders), and `-mtime +7` means "last modified more than 7 days ago." The `-print` flag tells it to just list the files without changing anything:
 
 ```bash
-find ~/.paperclip/instances/default/data/backups/ -type f -mtime +7 -print  # dry run
-find ~/.paperclip/instances/default/data/backups/ -type f -mtime +7 -delete  # actually delete
+find ~/.paperclip/instances/default/data/backups/ -type f -mtime +7 -print
 ```
 
-Automate it with a daily cron job at 5:00 UTC:
+Look at the output. You should see a list of `.sqlite` or similar backup files with dates in their names. If the list looks reasonable, proceed to delete them by swapping `-print` for `-delete`:
+
+```bash
+find ~/.paperclip/instances/default/data/backups/ -type f -mtime +7 -delete
+```
+
+Run the `du` command from Step 1 again to confirm the space was freed.
+
+### Step 3: Set up automatic cleanup
+
+Rather than remembering to clean up manually, you can schedule it to run every day using `cron` — a built-in Linux tool that runs commands on a schedule.
+
+Open your cron schedule for editing:
 
 ```bash
 crontab -e
-# Add this line:
+```
+
+This opens a text file in your terminal editor. Scroll to the bottom and add this line:
+
+```
 0 5 * * * find /home/ec2-user/.paperclip/instances/default/data/backups/ -type f -mtime +7 -delete
 ```
 
-**macOS users:** launchd is the native scheduler, but running the `find` command manually or on a periodic basis works fine too.
+Here's what each part means:
+- `0 5 * * *` — run at 5:00 AM UTC every day (the five fields are: minute, hour, day-of-month, month, day-of-week, where `*` means "every")
+- The rest is the same `find` and `-delete` command from Step 2
+
+Save and close the file. Cron will now automatically delete backups older than 7 days, every day at 5 AM UTC.
+
+To verify your cron job was saved, run:
+
+```bash
+crontab -l
+```
+
+You should see your new line in the output.
+
+**macOS users:** launchd is the native scheduler on macOS, but running the `find` command from Step 2 manually on a periodic basis works fine too.
 
 ---
 
