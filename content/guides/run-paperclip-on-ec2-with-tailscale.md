@@ -6,7 +6,7 @@ Run Paperclip on an EC2 instance (or a Mac) and access it over Tailscale with re
 
 - **AMI:** Amazon Linux 2023
 - **Type:** `t4g.large` (ARM, cheaper)
-- **Storage:** 100 GB (40 GB will run out — Paperclip's toolchain and workspace need room)
+- **Storage:** 100 GB (40 GB will run out — Paperclip's toolchain, workspace, and hourly database backups need room. Without backup pruning, expect ENOSPC errors within weeks. See Section 10.)
 
 Connect via **EC2 Instance Connect**.
 
@@ -373,6 +373,35 @@ mkdir ~/paperclip-workspace
 ```
 
 In the Paperclip dashboard, log in and **bootstrap CEO**.
+
+---
+
+## 10. Backup Retention
+
+Paperclip creates hourly database backups in `~/.paperclip/instances/default/data/backups/`. These can grow to ~3 GB/day and will silently fill your disk.
+
+Check current backup size:
+
+```bash
+du -sh ~/.paperclip/instances/default/data/backups/
+```
+
+Prune backups older than 7 days:
+
+```bash
+find ~/.paperclip/instances/default/data/backups/ -type f -mtime +7 -print  # dry run
+find ~/.paperclip/instances/default/data/backups/ -type f -mtime +7 -delete  # actually delete
+```
+
+Automate it with a daily cron job at 5:00 UTC:
+
+```bash
+crontab -e
+# Add this line:
+0 5 * * * find /home/ec2-user/.paperclip/instances/default/data/backups/ -type f -mtime +7 -delete
+```
+
+**macOS users:** launchd is the native scheduler, but running the `find` command manually or on a periodic basis works fine too.
 
 ---
 
