@@ -1,17 +1,32 @@
 # xAI Grok
 
-Grok is xAI's large language model, created by Elon Musk's AI company. Grok models are known for their conversational abilities, real-time knowledge (via X/Twitter integration), and image generation capabilities. They are available through the xAI API and compatible with the AI SDK.
+Grok is xAI's reasoning model with real-time knowledge from X/Twitter — an emerging alternative for developers who want access to current information and strong conversational abilities.
 
-## Available Models
+## Why Vibe Coders Should Watch It
 
-- **Grok 2**: Latest text generation model with strong reasoning capabilities
-- **Grok 2 Image**: Image generation model
+- **Real-time knowledge** — Grok has access to current information via X/Twitter integration
+- **Strong conversational** — designed for natural, engaging dialogue (not just task completion)
+- **Image generation** — built-in image creation without a separate API
+- **Growing API availability** — early-stage but improving ecosystem
+- **Emerging competition** — monitoring for future integration
+
+## Key Specs
+
+| Dimension | Value |
+|-----------|-------|
+| Best for | Chat applications needing real-time knowledge, image generation |
+| Context window | ~8K tokens (varies by model) |
+| Tool use / function calling | Limited support |
+| Agentic capability | Not ideal — limited tool use and reasoning capabilities |
+| API availability | xAI API only (no AWS/Azure/cloud partners yet) |
+| Pricing tier | ~$3 per 1M input / $9 per 1M output tokens (higher than alternatives) |
+| Maturity | Early-stage (watch for improvements) |
 
 ## Getting Started
 
 ### 1. Get an API Key
 
-Sign up at the [xAI Console](https://console.x.ai) and generate an API key.
+Sign up at [console.x.ai](https://console.x.ai) and generate an API key.
 
 ### 2. Set Your Environment Variable
 
@@ -19,25 +34,28 @@ Sign up at the [xAI Console](https://console.x.ai) and generate an API key.
 XAI_API_KEY=your-api-key-here
 ```
 
-### 3. Install and Use
+### 3. Install the AI SDK Provider
 
 ```bash
 npm install @ai-sdk/xai
 ```
 
+### 4. Quick Example
+
 ```typescript
 import { xai } from '@ai-sdk/xai';
 import { generateText } from 'ai';
 
+// Grok has access to real-time information from X
 const { text } = await generateText({
   model: xai('grok-2'),
-  prompt: 'Explain the difference between TCP and UDP.',
+  prompt: 'What are the latest AI model releases this week? What matters for developers?',
 });
+
+console.log(text);
 ```
 
-## Image Generation
-
-Grok 2 supports image generation:
+### 5. Image Generation
 
 ```typescript
 import { xai } from '@ai-sdk/xai';
@@ -45,19 +63,43 @@ import { experimental_generateImage as generateImage } from 'ai';
 
 const { image } = await generateImage({
   model: xai.image('grok-2-image'),
-  prompt: 'A futuristic space station orbiting Earth',
+  prompt: 'A sleek, modern tech startup logo with minimalist design',
 });
+
+console.log(image.url);
 ```
 
-## Key Features
+### 6. Streaming Chat
 
-- **Real-time knowledge**: Grok has access to current information through X/Twitter
-- **Conversational**: Designed for natural, engaging dialogue
-- **Image generation**: Built-in image creation capabilities
-- **API compatible**: Works with standard chat completion formats
+```typescript
+import { xai } from '@ai-sdk/xai';
+import { streamText } from 'ai';
+
+export async function POST(req: Request) {
+  const { messages } = await req.json();
+
+  const result = streamText({
+    model: xai('grok-2'),
+    messages,
+  });
+
+  return result.toDataStreamResponse();
+}
+```
+
+## When to Use Grok vs. Alternatives
+
+**Use Grok** if you specifically need real-time knowledge or are experimenting with new models. For production applications, **Claude** and **GPT-4o** remain more reliable and better-supported. This is a "watch" entry — Grok is developing, but not yet a standard choice.
+
+## Available Models
+
+- **Grok 2** — Latest text generation model
+- **Grok 2 Image** — Image generation
 
 ## Resources
 
+- [xAI Official](https://x.ai)
 - [xAI API Documentation](https://docs.x.ai)
 - [xAI Console](https://console.x.ai)
 - [AI SDK xAI Provider](https://sdk.vercel.ai/providers/ai-sdk-providers/xai)
+- **See the full Grok profile on [LLMReference](https://www.llmreference.com/providers/xai) →**

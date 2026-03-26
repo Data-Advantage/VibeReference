@@ -1,19 +1,52 @@
-# OpenAI GPT Models
+# OpenAI Models
 
-GPT (Generative Pre-trained Transformer) models are OpenAI's family of large language models that power applications from chatbots to code generation. They are the most widely used AI models for text generation, available through both the OpenAI API and the AI SDK.
+OpenAI's GPT and reasoning models power GitHub Copilot and countless production applications — fast, reliable, and excellent at code generation and reasoning.
 
-## Available GPT Models
+## Why Vibe Coders Use It
 
-| Model | Strengths | Best For |
-|-------|-----------|----------|
-| GPT-4o | Fast, multimodal (text + images) | General-purpose, production apps |
-| GPT-4o Mini | Cost-effective, fast | High-volume tasks, simple queries |
-| GPT-4 Turbo | Powerful reasoning, 128K context | Complex analysis, long documents |
-| GPT-3.5 Turbo | Very fast, low cost | Simple tasks, legacy applications |
+- **Powers GitHub Copilot** — the industry-standard IDE coding assistant
+- **Strong at code generation** — GPT-4o is excellent for writing, debugging, and explaining code
+- **Reasoning models (o3, o4-mini)** — step-by-step thinking for complex logic, math, and architecture decisions
+- **Multimodal (GPT-4o)** — analyze code screenshots, UX designs, error traces
+- **Mature, widely-used** — extensive documentation, examples, and integrations everywhere
+
+## Key Specs (GPT-4o vs Reasoning Models)
+
+| Dimension | GPT-4o | o3 / o4-mini |
+|-----------|--------|--------------|
+| **Best for** | General coding, fast chat, content generation | Complex reasoning, hard problems, multi-step logic |
+| **Context window** | 128K tokens | Limited (varies by model) |
+| **Tool use / function calling** | Native, reliable | Limited to reasoning output |
+| **Agentic capability** | Good — multi-turn, function calling | Not recommended (no native tool use) |
+| **API availability** | Direct + via Azure, AWS Bedrock | Direct OpenAI API only |
+| **Latency** | ~200-500ms | ~10-60 seconds (due to reasoning) |
+| **Pricing tier** | Cheap ($2.50-$10 per 1M tokens) | Expensive ($15-$120 per 1M tokens) |
 
 ## Getting Started
 
-### Using the OpenAI SDK
+### Choose Your Model
+
+- **GPT-4o** — default choice for speed and capability
+- **o3 / o4-mini** — when you need step-by-step reasoning or the task is very hard
+- **GPT-4o Mini** — when cost matters and the task is straightforward
+
+### 1. Create an Account & API Key
+
+Sign up at [platform.openai.com](https://platform.openai.com) and generate an API key.
+
+### 2. Set Your Environment Variable
+
+```bash
+OPENAI_API_KEY=sk-your-api-key-here
+```
+
+### 3. Install the SDK
+
+```bash
+npm install openai
+```
+
+### 4. Quick Chat Example (GPT-4o)
 
 ```typescript
 import OpenAI from 'openai';
@@ -23,53 +56,108 @@ const openai = new OpenAI();
 const response = await openai.chat.completions.create({
   model: 'gpt-4o',
   messages: [
-    { role: 'system', content: 'You are a helpful assistant.' },
-    { role: 'user', content: 'Explain REST APIs in simple terms.' },
+    { role: 'system', content: 'You are a helpful coding assistant.' },
+    { role: 'user', content: 'Refactor this function to use async/await' },
   ],
 });
 
 console.log(response.choices[0].message.content);
 ```
 
-### Using the AI SDK (Recommended for Next.js)
+### 5. Using with AI SDK (Next.js, Recommended)
+
+```typescript
+import { openai } from '@ai-sdk/openai';
+import { streamText } from 'ai';
+
+export async function POST(req: Request) {
+  const { messages } = await req.json();
+
+  const result = streamText({
+    model: openai('gpt-4o'),
+    messages,
+  });
+
+  return result.toDataStreamResponse();
+}
+```
+
+### 6. Reasoning Model Example (o3 for Hard Problems)
 
 ```typescript
 import { openai } from '@ai-sdk/openai';
 import { generateText } from 'ai';
 
+// Use o3 when standard models struggle
 const { text } = await generateText({
-  model: openai('gpt-4o'),
-  prompt: 'Explain REST APIs in simple terms.',
+  model: openai('o3'),
+  prompt:
+    'Design a distributed cache invalidation strategy for a multi-region system. Consider consistency guarantees and failure modes.',
+  system: 'You are an expert systems architect.',
 });
+
+console.log(text);
 ```
 
-## Key Capabilities
+## Tool Use & Function Calling
 
-- **Text generation**: Write, summarize, translate, and transform text
-- **Code generation**: Write, explain, and debug code in any language
-- **Conversation**: Multi-turn dialogue with context awareness
-- **Analysis**: Process and analyze documents, data, and images
-- **Function calling**: Invoke external tools and APIs based on natural language
-- **Vision**: Analyze images when using multimodal models (GPT-4o, GPT-4 Turbo)
+GPT-4o is excellent at calling external tools. Here's a practical example:
 
-## Important Parameters
+```typescript
+const tools = [
+  {
+    type: 'function',
+    function: {
+      name: 'search_documentation',
+      description: 'Search the project documentation',
+      parameters: {
+        type: 'object',
+        properties: {
+          query: { type: 'string' },
+        },
+        required: ['query'],
+      },
+    },
+  },
+];
 
-| Parameter | Effect |
-|-----------|--------|
-| `temperature` | 0 = deterministic, 1 = creative (default 1) |
-| `max_tokens` | Maximum response length |
-| `top_p` | Nucleus sampling for diversity |
-| `frequency_penalty` | Reduce repetition |
-| `presence_penalty` | Encourage topic diversity |
+const response = await openai.chat.completions.create({
+  model: 'gpt-4o',
+  messages: [{ role: 'user', content: 'How do I configure authentication?' }],
+  tools,
+});
 
-## Choosing the Right Model
+// Handle tool calls in the response
+if (response.choices[0].message.tool_calls) {
+  for (const toolCall of response.choices[0].message.tool_calls) {
+    // Execute tool and continue conversation
+  }
+}
+```
 
-- **GPT-4o**: Best default choice — fast, capable, and supports images
-- **GPT-4o Mini**: Use when cost matters and the task is straightforward
-- **GPT-4 Turbo**: Use for complex reasoning or when you need 128K context
+## When to Use Each Model
+
+**Use GPT-4o** for everyday coding tasks, chat, content generation, and anything where speed matters.
+
+**Use o3 or o4-mini** only when the task is genuinely hard (complex architecture, deep reasoning, math, logic puzzles). Reasoning models are slower and more expensive.
+
+**Use GPT-4o Mini** for high-volume, simple tasks (classification, tagging, basic content gen) to reduce cost.
+
+## Comparison: GPT-4o vs Claude vs Gemini
+
+| Task | Best Model | Why |
+|------|-----------|-----|
+| GitHub Copilot | GPT-4o | Native integration, proven at code completion |
+| Complex reasoning | Claude or o3 | Better step-by-step thinking |
+| Entire codebase analysis | Gemini 2.5 (1M context) | Larger context window |
+| Cost-conscious | GPT-4o Mini | Cheapest capable model |
+| Real-time agentic loops | Claude | Best tool use + reasoning combo |
 
 ## Resources
 
-- [OpenAI Models Documentation](https://platform.openai.com/docs/models)
+- [OpenAI API Documentation](https://platform.openai.com/docs)
 - [Chat Completions Guide](https://platform.openai.com/docs/guides/text-generation)
+- [Reasoning Models Guide](https://platform.openai.com/docs/guides/reasoning)
 - [AI SDK OpenAI Provider](https://sdk.vercel.ai/providers/ai-sdk-providers/openai)
+- [OpenAI Pricing](https://openai.com/pricing)
+- **See the full GPT profiles on [LLMReference](https://www.llmreference.com/providers/openai) →**

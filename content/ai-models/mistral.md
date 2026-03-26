@@ -1,48 +1,131 @@
-# Mistral AI
+# Mistral
 
-Mistral AI is a French AI company that develops and provides open-source large language models (LLMs) known for their efficiency and strong performance across various tasks, especially coding and reasoning.
+Mistral provides efficient, open-source models optimized for production — specialized for code generation with the Codestral model and strong general-purpose reasoning.
 
-## Key Features
+## Why Vibe Coders Use It
 
-- **Efficient Architecture**: Models that deliver strong performance with fewer parameters
-- **Open Source Foundation**: Core models available under permissive Apache 2.0 license
-- **Instruction Tuning**: Models designed to follow user instructions reliably
-- **Multilingual Support**: Capabilities across multiple languages
-- **Context Window**: Large context window allowing for extensive prompt engineering
-- **Mixture of Experts**: Advanced MoE architecture in some model variants
+- **Codestral** — dedicated code generation model, highly specialized for programming
+- **Efficient architecture** — smaller models deliver impressive performance
+- **Open-source foundation** — full control with Apache 2.0 licensed models
+- **Available everywhere** — cloud API (La Plateforme), Azure, AWS Bedrock, self-hosted
+- **Cost-effective** — competitive pricing with strong quality
+
+## Key Specs
+
+| Dimension | Value |
+|-----------|-------|
+| Best for | Code generation (Codestral), efficient open models, production deployments |
+| Context window | 128K tokens (Large model) |
+| Tool use / function calling | Supported in instruction-tuned versions |
+| Agentic capability | Good — suitable for multi-step workflows |
+| API availability | La Plateforme cloud API, Azure, AWS Bedrock, HuggingFace, self-hosted |
+| Pricing tier | Free (open-source); cloud API $0.27-$0.81 per 1M tokens |
+
+## Getting Started
+
+### Option 1: Via Mistral Cloud (La Plateforme)
+
+```bash
+npm install @ai-sdk/mistral
+```
+
+```typescript
+import { mistral } from '@ai-sdk/mistral';
+import { generateText } from 'ai';
+
+const { text } = await generateText({
+  model: mistral('mistral-large-latest'),
+  prompt: 'Write a React component that manages form state with validation',
+});
+
+console.log(text);
+```
+
+### Option 2: Using Codestral (Code Specialist)
+
+```typescript
+import { mistral } from '@ai-sdk/mistral';
+import { generateText } from 'ai';
+
+// Use Codestral for specialized code generation
+const { text } = await generateText({
+  model: mistral('codestral-latest'),
+  prompt: 'Generate SQL to find the top 10 users by activity',
+});
+
+console.log(text);
+```
+
+### Option 3: Via Azure
+
+```bash
+npm install @ai-sdk/mistral
+```
+
+```typescript
+import { mistral } from '@ai-sdk/mistral';
+import { generateText } from 'ai';
+
+const { text } = await generateText({
+  model: mistral('mistral-7b-instruct'),
+  prompt: 'Explain how JavaScript closures work',
+});
+```
+
+### Option 4: Self-Hosted with Ollama
+
+```bash
+ollama run mistral
+
+# Or for Codestral
+ollama run codestral
+```
+
+```typescript
+// Query your local server
+const response = await fetch('http://localhost:11434/api/generate', {
+  method: 'POST',
+  body: JSON.stringify({
+    model: 'codestral',
+    prompt: 'Write a function to calculate Fibonacci numbers',
+  }),
+});
+```
+
+## Streaming Chat Example
+
+```typescript
+import { mistral } from '@ai-sdk/mistral';
+import { streamText } from 'ai';
+
+export async function POST(req: Request) {
+  const { messages } = await req.json();
+
+  const result = streamText({
+    model: mistral('mistral-large-latest'),
+    messages,
+  });
+
+  return result.toDataStreamResponse();
+}
+```
+
+## When to Use Mistral vs. Alternatives
+
+**Use Mistral** (especially Codestral) when you want open-source code generation. Use **Claude** for the strongest reasoning. Use **GPT-4o** for general-purpose reliability and speed.
 
 ## Available Models
 
-- **Mistral 7B**: Compact yet powerful base model
-- **Mixtral 8x7B**: Mixture of Experts architecture with enhanced capabilities
-- **Mistral Small/Medium/Large**: Different sizes for various use cases
-- **Mistral Instruct Models**: Fine-tuned for following instructions
-- **Mistral Code Models**: Specialized for programming tasks
-
-## Integration Methods
-
-- **La Plateforme**: Mistral's own cloud platform for API access
-- **Mistral API**: Direct integration through REST API
-- **Cloud Partners**: Available through AWS Bedrock, Azure AI, and other platforms
-- **Local Deployment**: Self-host using libraries like llama.cpp or vLLM
-- **SDKs**: Official and community libraries for various programming languages
-
-## Use Cases in SaaS Development
-
-- **Code Generation**: Create application components and features
-- **Content Creation**: Generate marketing copy, documentation, and user guides
-- **Data Analysis**: Extract insights from user data and feedback
-- **Customer Support**: Power intelligent chatbots and support systems
-- **Development Assistance**: Provide guidance on architectural decisions
+- **Codestral** — Specialized for code generation, highly optimized
+- **Mistral Large** — General-purpose, powerful reasoning
+- **Mistral 7B** — Lightweight, efficient
+- **Mixtral 8x7B** — Mixture of Experts architecture
 
 ## Resources
 
-- [Mistral AI Official Website](https://mistral.ai/)
-- [Mistral AI Documentation](https://docs.mistral.ai/)
-- [Mistral Models on Hugging Face](https://huggingface.co/mistralai)
-- [Mistral GitHub](https://github.com/mistralai)
-- [La Plateforme Console](https://console.mistral.ai/)
-
-## How It's Used in VibeReference
-
-Throughout the VibeReference workflow, Mistral models can be leveraged as an alternative or complement to other AI tools. During Day 1 (CREATE) and Day 3 (BUILD), these models can assist with code generation, while in Day 4 (POSITION), they can help generate marketing content. The open-source nature of Mistral's models provides flexibility for entrepreneurs who want control over their AI stack or need to self-host models for privacy or compliance reasons.
+- [Mistral AI Official](https://mistral.ai)
+- [La Plateforme Console](https://console.mistral.ai)
+- [Mistral Documentation](https://docs.mistral.ai)
+- [Ollama Mistral Models](https://ollama.ai)
+- [AI SDK Mistral Provider](https://sdk.vercel.ai/providers/ai-sdk-providers/mistral)
+- **See the full Mistral profile on [LLMReference](https://www.llmreference.com/providers/mistral) →**

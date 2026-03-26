@@ -1,32 +1,44 @@
 # Fireworks AI
 
-Fireworks AI is an inference platform optimized for running open-source and fine-tuned AI models at high speed and low cost. It provides API access to models like Llama, DeepSeek, Mixtral, and Stable Diffusion, with performance that often rivals running models on your own infrastructure.
+Fireworks is an inference platform optimized for running open-source models (Llama, DeepSeek, Mistral) at production scale with competitive speed and cost.
 
-## Why Fireworks?
+## Why Vibe Coders Use It
 
-- **Fast inference**: Optimized infrastructure delivers low-latency responses
-- **Open-source models**: Access to Llama, DeepSeek, Mixtral, and many other open models
-- **Image generation**: Run Stable Diffusion and other image models via API
-- **Cost effective**: Competitive pricing compared to proprietary model providers
-- **Fine-tuning**: Upload and serve your own fine-tuned models
+- **Open models at scale** — fast, reliable access to Llama, DeepSeek, Mixtral
+- **Image generation** — run Stable Diffusion, FLUX for image generation tasks
+- **Fine-tuning** — upload and serve your own fine-tuned models
+- **Production SLAs** — enterprise-grade reliability for customer-facing AI
+- **Competitive pricing** — often cheaper than Claude or GPT-4o for equivalent performance
+
+## Key Specs
+
+| Dimension | Value |
+|-----------|-------|
+| Best for | Open-source models at scale, image generation, fine-tuning |
+| Supported models | Llama 3.3, DeepSeek, Mixtral, Codestral, and 200+ others |
+| Latency | ~200-400ms (good performance) |
+| Fine-tuning | Yes — upload datasets, customize for your domain |
+| Image generation | Yes — Stable Diffusion, FLUX support |
+| API availability | REST API, Fireworks SDK, Vercel AI SDK |
+| Pricing tier | ~$0.50-$1.50 per 1M tokens (varies by model) |
 
 ## Getting Started
 
-### 1. Get an API Key
+### 1. Sign Up for Fireworks
 
-Sign up at [fireworks.ai](https://fireworks.ai) and generate an API key.
+Visit [fireworks.ai](https://fireworks.ai) and create an account.
 
-### 2. Set Your Environment Variable
+### 2. Get an API Key
 
-```bash
-FIREWORKS_API_KEY=your-api-key-here
-```
+Generate an API key from your Fireworks dashboard.
 
-### 3. Install and Use
+### 3. Install the AI SDK Provider
 
 ```bash
 npm install @ai-sdk/fireworks
 ```
+
+### 4. Quick Chat Example
 
 ```typescript
 import { fireworks } from '@ai-sdk/fireworks';
@@ -34,20 +46,25 @@ import { generateText } from 'ai';
 
 const { text } = await generateText({
   model: fireworks('accounts/fireworks/models/llama-v3p3-70b-instruct'),
-  prompt: 'Explain the difference between REST and GraphQL.',
+  prompt: 'Build a validation function for email addresses in TypeScript',
+});
+
+console.log(text);
+```
+
+### 5. Using DeepSeek for Complex Reasoning
+
+```typescript
+import { fireworks } from '@ai-sdk/fireworks';
+import { generateText } from 'ai';
+
+const { text } = await generateText({
+  model: fireworks('accounts/fireworks/models/deepseek-r1'),
+  prompt: 'Design a distributed cache invalidation strategy for a multi-region system',
 });
 ```
 
-## Available Models
-
-### Language Models
-
-- `llama-v3p3-70b-instruct` — Meta Llama 3.3 70B
-- `llama-v3p1-405b-instruct` — Meta Llama 3.1 405B
-- `deepseek-r1` — DeepSeek R1 reasoning model
-- `deepseek-v3` — DeepSeek V3
-
-### Image Generation
+### 6. Image Generation Example
 
 ```typescript
 import { fireworks } from '@ai-sdk/fireworks';
@@ -55,12 +72,75 @@ import { experimental_generateImage as generateImage } from 'ai';
 
 const { image } = await generateImage({
   model: fireworks.image('accounts/fireworks/models/stable-diffusion-xl-1024-v1-0'),
-  prompt: 'A futuristic cityscape at sunset',
+  prompt: 'A modern, minimalist UI mockup for a task management app',
 });
+
+console.log(image.url);
 ```
+
+### 7. Fine-Tuning Your Model
+
+```typescript
+// Upload training data
+const finetuneResponse = await fetch(
+  'https://api.fireworks.ai/inference/v1/fine_tune',
+  {
+    method: 'POST',
+    headers: { 'Authorization': `Bearer ${FIREWORKS_API_KEY}` },
+    body: JSON.stringify({
+      account_id: 'your-account',
+      model: 'accounts/fireworks/models/llama-v3p3-70b-instruct',
+      training_data: [
+        {
+          messages: [
+            {
+              role: 'system',
+              content: 'You are a technical documentation expert',
+            },
+            { role: 'user', content: '...' },
+          ],
+        },
+      ],
+    }),
+  }
+);
+
+// Your fine-tuned model is ready to use
+```
+
+### 8. Streaming Chat
+
+```typescript
+import { fireworks } from '@ai-sdk/fireworks';
+import { streamText } from 'ai';
+
+export async function POST(req: Request) {
+  const { messages } = await req.json();
+
+  const result = streamText({
+    model: fireworks('accounts/fireworks/models/llama-v3p3-70b-instruct'),
+    messages,
+  });
+
+  return result.toDataStreamResponse();
+}
+```
+
+## When to Use Fireworks vs. Alternatives
+
+**Use Fireworks** when you want reliable, scalable access to open models with fine-tuning support. Use **Claude** or **GPT-4o** if you need the strongest proprietary reasoning.
+
+## Popular Models
+
+- **Llama 3.3 70B** — Strong general-purpose
+- **DeepSeek-R1** — Excellent reasoning
+- **Mixtral 8x7B** — Efficient, capable
+- **Codestral** — Code generation specialist
 
 ## Resources
 
+- [Fireworks AI Official](https://fireworks.ai)
 - [Fireworks AI Documentation](https://docs.fireworks.ai)
 - [Fireworks AI Model Library](https://fireworks.ai/models)
 - [AI SDK Fireworks Provider](https://sdk.vercel.ai/providers/ai-sdk-providers/fireworks)
+- **See the full Fireworks profile on [LLMReference](https://www.llmreference.com/providers/fireworks) →**
