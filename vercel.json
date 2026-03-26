@@ -1,0 +1,11 @@
+{
+  "redirects": [
+    { "source": "/ai-models/anthropic-developer", "destination": "/ai-models/claude", "permanent": true },
+    { "source": "/ai-models/openai-developer", "destination": "/ai-models/openai-gpt", "permanent": true },
+    { "source": "/ai-models/chatgpt", "destination": "/ai-models/openai-gpt", "permanent": true },
+    { "source": "/ai-models/openai-o", "destination": "/ai-models/openai-gpt", "permanent": true },
+    { "source": "/ai-models/cohere", "destination": "/ai-models", "permanent": true },
+    { "source": "/ai-models/perplexity", "destination": "/ai-models", "permanent": true },
+    { "source": "/ai-models/cerebras", "destination": "/ai-models", "permanent": true }
+  ]
+}
