@@ -257,6 +257,7 @@ After=network.target tailscaled.service
 [Service]
 Type=simple
 User=ec2-user
+StandardInput=null
 WorkingDirectory=/home/ec2-user/paperclip
 ExecStart=/home/ec2-user/.local/share/pnpm/pnpm paperclipai run
 Restart=always
@@ -275,6 +276,8 @@ sudo systemctl start paperclip
 ```
 
 **Important:** systemd doesn't source `.bashrc`, so the `PATH` must explicitly include every directory containing tools Paperclip calls — node, pnpm, claude, gh, wrangler. Same for the Claude OAuth token. Without this, Paperclip runs but gets "command not found" errors.
+
+**Node version drift:** The `PATH` above hardcodes `v24.14.0`. When you update Node via nvm, the version directory changes and the service will silently fail with "command not found" errors. After any Node update, run `which node` to get the new path and update the `PATH` line in the service file accordingly. Then `sudo systemctl daemon-reload && sudo systemctl restart paperclip`.
 
 **Better: use a systemd override for secrets.** Instead of putting your token directly in the main unit file, use an override:
 
@@ -376,9 +379,45 @@ In the Paperclip dashboard, log in and **bootstrap CEO**.
 
 ---
 
+## 9a. Diagnostics Cheat Sheet
+
+Quick commands to check what's happening on your Paperclip instance:
+
+```bash
+journalctl -u paperclip -f              # live service logs (Ctrl+C to stop)
+curl localhost:3100/api/health           # health check (should return 200)
+df -h                                    # disk usage — watch for full disks
+du -sh ~/.paperclip/instances/default/data/backups/   # backup folder size
+```
+
+**Stale `paperclip.log` warning:** After systemd restarts the service, `journalctl` is the source of truth for logs. If you have a `paperclip.log` file from an earlier tmux session, it will still contain old output and can be misleading. Always check `journalctl -u paperclip` for current logs.
+
+---
+
+## 9b. Updating to a New Release
+
+To update Paperclip to a newer tagged release:
+
+```bash
+cd ~/paperclip
+git fetch --tags
+git checkout <tag>           # e.g. git checkout v0.4.2
+pnpm install
+sudo systemctl restart paperclip
+curl localhost:3100/api/health           # verify it's running
+```
+
+For the full walkthrough with troubleshooting steps, see the [standalone update guide](../cloud-and-hosting/update-paperclip-to-tagged-release.md).
+
+---
+
 ## 10. Backup Retention
 
-Paperclip creates hourly database backups in `~/.paperclip/instances/default/data/backups/`. These can grow to ~3 GB/day and will silently fill your disk if you don't clean them up. Follow the steps below to check how much space backups are using, safely remove old ones, and set up automatic cleanup so you never have to think about it again.
+Paperclip creates hourly database backups in `~/.paperclip/instances/default/data/backups/`. These can grow to ~3 GB/day and will silently fill your disk if you don't clean them up.
+
+**Built-in retention:** Paperclip now includes automatic backup retention — the server reports `DB Backup enabled (every 60m, keep 30d)` at startup. This handles the common case. The cron job below is still a useful safety net if you want a shorter retention window (e.g. 7 days) or want extra assurance that old backups are pruned.
+
+Follow the steps below to check how much space backups are using, safely remove old ones, and set up automatic cleanup so you never have to think about it again.
 
 ### Step 1: Check your current backup size
 
