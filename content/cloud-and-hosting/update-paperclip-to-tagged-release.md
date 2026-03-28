@@ -1,30 +1,72 @@
-# Update Paperclip to a Tagged Release over SSH
+# How to Update Paperclip
 
-## 1. SSH into the server
+There are two ways to update Paperclip: the quick way using `npx`, or the manual way by checking out a specific git tag over SSH.
+
+---
+
+## Method 1: Quick update with npx
+
+The easiest way to update. This pulls and runs the latest published version directly — no git checkout or `pnpm install` needed.
+
+### 1. SSH into the server
 
 ```
 ssh paperclip
 ```
 
-## 2. Navigate to the repo
+### 2. Navigate to the repo
 
 ```
 cd ~/paperclip
 ```
 
-## 3. Check your current version
+### 3. Run the latest version
+
+```
+npx paperclipai@latest run
+```
+
+This downloads and executes the latest release in one step. It handles dependency resolution automatically.
+
+### 4. Verify
+
+Check that the server starts cleanly. Look for `Server listening on 0.0.0.0:3100` in the output, or from another terminal:
+
+```
+curl -s http://localhost:3100/api/health
+```
+
+---
+
+## Method 2: Manual update to a specific tagged release over SSH
+
+Use this when you want to pin to a specific version rather than always pulling the latest.
+
+### 1. SSH into the server
+
+```
+ssh paperclip
+```
+
+### 2. Navigate to the repo
+
+```
+cd ~/paperclip
+```
+
+### 3. Check your current version
 
 ```
 git describe --tags
 ```
 
-## 4. Fetch new tags from origin
+### 4. Fetch new tags from origin
 
 ```
 git fetch origin --tags
 ```
 
-## 5. Checkout the target release
+### 5. Checkout the target release
 
 Replace the tag with your target version:
 
@@ -34,21 +76,21 @@ git checkout v2026.325.0
 
 You'll see a "detached HEAD" message — that's expected and correct for running a tagged release.
 
-## 6. Install dependencies
+### 6. Install dependencies
 
 ```
 pnpm install
 ```
 
-## 7. Restart Paperclip
+### 7. Restart Paperclip
 
-### If running via systemd (survives reboots)
+#### If running via systemd (survives reboots)
 
 ```
 sudo systemctl restart paperclip
 ```
 
-### If running via tmux
+#### If running via tmux
 
 Reattach to your session:
 
@@ -72,20 +114,20 @@ cd ~/paperclip
 pnpm paperclipai run
 ```
 
-## 8. Verify
+### 8. Verify
 
 ```
 git describe --tags
 ```
 
-### systemd
+#### systemd
 
 ```
 sudo systemctl status paperclip
 journalctl -u paperclip -f
 ```
 
-### tmux
+#### tmux
 
 Output is right in front of you in the tmux session. Look for `Server listening on 0.0.0.0:3100`. You can also check from another terminal:
 
@@ -95,7 +137,7 @@ curl -s http://localhost:3100/api/health
 
 Press `Ctrl+C` to exit log tails once you've confirmed it's running cleanly.
 
-## 9. Sanity check: Node path (systemd only)
+### 9. Sanity check: Node path (systemd only)
 
 If you've ever updated Node via nvm, make sure the service file still points to the right version:
 
