@@ -69,34 +69,38 @@ export default function RootLayout({
               >
                 VibeReference
               </Link>
-              <nav className="hidden md:flex items-center gap-1 overflow-hidden">
-                {CATEGORIES.slice(0, 6).map((c) => (
-                  <Link
-                    key={c.slug}
-                    href={`/${c.slug}`}
-                    className="text-sm text-gray-500 hover:text-gray-900 px-2.5 py-1.5 rounded-md hover:bg-gray-100 transition-colors whitespace-nowrap"
-                  >
-                    {c.label}
-                  </Link>
-                ))}
-                <div className="relative group">
-                  <button className="text-sm text-gray-500 hover:text-gray-900 px-2.5 py-1.5 rounded-md hover:bg-gray-100 transition-colors whitespace-nowrap">
-                    More
-                  </button>
-                  <div className="absolute right-0 top-full pt-1 hidden group-hover:block">
-                    <div className="bg-white border border-gray-200 rounded-lg shadow-lg py-1 min-w-[180px]">
-                      {CATEGORIES.slice(6).map((c) => (
-                        <Link
-                          key={c.slug}
-                          href={`/${c.slug}`}
-                          className="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors"
-                        >
-                          {c.label}
-                        </Link>
-                      ))}
+              <nav aria-label="Main navigation" className="hidden md:flex items-center gap-1 overflow-hidden">
+                <ul className="flex items-center gap-1 list-none m-0 p-0">
+                  {CATEGORIES.slice(0, 6).map((c) => (
+                    <li key={c.slug}>
+                      <Link
+                        href={`/${c.slug}`}
+                        className="text-sm text-gray-500 hover:text-gray-900 px-2.5 py-1.5 rounded-md hover:bg-gray-100 transition-colors whitespace-nowrap"
+                      >
+                        {c.label}
+                      </Link>
+                    </li>
+                  ))}
+                  <li className="relative group">
+                    <button aria-haspopup="true" aria-label="More categories" className="text-sm text-gray-500 hover:text-gray-900 px-2.5 py-1.5 rounded-md hover:bg-gray-100 transition-colors whitespace-nowrap">
+                      More
+                    </button>
+                    <div className="absolute right-0 top-full pt-1 hidden group-hover:block">
+                      <ul className="bg-white border border-gray-200 rounded-lg shadow-lg py-1 min-w-[180px] list-none m-0 p-0">
+                        {CATEGORIES.slice(6).map((c) => (
+                          <li key={c.slug}>
+                            <Link
+                              href={`/${c.slug}`}
+                              className="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors"
+                            >
+                              {c.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                  </div>
-                </div>
+                  </li>
+                </ul>
               </nav>
             </div>
           </div>
@@ -106,18 +110,20 @@ export default function RootLayout({
 
         <footer className="border-t border-gray-200 bg-white mt-20 px-6 lg:px-8">
           <div className="max-w-7xl mx-auto py-12">
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 mb-10">
-              {CATEGORIES.map((c) => (
-                <div key={c.slug}>
-                  <Link
-                    href={`/${c.slug}`}
-                    className="text-sm font-semibold text-gray-900 hover:text-blue-600 transition-colors"
-                  >
-                    {c.label}
-                  </Link>
-                </div>
-              ))}
-            </div>
+            <nav aria-label="Footer navigation">
+              <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 mb-10 list-none m-0 p-0">
+                {CATEGORIES.map((c) => (
+                  <li key={c.slug}>
+                    <Link
+                      href={`/${c.slug}`}
+                      className="text-sm font-semibold text-gray-900 hover:text-blue-600 transition-colors"
+                    >
+                      {c.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
             <div className="border-t border-gray-100 pt-6 mb-6">
               <p className="text-sm font-semibold text-gray-900 mb-3">
                 Also from Data Advantage
