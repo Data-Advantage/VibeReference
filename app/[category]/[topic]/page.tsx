@@ -85,21 +85,27 @@ export default async function TopicPage({
       />
 
       {/* Breadcrumb + header — matches site max-w-7xl */}
-      <section className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-8">
-          <nav className="mb-4 flex items-center gap-2 text-sm text-gray-400">
-            <Link href="/" className="hover:text-gray-600 transition-colors">
-              Home
-            </Link>
-            <span>/</span>
-            <Link
-              href={`/${category}`}
-              className="hover:text-gray-600 transition-colors"
-            >
-              {cat?.label}
-            </Link>
-            <span>/</span>
-            <span className="text-gray-600">{topic.title}</span>
+      <section className="bg-white border-b border-gray-200 px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto py-8">
+          <nav aria-label="Breadcrumb" className="mb-4 text-sm text-gray-400">
+            <ol className="flex items-center gap-2 list-none m-0 p-0">
+              <li>
+                <Link href="/" className="hover:text-gray-600 transition-colors">
+                  Home
+                </Link>
+              </li>
+              <li aria-hidden="true">/</li>
+              <li>
+                <Link
+                  href={`/${category}`}
+                  className="hover:text-gray-600 transition-colors"
+                >
+                  {cat?.label}
+                </Link>
+              </li>
+              <li aria-hidden="true">/</li>
+              <li aria-current="page" className="text-gray-600">{topic.title}</li>
+            </ol>
           </nav>
           <span className="inline-block text-xs font-medium text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full mb-3">
             {cat?.label}
