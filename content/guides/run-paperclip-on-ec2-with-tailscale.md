@@ -1,3 +1,9 @@
+---
+author:
+  name: Muhammed Musthafa
+  url: https://github.com/mohdmusthafaneo
+---
+
 # How to Run Paperclip on EC2 with Tailscale HTTPS
 
 Run Paperclip on an EC2 instance (or a Mac) and access it over Tailscale with real HTTPS — no port forwarding, no self-signed certs, no public internet exposure. Linux and macOS instructions included throughout.

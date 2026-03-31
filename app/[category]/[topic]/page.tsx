@@ -71,6 +71,13 @@ export default async function TopicPage({
     description: topic.description,
     url: `https://www.vibereference.com/${category}/${topicSlug}`,
     articleSection: cat?.label,
+    ...(topic.author && {
+      author: {
+        "@type": "Person",
+        name: topic.author.name,
+        ...(topic.author.url && { url: topic.author.url }),
+      },
+    }),
     isPartOf: {
       "@type": "WebSite",
       name: "VibeReference",
@@ -116,6 +123,23 @@ export default async function TopicPage({
           {topic.description && (
             <p className="text-gray-500 text-lg mt-3 max-w-2xl">
               {topic.description}
+            </p>
+          )}
+          {topic.author && (
+            <p className="text-sm text-gray-400 mt-3">
+              Written by{" "}
+              {topic.author.url ? (
+                <a
+                  href={topic.author.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-600 hover:text-blue-600 transition-colors"
+                >
+                  {topic.author.name}
+                </a>
+              ) : (
+                <span className="text-gray-600">{topic.author.name}</span>
+              )}
             </p>
           )}
         </div>

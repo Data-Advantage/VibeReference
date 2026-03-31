@@ -98,6 +98,7 @@ export interface Topic {
   category: string;
   /** Filesystem source: { dir, file } */
   source: { dir: string; file: string };
+  author?: { name: string; url?: string };
 }
 
 /* ------------------------------------------------------------------ */
@@ -183,12 +184,18 @@ export function getAllTopics(): Topic[] {
       const { data, content } = matter(raw);
       const title = extractTitle(content, slugToLabel(slug), data.title);
       const description = extractDescription(content);
+      const author = data.author
+        ? typeof data.author === "string"
+          ? { name: data.author }
+          : { name: data.author.name, url: data.author.url }
+        : undefined;
       topics.push({
         slug,
         title,
         description,
         category: cat.slug,
         source: { dir: `content/${cat.slug}`, file },
+        author,
       });
     }
   }
