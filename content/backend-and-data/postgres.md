@@ -1,6 +1,6 @@
-# PostgreSQL (Legacy)
+# PostgreSQL
 
-[PostgreSQL](https://www.postgresql.org/) is a powerful, open-source relational database management system that forms the foundation of Supabase. VibeReference's new default backend uses Convex instead of Postgres. Keep this as reference if you maintain legacy projects.
+[PostgreSQL](https://www.postgresql.org/) is a powerful, open-source relational database management system that forms the foundation of Supabase.
 
 ## Introduction to PostgreSQL
 

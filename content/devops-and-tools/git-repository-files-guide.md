@@ -42,6 +42,9 @@ Here is every category at a glance. Scroll down for the reasoning behind each de
 | `*.sqlite` / `*.db` | **Ignore** | Database instances are data, not code |
 | Generated types (GraphQL codegen, Prisma Client) | **Ignore** | Reproducible from schema |
 | `turbo.json` / `nx.json` / `lerna.json` | **Commit** | Monorepo workspace config |
+| `CLAUDE.md` / `copilot-instructions.md` / `.windsurfrules` | **Commit** | AI coding tool project instructions |
+| `.cursor/rules/*.mdc` | **Commit** | Cursor AI project rules |
+| `.cursor/` (other files) | **Ignore** | Cursor local state |
 | `.DS_Store` / `Thumbs.db` | **Ignore** | OS metadata, use global gitignore |
 
 Now let's walk through each category.
@@ -379,6 +382,43 @@ Git is designed for text. For large binary files, use [Git LFS](https://git-lfs.
 
 This guide gives you the overview. For deep dives into specific file types:
 
+### AI coding tool configs
+- [AI Coding Tool Config Files: What to Commit and What to Ignore](/devops-and-tools/ai-coding-tool-configs-git-guide)
+- [Should You Commit CLAUDE.md?](/devops-and-tools/should-you-commit-claude-md)
+- [Should You Commit .cursorrules and .cursor/?](/devops-and-tools/should-you-commit-cursor-config)
+- [Should You Commit copilot-instructions.md?](/devops-and-tools/should-you-commit-copilot-instructions)
+
+### Lock files
 - [Lock Files: package-lock.json, yarn.lock, pnpm-lock.yaml — Commit or Ignore?](/devops-and-tools/lock-files-commit-or-ignore)
+- [Should You Commit package-lock.json?](/devops-and-tools/should-you-commit-package-lock-json)
+- [Should You Commit yarn.lock?](/devops-and-tools/should-you-commit-yarn-lock)
+- [Should You Commit pnpm-lock.yaml?](/devops-and-tools/should-you-commit-pnpm-lock-yaml)
+- [Should You Commit Gemfile.lock?](/devops-and-tools/should-you-commit-gemfile-lock)
+- [Should You Commit go.sum?](/devops-and-tools/should-you-commit-go-sum)
+- [Should You Commit poetry.lock?](/devops-and-tools/should-you-commit-poetry-lock)
+
+### Config and dotfiles
+- [Should You Commit .nvmrc and .node-version?](/devops-and-tools/should-you-commit-nvmrc)
+- [Should You Commit .editorconfig?](/devops-and-tools/should-you-commit-editorconfig)
+- [Should You Commit .prettierrc?](/devops-and-tools/should-you-commit-prettierrc)
+- [Should You Commit tsconfig.json?](/devops-and-tools/should-you-commit-tsconfig-json)
+
+### DevOps and CI
+- [Should You Commit Your Dockerfile?](/devops-and-tools/should-you-commit-dockerfile)
+- [Should You Commit docker-compose.yml?](/devops-and-tools/should-you-commit-docker-compose)
+- [Should You Commit .github/workflows/?](/devops-and-tools/should-you-commit-github-workflows)
+- [Should You Commit Your Makefile?](/devops-and-tools/should-you-commit-makefile)
+- [Should You Commit Your Procfile?](/devops-and-tools/should-you-commit-procfile)
+
+### Build artifacts and generated files
+- [Should You Commit node_modules?](/devops-and-tools/should-you-commit-node-modules)
+- [Should You Commit the dist/ Folder?](/devops-and-tools/should-you-commit-dist-folder)
+- [Should You Commit the .next/ Directory?](/devops-and-tools/should-you-commit-next-directory)
+- [Should You Commit the coverage/ Directory?](/devops-and-tools/should-you-commit-coverage-directory)
+- [Should You Commit Minified JavaScript and CSS?](/devops-and-tools/should-you-commit-minified-files)
+
+### Environment and secrets
 - [.env Files: The Complete Guide to Environment Variables in Git](/devops-and-tools/env-files-git-guide)
+
+### Package managers
 - [npm vs pnpm](/devops-and-tools/npm-vs-pnpm)
