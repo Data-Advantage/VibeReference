@@ -1,3 +1,7 @@
+---
+description: Azure OpenAI Service gives you GPT-4 and DALL-E with enterprise security and compliance. Setup guide, API config, and regional deployment for Next.js apps.
+---
+
 # Azure OpenAI Service
 
 Azure OpenAI Service is Microsoft's cloud-based offering that provides access to OpenAI's powerful language models, including GPT-4, GPT-3.5-Turbo, and DALL-E, with the added benefits of Azure's enterprise security, compliance, and regional availability. In VibeReference applications, Azure OpenAI enables advanced AI capabilities with enterprise-grade reliability and privacy controls.

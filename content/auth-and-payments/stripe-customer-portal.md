@@ -1,3 +1,7 @@
+---
+description: Add a Stripe Customer Portal so users can manage subscriptions and billing themselves. Covers configuration, session creation, and redirect handling.
+---
+
 # Stripe Customer Portal
 
 The Stripe Customer Portal is a pre-built, hosted page that lets your customers manage their subscriptions and billing information. This document covers how to integrate and customize the Stripe Customer Portal in your VibeReference application.

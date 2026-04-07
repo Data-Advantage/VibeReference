@@ -1,3 +1,7 @@
+---
+description: Integrate Stripe subscriptions into your Next.js and Supabase app. Covers products, prices, webhooks, billing portal, and checkout session setup.
+---
+
 # Stripe Integration Guide for Next.js/Supabase Applications
 
 This guide walks through setting up Stripe with your Supabase + Next.js application to handle subscriptions for your SaaS app.

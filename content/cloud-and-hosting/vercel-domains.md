@@ -1,3 +1,7 @@
+---
+description: Connect a custom domain to your Vercel project in 3 steps. DNS records, SSL setup, www vs apex, and CLI commands for production deployments.
+---
+
 # Vercel Domains
 
 Vercel Domains lets you purchase, manage, and configure custom domains directly from the Vercel platform. You can connect domains to your Vercel projects, manage DNS records, and set up SSL certificates — all from the Vercel dashboard or CLI.

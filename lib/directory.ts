@@ -183,7 +183,7 @@ export function getAllTopics(): Topic[] {
       const raw = fs.readFileSync(path.join(catDir, file), "utf8");
       const { data, content } = matter(raw);
       const title = extractTitle(content, slugToLabel(slug), data.title);
-      const description = extractDescription(content);
+      const description = data.description || extractDescription(content);
       const author = data.author
         ? typeof data.author === "string"
           ? { name: data.author }
