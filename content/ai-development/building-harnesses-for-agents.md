@@ -142,6 +142,12 @@ Standard tool output is designed for human readers. Agent-readable output has di
 
 **Missing error messages in custom checks.** If you write a custom validation script, make sure it prints what failed and why. An exit code alone doesn't tell the agent what to fix.
 
+## Emerging Pattern: Agent-Generated Validation Checks
+
+An emerging approach flips the usual harness workflow: instead of humans writing all validation checks upfront, the agent generates custom checks during a session. Tools like [Pi](https://github.com/badlogic/pi-mono) let the agent write TypeScript validation extensions and hot-reload them mid-session. If the agent notices it keeps introducing a certain class of bug, it can write a check for it and immediately add it to its own harness loop.
+
+This doesn't replace a well-designed static harness — you still want your type checker, linter, and test suite configured before the agent starts. But it means the harness can grow during a session, catching project-specific issues that generic tooling misses.
+
 ## Example: Full Harness Setup for Next.js
 
 ```bash

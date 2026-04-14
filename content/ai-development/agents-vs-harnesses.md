@@ -64,6 +64,12 @@ The relationship is symbiotic:
 
 **Agents can improve harnesses.** You can direct an agent to add tests, improve linting rules, or update the build configuration. The agent generates the harness improvements; the harness validates them.
 
+## When the Boundary Blurs: Self-Extending Agents
+
+The agent/harness distinction is clear in most systems — the agent generates, the harness validates. But emerging tools like [Pi](https://github.com/badlogic/pi-mono) blur this line. Pi lets the agent write and hot-reload its own TypeScript extensions mid-session, including custom validation checks. The agent can observe that a class of errors keeps recurring, generate a new harness check to catch it, and load that check into its own loop — all without human intervention.
+
+In self-extending systems, the agent is both the generator and the author of its own evaluator. The core distinction still holds conceptually (generating code vs. validating code are different functions), but the same system performs both roles. This is worth watching as a pattern — it suggests that agent/harness co-evolution may become the norm rather than the exception.
+
 ## When You Need One vs the Other vs Both
 
 **You need an agent** when you have a goal that requires making decisions, writing code, or taking multi-step actions. Building a feature, fixing a bug, refactoring a module — these are agent tasks.

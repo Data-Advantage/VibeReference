@@ -54,6 +54,12 @@ Claude Code reads this file, executes the specified commands after each change, 
 
 Copilot Workspace runs the loop against your CI/CD pipeline. It generates code, creates a PR, and waits for CI to pass before declaring success. The loop iterations are longer (minutes per CI run vs seconds per local check), but the harness is your full production pipeline — catching more classes of errors.
 
+### Pi (Self-Extending Loop)
+
+[Pi](https://github.com/badlogic/pi-mono) takes the feedback loop a step further: the agent can modify the harness itself at runtime. Pi's architecture lets the agent write and hot-reload TypeScript extensions mid-session — including custom validation tools. If the agent encounters a recurring class of error, it can create a new validation check, load it into the running session, and immediately start using it in subsequent loop iterations.
+
+This makes Pi's loop self-improving. Rather than relying on a fixed harness configured upfront, the agent evaluates what checks are missing and builds them on the fly. The practical effect is that later loop iterations catch more errors than earlier ones, because the harness grows alongside the code.
+
 ## Measuring Loop Quality
 
 Four metrics tell you whether your loop is working:
