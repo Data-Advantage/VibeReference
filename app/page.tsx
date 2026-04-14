@@ -50,7 +50,7 @@ export default function HomePage() {
       {/* Problem */}
       <section className="bg-gray-50 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12">
-          <div className="max-w-2xl">
+          <div>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
               You want to build with AI — but which tools actually matter?
             </h2>
@@ -114,7 +114,7 @@ export default function HomePage() {
       {/* Failure vs Success */}
       <section className="bg-gray-50 border-y border-gray-200">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
             <div className="bg-white border border-red-100 rounded-lg p-6">
               <h3 className="font-semibold text-red-600 mb-3">Without a curated guide</h3>
               <ul className="space-y-2 text-sm text-gray-500">
