@@ -206,7 +206,7 @@ When cycle count is high, investigate before continuing. Either the task is genu
 
 Once you've tuned the loop, make it explicit in `CLAUDE.md`:
 
-```markdown
+````markdown
 # CLAUDE.md
 
 ## Development loop
@@ -225,7 +225,7 @@ If the same check fails more than 3 times in a row without progress:
 - Stop iterating
 - Explain what you tried and what the error says
 - Ask for guidance rather than continuing to guess
-```
+````
 
 This instruction, combined with well-configured validation scripts, creates a loop with a defined structure, clear signals, and an escalation path when it breaks down.
 
