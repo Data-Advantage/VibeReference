@@ -96,7 +96,7 @@ const { object } = await generateObject({
 - Use `openai.responses()` instead of `openai()` in the AI SDK to use the Responses API
 - Take advantage of built-in web search for questions that need current information
 - Use file search when you have documents the model should reference
-- The Responses API supports all GPT-4o and o-series models
+- The Responses API supports all GPT and o-series models
 
 ## Resources
 

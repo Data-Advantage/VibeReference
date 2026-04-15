@@ -4,7 +4,7 @@ AI SDK Core is the server-side foundation of Vercel's AI SDK. It provides model-
 
 ## Why Use AI SDK Core?
 
-- **Provider agnostic**: Switch between GPT-4, Claude, Gemini, or any supported model without rewriting your code
+- **Provider agnostic**: Switch between GPT, Claude, Gemini, or any supported model without rewriting your code
 - **Streaming built-in**: Stream responses token-by-token with a single function call
 - **Structured output**: Generate typed JSON objects using Zod schemas
 - **Tool calling**: Let AI models invoke functions you define

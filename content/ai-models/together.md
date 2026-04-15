@@ -133,7 +133,7 @@ export async function POST(req: Request) {
 
 ## When to Use Together vs. Alternatives
 
-**Use Together** when you need the cheapest access to open models or want to fine-tune at scale. Use **Groq** if latency is critical. Use **Claude** or **GPT-4o** for the strongest proprietary reasoning.
+**Use Together** when you need the cheapest access to open models or want to fine-tune at scale. Use **Groq** if latency is critical. Use **Claude** or **GPT** for the strongest proprietary reasoning.
 
 ## Popular Models
 

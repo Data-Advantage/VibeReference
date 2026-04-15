@@ -4,10 +4,10 @@ Meta Llama is the most popular open-source model family — excellent for local 
 
 ## Why Vibe Coders Use It
 
-- **Industry-standard open model** — Llama 3.3 70B rivals GPT-4o for many tasks
+- **Industry-standard open model** — Llama 3.3 70B rivals GPT for many tasks
 - **Self-hostable** — run locally or on your own infrastructure for complete control
 - **Fine-tunable** — customize for your specific domain or use case
-- **Strong code generation** — competitive with Claude and GPT-4o at coding tasks
+- **Strong code generation** — competitive with Claude and GPT at coding tasks
 - **Massive ecosystem** — available everywhere (HuggingFace, all inference platforms, Ollama, vLLM)
 
 ## Key Specs
@@ -111,7 +111,7 @@ def train():
 
 ## When to Use Llama vs. Alternatives
 
-**Use Llama** when you need full control, want to self-host, or plan to fine-tune. It's excellent for local development and privacy-critical applications. Use **Claude** for the strongest proprietary reasoning. Use **GPT-4o** for the fastest, most reliable general-purpose model.
+**Use Llama** when you need full control, want to self-host, or plan to fine-tune. It's excellent for local development and privacy-critical applications. Use **Claude** for the strongest proprietary reasoning. Use **GPT** for the fastest, most reliable general-purpose model.
 
 ## Available Models
 

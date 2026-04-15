@@ -6,7 +6,7 @@ An AI playground is an interactive web interface where you can experiment with A
 
 | Playground | Models | URL |
 |------------|--------|-----|
-| OpenAI Playground | GPT-4, GPT-3.5, DALL-E | platform.openai.com/playground |
+| OpenAI Playground | GPT, DALL-E | platform.openai.com/playground |
 | Anthropic Console | Claude models | console.anthropic.com |
 | Google AI Studio | Gemini models | aistudio.google.com |
 | Vercel AI Playground | Multiple providers | sdk.vercel.ai/playground |

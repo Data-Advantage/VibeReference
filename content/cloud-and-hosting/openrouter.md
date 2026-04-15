@@ -81,7 +81,7 @@ This enables applications to dynamically discover available models, display pric
 
 OpenRouter provides access to models from a wide range of providers:
 
-- **OpenAI** — GPT-4o, GPT-4 Turbo, o1, o3, and other models
+- **OpenAI** — GPT, o-series, and other models
 - **Anthropic** — Claude Opus, Sonnet, and Haiku families
 - **Google** — Gemini Pro, Gemini Flash, and other Google models
 - **Meta** — Llama 3, Llama 4, and other open-weight models

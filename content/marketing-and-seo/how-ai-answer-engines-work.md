@@ -32,7 +32,7 @@ Content that names specific tools, frameworks, people, and companies (entities) 
 
 **Weak:** "Many AI tools can help with this."
 
-**Strong:** "Tools like Claude (Anthropic), GPT-4o (OpenAI), and Perplexity are commonly used for this task."
+**Strong:** "Tools like Claude (Anthropic), GPT (OpenAI), and Perplexity are commonly used for this task."
 
 ---
 

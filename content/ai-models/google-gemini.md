@@ -120,7 +120,7 @@ console.log(text);
 
 ## When to Use This vs. Alternatives
 
-**Use Gemini** when you need to analyze large amounts of code or documents in a single request (thanks to the 1M token context). Use **Claude** if you need the best reasoning. Use **GPT-4o** for general-purpose speed and reliability.
+**Use Gemini** when you need to analyze large amounts of code or documents in a single request (thanks to the 1M token context). Use **Claude** if you need the best reasoning. Use **GPT** for general-purpose speed and reliability.
 
 ## Available Models
 

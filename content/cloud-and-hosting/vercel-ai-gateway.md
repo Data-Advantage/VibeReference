@@ -47,7 +47,7 @@ When using Vercel AI Gateway Credits, token pricing matches the underlying provi
 
 Vercel AI Gateway supports routing across major AI providers including:
 
-- **OpenAI** — GPT-4o, GPT-4 Turbo, o1, o3, and other OpenAI models
+- **OpenAI** — GPT, o-series, and other OpenAI models
 - **Anthropic** — Claude Opus, Sonnet, and Haiku model families
 - **Google** — Gemini Pro, Gemini Flash, and other Google AI models
 - **Mistral** — Mistral Large, Medium, and specialized models

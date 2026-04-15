@@ -6,7 +6,7 @@ DeepSeek is an open-source coding powerhouse — state-of-the-art reasoning and 
 
 - **Open-source excellence** — strong reasoning and code generation, MIT-licensed models
 - **Self-hostable** — run locally on your own hardware for privacy and control
-- **Competitive with Claude and GPT-4o** — excellent at complex reasoning and multi-step logic
+- **Competitive with Claude and GPT** — excellent at complex reasoning and multi-step logic
 - **Mixture of Experts (MoE)** — efficient architecture for fast inference
 - **Cost-effective** — run locally or via affordable API providers (Fireworks, Together AI)
 
@@ -75,7 +75,7 @@ const response = await fetch('http://localhost:11434/api/generate', {
 
 ## When to Use DeepSeek vs. Alternatives
 
-**Use DeepSeek** when you want open-source reasoning power or need to self-host for privacy. It's nearly as good as Claude and GPT-4o for reasoning tasks. Use **Claude** if you want the strongest proprietary model. Use **GPT-4o** for general-purpose speed and ecosystem support.
+**Use DeepSeek** when you want open-source reasoning power or need to self-host for privacy. It's nearly as good as Claude and GPT for reasoning tasks. Use **Claude** if you want the strongest proprietary model. Use **GPT** for general-purpose speed and ecosystem support.
 
 ## Available Models
 

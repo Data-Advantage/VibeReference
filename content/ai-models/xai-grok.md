@@ -89,7 +89,7 @@ export async function POST(req: Request) {
 
 ## When to Use Grok vs. Alternatives
 
-**Use Grok** if you specifically need real-time knowledge or are experimenting with new models. For production applications, **Claude** and **GPT-4o** remain more reliable and better-supported. This is a "watch" entry — Grok is developing, but not yet a standard choice.
+**Use Grok** if you specifically need real-time knowledge or are experimenting with new models. For production applications, **Claude** and **GPT** remain more reliable and better-supported. This is a "watch" entry — Grok is developing, but not yet a standard choice.
 
 ## Available Models
 

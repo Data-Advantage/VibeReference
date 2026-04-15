@@ -111,7 +111,7 @@ async function agent(userTask: string) {
 
 ## When to Use Groq vs. Alternatives
 
-**Use Groq** when latency matters — real-time chat, interactive features, and agentic loops. Use **Claude** or **GPT-4o** when you need the strongest reasoning or broader model choice.
+**Use Groq** when latency matters — real-time chat, interactive features, and agentic loops. Use **Claude** or **GPT** when you need the strongest reasoning or broader model choice.
 
 ## Supported Models
 

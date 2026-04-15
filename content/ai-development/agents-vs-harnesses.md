@@ -6,7 +6,7 @@ The formula: **Agent = Model + Harness**
 
 ## What is the Model?
 
-The model is the LLM at the center of the agent — GPT-4o, Claude 3.7 Sonnet, Gemini 2.0 Flash. It reasons about what to do, generates code and plans, interprets errors, and decides next steps. The model is the horse.
+The model is the LLM at the center of the agent — GPT, Claude, Gemini. It reasons about what to do, generates code and plans, interprets errors, and decides next steps. The model is the horse.
 
 Models are powerful but unreliable in isolation. They hallucinate, lose context, can't persist state, and have no way to verify that their own output is correct. Left alone, a model will confidently produce code that doesn't work.
 
@@ -36,7 +36,7 @@ The harness is everything that turns the raw model into a reliable agent. It is 
 | **Is it the agent?** | No — one component | No — the other component |
 | **What breaks without it** | Nothing happens | Everything happens wrong |
 | **Can you swap it?** | Yes — models are interchangeable | Yes — but it's harder; harnesses encode product decisions |
-| **Examples** | Claude 3.7, GPT-4o, Gemini 2.0 | Claude Code, Cursor, Devin, custom agent frameworks |
+| **Examples** | Claude, GPT, Gemini | Claude Code, Cursor, Devin, custom agent frameworks |
 
 | Aspect | AI Coding Agent (full) | Harness (alone) |
 |--------|------------------------|-----------------|

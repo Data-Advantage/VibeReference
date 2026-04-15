@@ -111,7 +111,7 @@ import { experimental_generateImage as generateImage } from 'ai';
 
 ## Choosing a Provider
 
-- **Best general-purpose**: OpenAI (GPT-4o) or Anthropic (Claude Sonnet)
+- **Best general-purpose**: OpenAI (GPT) or Anthropic (Claude Sonnet)
 - **Fastest inference**: Groq or Cerebras
 - **Best open-source models**: Fireworks, Together.ai, or Groq
 - **Search-augmented**: Perplexity

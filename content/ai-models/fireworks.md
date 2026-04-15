@@ -8,7 +8,7 @@ Fireworks is an inference platform optimized for running open-source models (Lla
 - **Image generation** — run Stable Diffusion, FLUX for image generation tasks
 - **Fine-tuning** — upload and serve your own fine-tuned models
 - **Production SLAs** — enterprise-grade reliability for customer-facing AI
-- **Competitive pricing** — often cheaper than Claude or GPT-4o for equivalent performance
+- **Competitive pricing** — often cheaper than Claude or GPT for equivalent performance
 
 ## Key Specs
 
@@ -128,7 +128,7 @@ export async function POST(req: Request) {
 
 ## When to Use Fireworks vs. Alternatives
 
-**Use Fireworks** when you want reliable, scalable access to open models with fine-tuning support. Use **Claude** or **GPT-4o** if you need the strongest proprietary reasoning.
+**Use Fireworks** when you want reliable, scalable access to open models with fine-tuning support. Use **Claude** or **GPT** if you need the strongest proprietary reasoning.
 
 ## Popular Models
 

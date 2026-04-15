@@ -52,7 +52,7 @@ AI Gateway includes content moderation and safety features that can filter reque
 
 Cloudflare AI Gateway supports a broad range of AI providers:
 
-- **OpenAI** — GPT-4o, GPT-4 Turbo, o1, o3, and other models
+- **OpenAI** — GPT, o-series, and other models
 - **Anthropic** — Claude model family
 - **Google AI Studio** — Gemini models
 - **Google Vertex AI** — Enterprise Gemini access

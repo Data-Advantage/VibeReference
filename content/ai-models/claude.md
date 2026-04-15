@@ -120,7 +120,7 @@ export async function POST(req: Request) {
 
 ## When to Use This vs. Alternatives
 
-**Use Claude** when you need the strongest reasoning, tool use, and agentic capabilities — ideal for multi-step workflows and complex problem-solving. Use **GPT-4o** if you prioritize speed and cost for general-purpose tasks. Use **Gemini 2.5** if you need a very long context (1M tokens) for entire codebases.
+**Use Claude** when you need the strongest reasoning, tool use, and agentic capabilities — ideal for multi-step workflows and complex problem-solving. Use **GPT** if you prioritize speed and cost for general-purpose tasks. Use **Gemini** if you need a very long context (1M tokens) for entire codebases.
 
 ## Models
 

@@ -112,7 +112,7 @@ export async function POST(req: Request) {
 
 ## When to Use Mistral vs. Alternatives
 
-**Use Mistral** (especially Codestral) when you want open-source code generation. Use **Claude** for the strongest reasoning. Use **GPT-4o** for general-purpose reliability and speed.
+**Use Mistral** (especially Codestral) when you want open-source code generation. Use **Claude** for the strongest reasoning. Use **GPT** for general-purpose reliability and speed.
 
 ## Available Models
 

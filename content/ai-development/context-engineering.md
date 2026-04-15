@@ -18,7 +18,7 @@ Prompt engineering is a subset of context engineering. You still need good promp
 ## Why Context Engineering Matters
 
 ### The Context Window Is Finite
-Every model has a maximum context window — 200K tokens for Claude, 128K for GPT-4o, 1M+ for Gemini. But bigger isn't always better. Transformers pay quadratic attention costs, and models exhibit the "lost in the middle" problem: they attend most strongly to tokens at the beginning and end of context, with weaker attention to the middle.
+Every model has a maximum context window — 200K tokens for Claude, 128K for GPT, 1M+ for Gemini. But bigger isn't always better. Transformers pay quadratic attention costs, and models exhibit the "lost in the middle" problem: they attend most strongly to tokens at the beginning and end of context, with weaker attention to the middle.
 
 ### Agents Need It Most
 A chatbot handles one exchange. An agent runs for hours — reading files, calling APIs, making decisions, fixing errors. Without context engineering, agents lose track of what they're doing, repeat work, or contradict earlier decisions. Context engineering gives agents the memory and structure they need for long-horizon tasks.
