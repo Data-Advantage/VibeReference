@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { CATEGORIES } from "@/lib/directory";
+import MoreDropdown from "@/components/MoreDropdown";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -82,24 +83,8 @@ export default function RootLayout({
                       </Link>
                     </li>
                   ))}
-                  <li className="relative group">
-                    <button aria-haspopup="true" aria-label="More categories" className="text-sm text-gray-500 hover:text-gray-900 px-2.5 py-1.5 rounded-md hover:bg-gray-100 transition-colors whitespace-nowrap">
-                      More
-                    </button>
-                    <div className="absolute right-0 top-full pt-1 hidden group-hover:block">
-                      <ul className="bg-white border border-gray-200 rounded-lg shadow-lg py-1 min-w-[180px] list-none m-0 p-0">
-                        {CATEGORIES.slice(6).map((c) => (
-                          <li key={c.slug}>
-                            <Link
-                              href={`/${c.slug}`}
-                              className="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors"
-                            >
-                              {c.label}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                  <li>
+                    <MoreDropdown categories={CATEGORIES.slice(6)} />
                   </li>
                 </ul>
               </nav>
