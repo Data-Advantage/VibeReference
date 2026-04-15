@@ -1,117 +1,145 @@
-# The Agent-Harness Feedback Loop
+# The Harness Orchestration Loop
 
-Write. Check. Fix. Check. Pass. This five-step cycle is the atomic unit of agentic coding. Every feature an AI agent builds, every bug it fixes, every refactor it completes — all of it runs through this loop, sometimes dozens of times per task. Understanding the loop is understanding how agentic coding actually works.
+The harness doesn't just validate code. It runs a loop: observe the current state, plan the next action, act, verify the result, and repeat. This observe → plan → act → verify cycle is the core of what the harness orchestrates — it's how a model becomes an agent that can complete multi-step tasks autonomously.
 
-## The Core Pattern
+The loop is not a bridge between the agent and the harness. It lives inside the harness. The harness is what runs it.
+
+## The Cycle
 
 ```
-Agent writes code
+Observe: Read files, understand current state, read error output
      ↓
-Harness runs (type check, lint, tests, build)
+Plan: Decide what action to take next
      ↓
-Harness passes? ──YES──→ Task complete
+Act: Write code, edit files, run commands
+     ↓
+Verify: Run validation checks (type checker, linter, tests, build)
+     ↓
+Pass? ──YES──→ Task complete (or next sub-task)
      ↓ NO
-Agent reads error output
-     ↓
-Agent writes fix
-     ↓
-[back to top]
+[back to Observe with new error context]
 ```
 
-This isn't metaphorical. When you watch [Claude Code](./claude-code) or [Cursor](./cursor) work, you're watching this loop execute in real time. The agent writes a function, runs `tsc --noEmit`, reads the type error, adjusts the code, and runs again. Three loops, four loops, ten loops — until the harness passes.
+When you watch Claude Code or Cursor work, you're watching this cycle execute in real time. The agent reads a file, writes a function, runs `tsc --noEmit`, reads the type error, adjusts the code, runs again. Three cycles, four cycles, ten cycles — until the validation passes.
 
-## Why the Loop is the Unit That Matters
+This is the loop. The harness runs it. You configure it.
 
-Most people evaluate agents on model quality: which LLM, which version, which prompt. These matter — but they're not the primary determinant of agent output quality.
+## Why the Loop Quality Matters More Than the Model
 
-The loop is.
+Most people evaluate agents on model choice: which LLM, which version. Model quality matters, but it's not the primary determinant of agent output quality. Loop quality is.
 
-A great model stuck in a slow, noisy loop produces mediocre work. A capable model in a fast, clear loop produces excellent work. Here's why:
+**Cycle speed compounds.** Each iteration takes time. An agent solving a moderately complex problem might need 20 cycles. With a 5-second validation check, that's 100 seconds. With a 60-second build, that's 20 minutes — and by then, context has decayed and the model is making mistakes it wouldn't have made in a tight loop.
 
-**Loop speed compounds.** Each iteration takes time. An agent solving a moderately complex problem might need 20 iterations. With a 5-second harness, that's 100 seconds. With a 60-second harness, that's 20 minutes. But the real cost is more than clock time — longer loops mean more context consumed before convergence, which degrades later iterations.
+**Error clarity drives fix accuracy.** When the validation step says `Property 'userId' does not exist on type 'Request'` at line 47, the model fixes line 47. When it says `TypeScript compilation failed`, the model has to hunt. Each hunting step is an extra cycle, and extra cycles consume context.
 
-**Error clarity drives fix accuracy.** When the harness says `Property 'id' does not exist on type 'User'` at line 47, the agent fixes line 47. When it says `TypeScript compilation failed`, the agent has to hunt. Each hunting step is an extra loop iteration, and extra loop iterations are degraded context.
+**Cycle count reveals real difficulty.** A task that converges in 3 cycles is genuinely simple. A task that takes 30 cycles either has unclear requirements, a validation component giving bad signal, or real complexity that needs task decomposition. Cycle count is a diagnostic, not a failure metric.
 
-**Loop count reveals real difficulty.** A task that converges in 3 loops is genuinely simple. A task that takes 30 loops either has unclear requirements, a weak harness, or real complexity that needs a different approach. Loop count is a diagnostic.
-
-## How Different Agents Implement It
+## How Different Tools Implement the Loop
 
 ### Claude Code
 
-Claude Code runs the loop explicitly. You configure the harness in `CLAUDE.md`:
+Claude Code runs the loop explicitly through configuration. You define the validation steps in `CLAUDE.md`:
+
 ```markdown
-After making changes: npm run harness:fast
-Before marking complete: npm run harness
+## Development loop
+
+After every change: `npm run harness:fast`
+Before marking complete: `npm run harness`
+
+If the same check fails more than 3 times in a row, stop and explain what you've tried.
 ```
 
-Claude Code reads this file, executes the specified commands after each change, reads the output, and continues iterating. With [Claude Code hooks](./claude-code-hooks), you can make the loop fully automatic — hooks fire harness checks on every file save without needing explicit model instructions.
+Claude Code reads these instructions, runs the specified commands after each action, reads the output, and continues iterating. [Claude Code hooks](./claude-code-hooks) automate the loop further — hooks fire validation on every file save without needing explicit instructions each cycle.
 
 ### Cursor Agent
 
-[Cursor](./cursor) implements the loop inside its agentic task execution. When you run a Cursor Agent task, it automatically runs your configured lint/test commands and incorporates the output into its next action. Cursor's tight IDE integration means it can also see inline errors as the agent types, creating a sub-loop that runs even faster than explicit harness commands.
+Cursor implements the loop internally. When you run a Cursor Agent task, it automatically runs your configured lint and test commands after each action and incorporates the output into its next step. Cursor's IDE integration also provides a sub-loop: the agent sees inline errors as it types, before even running the explicit validation step.
 
-### GitHub Copilot
+### GitHub Copilot Workspace
 
-Copilot Workspace runs the loop against your CI/CD pipeline. It generates code, creates a PR, and waits for CI to pass before declaring success. The loop iterations are longer (minutes per CI run vs seconds per local check), but the harness is your full production pipeline — catching more classes of errors.
+Copilot Workspace runs the loop against your CI/CD pipeline. It generates code, creates a PR, and waits for CI to pass before declaring the cycle complete. Each cycle takes minutes (CI runtime vs. seconds for local checks), but the validation is your full production pipeline — catching integration failures that local checks miss.
 
-### Pi (Self-Extending Loop)
+### Pi: The Self-Modifying Loop
 
-[Pi](https://github.com/badlogic/pi-mono) takes the feedback loop a step further: the agent can modify the harness itself at runtime. Pi's architecture lets the agent write and hot-reload TypeScript extensions mid-session — including custom validation tools. If the agent encounters a recurring class of error, it can create a new validation check, load it into the running session, and immediately start using it in subsequent loop iterations.
+[Pi](https://github.com/badlogic/pi-mono) (badlogic/pi-mono) demonstrates what happens when the loop itself becomes dynamic. Pi's architecture lets the agent write and hot-reload TypeScript extensions mid-session — including new validation checks. If the agent notices a recurring class of error during a task, it can:
 
-This makes Pi's loop self-improving. Rather than relying on a fixed harness configured upfront, the agent evaluates what checks are missing and builds them on the fly. The practical effect is that later loop iterations catch more errors than earlier ones, because the harness grows alongside the code.
+1. Write a TypeScript tool that checks for that class of error
+2. Hot-reload that tool into the running session
+3. Include that check in subsequent validation cycles
+
+The result is a loop that self-improves: later cycles catch more errors than earlier ones, because the validation component grows alongside the code. The observe → plan → act → verify structure stays constant, but the "verify" step gets richer as the session progresses.
+
+This is the frontier of harness engineering — not just running a fixed set of checks, but a loop that authors its own validation logic.
 
 ## Measuring Loop Quality
 
-Four metrics tell you whether your loop is working:
+Four metrics tell you whether your loop is working well:
 
-| Metric | What It Measures | Target |
+| Metric | What it measures | Target |
 |--------|-----------------|--------|
-| **Iterations to pass** | How many harness runs before success | <10 for typical features |
-| **Time per iteration** | Harness runtime | <30s for fast checks |
-| **False positive rate** | Harness failures unrelated to agent changes | <5% of runs |
-| **Error clarity score** | How often agent fixes error on first try | >80% |
+| **Cycles to completion** | Iterations before full validation passes | <10 for typical features |
+| **Validation runtime** | Time per cycle (fast checks) | <30s during iteration |
+| **False positive rate** | Validation failures unrelated to agent changes | <5% of cycles |
+| **Fix accuracy** | How often the agent fixes an error on the first try | >80% |
 
-You don't need formal measurement infrastructure for these. Watching a few agent sessions gives you a feel for all four. The tell-tale signs of a broken loop:
-- Agent re-runs the same fix repeatedly (unclear errors or flaky tests)
-- Long silence between actions (slow harness)
+You don't need formal tooling to measure these. Watching a few agent sessions gives you a feel for all four. The signs of a broken loop:
+
+- Agent makes the same fix repeatedly without progress (unclear error messages or flaky validation)
+- Long pauses between actions (slow validation)
 - Agent asks clarifying questions mid-task (ambiguous harness output)
-- Final output has obvious errors (harness isn't catching them)
+- Final output has obvious errors (validation isn't catching them)
+- High cycle counts on tasks that should be simple (validation is noisy, not signal)
 
 ## Optimizing the Loop
 
-### Speed: Cut harness time first
+### Speed: Cut validation time first
 
 Order checks fastest-to-slowest and short-circuit on first failure:
+
 ```bash
-# This is better than running all checks in parallel
+# Fast during iteration
+tsc --noEmit && next lint
+
+# Full at task completion
 tsc --noEmit && next lint && vitest run && next build
-# Short-circuits: if tsc fails, lint/tests/build don't run
 ```
 
-Run your full harness only at task completion. During iteration, run only the fast checks (type + lint). A 5-second inner loop beats a 60-second inner loop every time.
+Short-circuiting matters: if the type check fails, there's no point running a 60-second build. The model sees the failure faster, spends fewer cycles hunting.
 
-### Clarity: Improve error messages
+During iteration, run only fast checks (type + lint, ~15s). Run the full validation only before marking a task complete. A 15-second inner loop versus a 90-second inner loop is the difference between a tight, focused agent and one that loses context before converging.
 
-Audit your harness output by asking: "If I were seeing this error for the first time with no context, could I fix it in 30 seconds?" If not, configure the tool for more verbosity:
+### Clarity: Make errors actionable
+
+Audit your validation output with this test: "If I saw this error for the first time with no context, could I fix it in 30 seconds?" If not, configure the tool for more verbosity:
 
 ```bash
-# ESLint with file and rule info
+# ESLint — include rule name and file
 npx eslint . --format stylish --max-warnings 0
 
-# TypeScript with full error details
+# TypeScript — pretty output with context
 npx tsc --noEmit --pretty
 
-# Vitest with verbose failure output
+# Vitest — verbose failure descriptions
 npx vitest run --reporter=verbose
 ```
 
-For custom scripts, print the file path, line number, and a plain-English description of the problem. Never print just "check failed."
+For custom scripts: always print the file path, line number, and a plain-English description. An exit code alone doesn't tell the agent what to fix.
 
-### Reliability: Kill flakiness
+Good error:
+```
+src/lib/auth.ts:42:5 - error TS2345: Argument of type 'string | undefined'
+is not assignable to parameter of type 'string'.
+```
 
-Every flaky test adds noise to the loop. The agent learns to retry instead of fix, which trains bad behavior and wastes iterations. Fix flaky tests immediately — they're more expensive than missing tests.
+Bad error:
+```
+Build failed with errors.
+```
 
-Common flakiness sources and fixes:
+### Reliability: Eliminate flakiness
+
+A flaky validation check is worse than no check. It trains the agent to retry instead of diagnose, which breaks the loop's feedback signal and wastes cycles.
+
 ```typescript
 // Flaky: depends on real time
 expect(result.timestamp).toBe(Date.now());
@@ -120,13 +148,13 @@ expect(result.timestamp).toBe(Date.now());
 vi.setSystemTime(new Date('2024-01-01'));
 expect(result.timestamp).toBe(new Date('2024-01-01').getTime());
 
-// Flaky: depends on test order
+// Flaky: shared global state between tests
 let db: Database;
 test('creates user', async () => {
-  db = await Database.connect(); // global state
+  db = await Database.connect();
 });
 
-// Fixed: isolated setup
+// Fixed: isolated setup per test
 beforeEach(async () => {
   db = await Database.connect();
 });
@@ -135,77 +163,78 @@ afterEach(async () => {
 });
 ```
 
-### Coverage: Catch more errors earlier
+Fix flaky tests immediately. They're more expensive than missing tests — a missing test means an uncaught bug; a flaky test means a broken loop.
 
-The earlier the harness catches an error, the fewer iterations to fix it. Add checks for the error classes your agents commonly introduce:
+### Coverage: Catch failures earlier
 
-- Custom ESLint rules for your codebase patterns
+The earlier in the cycle a failure is caught, the fewer total cycles to fix it. Add checks for the error classes your agent commonly introduces:
+
+- Custom ESLint rules for your codebase's patterns
 - Strict TypeScript settings (`noUncheckedIndexedAccess`, `exactOptionalPropertyTypes`)
 - Import order linting (prevents circular dependency surprises at build time)
-- Bundle size checks (catches accidental large imports)
+- Bundle size checks (catches accidental large imports before they reach production)
 
-## Real Loop Examples
+## Loop Patterns in Practice
 
-### Simple fix: 3 iterations
-
+### Simple task: 3 cycles
 ```
-Iteration 1: Agent adds function → tsc fails: "Parameter 'userId' implicitly has an 'any' type"
-Iteration 2: Agent adds type annotation → tsc passes, lint fails: "Unused variable 'temp'"
-Iteration 3: Agent removes temp variable → All checks pass
-```
-
-### Complex refactor: 12 iterations
-
-```
-Iterations 1-3: Rename type, fix all usages in main path
-Iterations 4-6: Discover secondary usages in utility files, fix them
-Iterations 7-9: Update tests that depended on old type shape
-Iterations 10-11: Fix edge case in test mocks
-Iteration 12: Full harness pass, task complete
+Cycle 1: Agent adds function → tsc fails: "Parameter 'userId' implicitly has 'any' type"
+Cycle 2: Agent adds type annotation → tsc passes, lint fails: "Unused variable 'temp'"
+Cycle 3: Agent removes temp variable → All checks pass → Done
 ```
 
-### Broken loop: 40+ iterations
-
+### Complex refactor: 12 cycles
 ```
-Iterations 1-5: Agent fixes TypeScript errors but build keeps failing
-Iterations 6-10: Agent tries different approaches to build issue
+Cycles 1–3: Rename type, fix all usages in main path
+Cycles 4–6: Discover secondary usages in utility files, fix them
+Cycles 7–9: Update tests that relied on old type shape
+Cycles 10–11: Fix edge case in test mocks
+Cycle 12: Full validation pass → Done
+```
+
+### Broken loop: 40+ cycles
+```
+Cycles 1–5: Agent fixes TypeScript errors, build keeps failing for unrelated reason
+Cycles 6–15: Agent tries different approaches, none work
 ...
-[Investigation reveals: build error is pre-existing, unrelated to agent changes]
+[Investigation: build error is pre-existing, unrelated to agent changes]
 ```
 
-When you see a high iteration count, investigate. Either the task is genuinely complex (break it down), the harness is giving bad signal (flaky tests, pre-existing failures), or the agent's context has degraded and it needs a reset.
+When cycle count is high, investigate before continuing. Either the task is genuinely complex and needs decomposition, the validation is giving bad signal (pre-existing failures, flaky tests), or the model's context has degraded and needs a reset.
 
-## The Loop in Production
+## Codifying the Loop
 
-Once you've tuned your loop, codify it:
+Once you've tuned the loop, make it explicit in `CLAUDE.md`:
 
 ```markdown
 # CLAUDE.md
 
-## Development Loop
+## Development loop
 
 After every file change:
 ```bash
-npm run harness:fast    # tsc + lint, ~10s
+npm run harness:fast    # tsc + lint, ~15s
 ```
 
 Before marking any task complete:
 ```bash
-npm run harness         # full: tsc + lint + tests + build, ~90s
+npm run harness         # tsc + lint + tests + build, ~90s
 ```
 
-If harness fails, read the output carefully and fix before continuing.
-Do not mark tasks complete with failing harness checks.
+If the same check fails more than 3 times in a row without progress:
+- Stop iterating
+- Explain what you tried and what the error says
+- Ask for guidance rather than continuing to guess
 ```
 
-This instruction, combined with a well-tuned harness, creates a reliable agent that catches its own mistakes before they become your problems.
+This instruction, combined with well-configured validation scripts, creates a loop with a defined structure, clear signals, and an escalation path when it breaks down.
 
 ## See Also
 
-- [AI Agents vs Coding Harnesses](./agents-vs-harnesses) — understanding the two components
-- [Building Effective Harnesses for AI Agents](./building-harnesses-for-agents) — how to build a good harness
-- [Coding Harnesses](./coding-harnesses) — harness fundamentals
+- [AI Agents vs Harnesses](./agents-vs-harnesses) — the model + harness formula
+- [Building Harnesses for AI Agents](./building-harnesses-for-agents) — how to build all seven harness components
+- [Coding Harnesses](./coding-harnesses) — validation fundamentals
 - [AI Agents](./ai-agents) — how agents work
-- [Claude Code](./claude-code) — Claude Code's loop implementation
-- [Cursor](./cursor) — Cursor's loop implementation
+- [Claude Code](./claude-code) — loop configuration via CLAUDE.md
+- [Cursor](./cursor) — Cursor's internal loop implementation
 - [Agentic Coding](./agentic-coding) — the full agentic development workflow
