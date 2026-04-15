@@ -114,7 +114,9 @@ async function mdToHtml(content: string): Promise<string> {
   return result
     .toString()
     .replace(/<table>/g, '<div class="table-scroll-wrapper"><table>')
-    .replace(/<\/table>/g, '</table></div>');
+    .replace(/<\/table>/g, '</table></div>')
+    // Strip .md extensions from relative links (./foo.md → ./foo, ../bar/baz.md → ../bar/baz)
+    .replace(/href="(\.\.?\/[^"]*?)\.md"/g, 'href="$1"');
 }
 
 function extractTitle(

@@ -278,8 +278,8 @@ Convex replaces Supabase, Prisma, tRPC, and a custom API layer. For most vibe-co
 
 ## Related Articles
 
-- [Convex Setup Workflow](./convex-setup-workflow.md) — step-by-step CLI setup for connecting v0 projects
-- [Convex Diagnostics](./convex-diagnostics.md) — debugging connection and schema issues
+- [Convex Setup Workflow](./convex-setup-workflow) — step-by-step CLI setup for connecting v0 projects
+- [Convex Diagnostics](./convex-diagnostics) — debugging connection and schema issues
 
 ## Resources
 

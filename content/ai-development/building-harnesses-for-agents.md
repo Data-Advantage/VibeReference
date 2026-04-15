@@ -116,7 +116,7 @@ npx eslint src/lib/
 npx vitest run --reporter=verbose auth
 ```
 
-[Claude Code hooks](./claude-code-hooks.md) let you automate this — run targeted checks on every file save and the full harness on every commit.
+[Claude Code hooks](./claude-code-hooks) let you automate this — run targeted checks on every file save and the full harness on every commit.
 
 ## Making Harness Output Agent-Readable
 
@@ -182,8 +182,8 @@ This gives you:
 
 ## See Also
 
-- [Coding Harnesses](./coding-harnesses.md) — harness fundamentals
-- [AI Agents vs Coding Harnesses](./agents-vs-harnesses.md) — understanding the relationship
-- [The Agent-Harness Feedback Loop](./agent-harness-feedback-loop.md) — measuring loop quality
-- [Claude Code Hooks](./claude-code-hooks.md) — automating harness runs in Claude Code
-- [Agentic Coding](./agentic-coding.md) — the broader workflow
+- [Coding Harnesses](./coding-harnesses) — harness fundamentals
+- [AI Agents vs Coding Harnesses](./agents-vs-harnesses) — understanding the relationship
+- [The Agent-Harness Feedback Loop](./agent-harness-feedback-loop) — measuring loop quality
+- [Claude Code Hooks](./claude-code-hooks) — automating harness runs in Claude Code
+- [Agentic Coding](./agentic-coding) — the broader workflow

@@ -4,7 +4,7 @@ Agents write code. Harnesses check code. These two things sound similar — both
 
 ## What is an AI Agent?
 
-An [AI agent](./ai-agents.md) is a system that operates autonomously in a loop: it perceives its environment, reasons about what to do, takes action, and observes the results. In coding, this means the agent reads your codebase, writes or edits files, runs commands, and iterates until the task is done — without you holding its hand through each step.
+An [AI agent](./ai-agents) is a system that operates autonomously in a loop: it perceives its environment, reasons about what to do, takes action, and observes the results. In coding, this means the agent reads your codebase, writes or edits files, runs commands, and iterates until the task is done — without you holding its hand through each step.
 
 Agents are **generative**. Their job is to produce things: code, files, PRs, feature implementations.
 
@@ -12,7 +12,7 @@ Examples: Claude Code, Cursor Agent, GitHub Copilot Workspace, Devin.
 
 ## What is a Coding Harness?
 
-A [coding harness](./coding-harnesses.md) is a set of automated checks that validate your codebase. Type checkers, linters, test suites, and build scripts — anything that takes code as input and returns a pass/fail signal. The harness doesn't write anything. It only judges what's already there.
+A [coding harness](./coding-harnesses) is a set of automated checks that validate your codebase. Type checkers, linters, test suites, and build scripts — anything that takes code as input and returns a pass/fail signal. The harness doesn't write anything. It only judges what's already there.
 
 Harnesses are **evaluative**. Their job is to validate things: type correctness, logic correctness, style conformance, build integrity.
 
@@ -34,7 +34,7 @@ Agents need harnesses. Without a harness, an agent has no way to verify its own 
 Agent writes code → Harness runs → Errors surface → Agent reads errors → Agent fixes → Harness runs again → Pass
 ```
 
-This loop is what makes modern [agentic coding](./agentic-coding.md) work. Neither piece alone is sufficient.
+This loop is what makes modern [agentic coding](./agentic-coding) work. Neither piece alone is sufficient.
 
 ## Common Misconceptions
 
@@ -60,7 +60,7 @@ The relationship is symbiotic:
 
 **The agent drives, the harness navigates.** The agent decides what code to write and how to structure a solution. The harness reports whether the result is actually correct. The agent uses that signal to iterate.
 
-**The harness quality determines the agent's ceiling.** An agent can only be as good as its feedback loop. Slow harnesses slow the agent. Flaky harnesses confuse the agent. Uninformative error messages leave the agent guessing. See [Building Effective Harnesses for AI Agents](./building-harnesses-for-agents.md) for how to get this right.
+**The harness quality determines the agent's ceiling.** An agent can only be as good as its feedback loop. Slow harnesses slow the agent. Flaky harnesses confuse the agent. Uninformative error messages leave the agent guessing. See [Building Effective Harnesses for AI Agents](./building-harnesses-for-agents) for how to get this right.
 
 **Agents can improve harnesses.** You can direct an agent to add tests, improve linting rules, or update the build configuration. The agent generates the harness improvements; the harness validates them.
 
@@ -106,7 +106,7 @@ Then tell your agent to run `npm run harness` after every change. The feedback l
 
 ## See Also
 
-- [AI Agents](./ai-agents.md) — what agents are and how they work
-- [Coding Harnesses](./coding-harnesses.md) — how to build effective harnesses
-- [The Agent-Harness Feedback Loop](./agent-harness-feedback-loop.md) — how to measure and optimize the loop
-- [Agentic Coding](./agentic-coding.md) — the broader agentic coding workflow
+- [AI Agents](./ai-agents) — what agents are and how they work
+- [Coding Harnesses](./coding-harnesses) — how to build effective harnesses
+- [The Agent-Harness Feedback Loop](./agent-harness-feedback-loop) — how to measure and optimize the loop
+- [Agentic Coding](./agentic-coding) — the broader agentic coding workflow

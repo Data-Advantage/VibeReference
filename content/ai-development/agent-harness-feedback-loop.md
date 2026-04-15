@@ -18,7 +18,7 @@ Agent writes fix
 [back to top]
 ```
 
-This isn't metaphorical. When you watch [Claude Code](./claude-code.md) or [Cursor](./cursor.md) work, you're watching this loop execute in real time. The agent writes a function, runs `tsc --noEmit`, reads the type error, adjusts the code, and runs again. Three loops, four loops, ten loops — until the harness passes.
+This isn't metaphorical. When you watch [Claude Code](./claude-code) or [Cursor](./cursor) work, you're watching this loop execute in real time. The agent writes a function, runs `tsc --noEmit`, reads the type error, adjusts the code, and runs again. Three loops, four loops, ten loops — until the harness passes.
 
 ## Why the Loop is the Unit That Matters
 
@@ -44,11 +44,11 @@ After making changes: npm run harness:fast
 Before marking complete: npm run harness
 ```
 
-Claude Code reads this file, executes the specified commands after each change, reads the output, and continues iterating. With [Claude Code hooks](./claude-code-hooks.md), you can make the loop fully automatic — hooks fire harness checks on every file save without needing explicit model instructions.
+Claude Code reads this file, executes the specified commands after each change, reads the output, and continues iterating. With [Claude Code hooks](./claude-code-hooks), you can make the loop fully automatic — hooks fire harness checks on every file save without needing explicit model instructions.
 
 ### Cursor Agent
 
-[Cursor](./cursor.md) implements the loop inside its agentic task execution. When you run a Cursor Agent task, it automatically runs your configured lint/test commands and incorporates the output into its next action. Cursor's tight IDE integration means it can also see inline errors as the agent types, creating a sub-loop that runs even faster than explicit harness commands.
+[Cursor](./cursor) implements the loop inside its agentic task execution. When you run a Cursor Agent task, it automatically runs your configured lint/test commands and incorporates the output into its next action. Cursor's tight IDE integration means it can also see inline errors as the agent types, creating a sub-loop that runs even faster than explicit harness commands.
 
 ### GitHub Copilot
 
@@ -202,10 +202,10 @@ This instruction, combined with a well-tuned harness, creates a reliable agent t
 
 ## See Also
 
-- [AI Agents vs Coding Harnesses](./agents-vs-harnesses.md) — understanding the two components
-- [Building Effective Harnesses for AI Agents](./building-harnesses-for-agents.md) — how to build a good harness
-- [Coding Harnesses](./coding-harnesses.md) — harness fundamentals
-- [AI Agents](./ai-agents.md) — how agents work
-- [Claude Code](./claude-code.md) — Claude Code's loop implementation
-- [Cursor](./cursor.md) — Cursor's loop implementation
-- [Agentic Coding](./agentic-coding.md) — the full agentic development workflow
+- [AI Agents vs Coding Harnesses](./agents-vs-harnesses) — understanding the two components
+- [Building Effective Harnesses for AI Agents](./building-harnesses-for-agents) — how to build a good harness
+- [Coding Harnesses](./coding-harnesses) — harness fundamentals
+- [AI Agents](./ai-agents) — how agents work
+- [Claude Code](./claude-code) — Claude Code's loop implementation
+- [Cursor](./cursor) — Cursor's loop implementation
+- [Agentic Coding](./agentic-coding) — the full agentic development workflow
