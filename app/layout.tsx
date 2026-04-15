@@ -73,8 +73,8 @@ export default function RootLayout({
               </Link>
               <nav aria-label="Main navigation" className="hidden md:flex items-center gap-1 overflow-hidden">
                 <ul className="flex items-center gap-1 list-none m-0 p-0">
-                  {CATEGORIES.slice(0, 6).map((c) => (
-                    <li key={c.slug}>
+                  {CATEGORIES.map((c, i) => (
+                    <li key={c.slug} className={i >= 6 ? "hidden xl:block" : undefined}>
                       <Link
                         href={`/${c.slug}`}
                         className="text-sm text-gray-500 hover:text-gray-900 px-2.5 py-1.5 rounded-md hover:bg-gray-100 transition-colors whitespace-nowrap"
@@ -83,7 +83,7 @@ export default function RootLayout({
                       </Link>
                     </li>
                   ))}
-                  <li>
+                  <li className="xl:hidden">
                     <MoreDropdown categories={CATEGORIES.slice(6)} />
                   </li>
                 </ul>
