@@ -72,7 +72,7 @@ function DeleteConfirmation() {
 
 ## Integration with shadcn/ui
 
-In VibeReference, we use [shadcn/ui](shadcn.md), which builds upon Radix primitives by adding Tailwind styling. This gives us the best of both worlds:
+In VibeReference, we use [shadcn/ui](shadcn), which builds upon Radix primitives by adding Tailwind styling. This gives us the best of both worlds:
 
 - Radix's robust accessibility and functionality
 - Beautiful, consistent styling with Tailwind

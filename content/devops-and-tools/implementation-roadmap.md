@@ -3,37 +3,37 @@
 > For each phase, refer to the detailed source guides referenced below for specific implementation patterns and best practices.
 
 ### Phase 1: Project Setup & Supabase Integration
-1. Create Next.js 15 project with TypeScript, App Router, and Tailwind CSS (refer to [config-files.md](config-files.md))
+1. Create Next.js 15 project with TypeScript, App Router, and Tailwind CSS (refer to [config-files](config-files))
 2. Install Supabase, shadcn/ui, Lucide icons
-3. Set up minimal project structure following [project-structure.md](project-structure.md)
-4. Create Supabase project with Vercel integration (see [integration-details.md](integration-details.md))
+3. Set up minimal project structure following [project-structure](project-structure)
+4. Create Supabase project with Vercel integration (see [integration-details](integration-details))
 5. Configure environment variables for both services
 
 ### Phase 2: Authentication Framework
-1. Set up Supabase Auth with email/password authentication (follow [auth-implementation.md](auth-implementation.md)) 
-2. Create auth middleware for protected routes as outlined in [project-structure.md](project-structure.md)
+1. Set up Supabase Auth with email/password authentication (follow [auth-implementation](auth-implementation)) 
+2. Create auth middleware for protected routes as outlined in [project-structure](project-structure)
 3. Implement essential auth utilities in lib/supabase/client.ts and server.ts
-4. Build minimal login/signup components with email/password authentication using shadcn/ui blocks per [ui-components.md](ui-components.md)
-5. Add code stubs for Google OAuth (to be implemented later following [login-with-google](login-with-google.md))
+4. Build minimal login/signup components with email/password authentication using shadcn/ui blocks per [ui-components](ui-components)
+5. Add code stubs for Google OAuth (to be implemented later following [login-with-google](login-with-google))
 6. Create auth provider component for global state
 7. Implement protected route redirection logic
 
 ### Phase 3: Minimal Database Schema
-1. Design core tables (users, subscriptions, products) using patterns from [database-patterns.md](database-patterns.md)
+1. Design core tables (users, subscriptions, products) using patterns from [database-patterns](database-patterns)
 2. Set up Row Level Security policies as described in the database guide
-3. Generate TypeScript types for database (see [typescript-patterns.md](typescript-patterns.md))
+3. Generate TypeScript types for database (see [typescript-patterns](typescript-patterns))
 4. Create database triggers for new user signup
 5. Implement essential data fetching utilities
 
 ### Phase 4: Stripe Integration
 1. Set up Stripe account and test products
-2. Install Stripe libraries and configure API keys (refer to [integration-details.md](integration-details.md))
+2. Install Stripe libraries and configure API keys (refer to [integration-details](integration-details))
 3. Create webhook endpoint for Stripe events at app/api/webhooks/stripe/route.ts
 4. Implement subscription status tracking in database
 5. Build checkout session creation logic
 
 ### Phase 5: Core UI Components
-1. Create minimal layout components (header, navigation) using [ui-components.md](ui-components.md) as reference
+1. Create minimal layout components (header, navigation) using [ui-components](ui-components) as reference
 2. Build dashboard shell with authenticated user display
 3. Implement subscription status indicator
 4. Create payment component with Stripe Checkout redirect
@@ -56,7 +56,7 @@
 
 ### Phase 8: Quality Assurance
 1. Test all critical paths (auth, payment, navigation)
-2. Verify mobile responsiveness according to [accessibility-standards.md](accessibility-standards.md)
+2. Verify mobile responsiveness according to [accessibility-standards](accessibility-standards)
 3. Ensure Supabase RLS policies are working correctly
 4. Confirm Stripe webhook processing
 5. Check environment variable configuration

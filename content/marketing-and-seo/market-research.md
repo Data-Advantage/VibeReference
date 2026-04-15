@@ -52,4 +52,4 @@ Your deliverable: a markdown file (`market-brief.md`) with:
 
 ## Related Topics
 
-See [Competitor Analysis](competitor-analysis.md), [ICP Definition](ideal-customer-profile.md), and [Positioning Statement](positioning-statement.md) to build on your market brief.
+See [Competitor Analysis](competitor-analysis), [ICP Definition](ideal-customer-profile), and [Positioning Statement](positioning-statement) to build on your market brief.

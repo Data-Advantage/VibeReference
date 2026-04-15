@@ -96,4 +96,4 @@ One markdown file: `brand-voice.md` containing:
 ## Resources
 
 - [FastWrite](https://fastwrite.ai) — AI content generation with brand voice configuration
-- [StoryBrand Framework](storybrand.md) — Narrative structure that complements voice development
+- [StoryBrand Framework](storybrand) — Narrative structure that complements voice development
