@@ -215,8 +215,9 @@ Most apps land on relational database + optional vector search. Knowledge graphs
 
 This article gave you the decision framework. The next articles in this series get hands-on:
 
-- **Article 3: Add Memory in 30 Minutes** — A practical tutorial using Mem0 with your existing stack
-- **Article 4: Memory at Scale** — When to move from simple storage to vector databases and knowledge graphs
+- **[The Best AI Memory Systems for Solo Founders (2026 Comparison)](/backend-and-data/ai-memory-systems-comparison)** — Head-to-head on Mem0, Zep, Cloudflare, LangGraph, and Letta with real pricing
+- **[Build AI Memory with Convex — No New Vendors](/backend-and-data/convex-ai-memory-tutorial)** — A hands-on tutorial for adding memory inside your existing Convex deployment
+- **[Memory Patterns That Make AI Apps Feel Magical](/guides/ai-memory-ux-patterns)** — The six UX patterns that separate demo-quality AI apps from the ones users pay for
 
 Start simple. Use your existing database. Add complexity only when your users need it — not because the technology is cool. The best memory architecture is the one that makes your users feel understood without making your infrastructure unmanageable.
 

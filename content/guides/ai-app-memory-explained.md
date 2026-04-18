@@ -153,8 +153,9 @@ This is why apps like ChatGPT, Claude, and Cursor invest heavily in memory. User
 
 This article covered what memory is and why it matters. The rest of this series gets practical:
 
-- **Article 2: The Memory Stack** — How to choose between conversation history, user facts, and semantic recall for your specific app
-- **Article 3: Add Memory in 30 Minutes** — A hands-on tutorial using Mem0 with your existing stack
-- **Article 4: Memory at Scale** — When to move from simple fact storage to vector databases and knowledge graphs
+- **[How to Think About Memory for Your AI App](/guides/ai-memory-architecture-guide)** — A decision framework for choosing the right memory architecture
+- **[The Best AI Memory Systems for Solo Founders (2026 Comparison)](/backend-and-data/ai-memory-systems-comparison)** — Honest head-to-head on Mem0, Zep, Cloudflare, LangGraph, and Letta
+- **[Build AI Memory with Convex — No New Vendors](/backend-and-data/convex-ai-memory-tutorial)** — A hands-on tutorial for adding memory inside your existing Convex deployment
+- **[Memory Patterns That Make AI Apps Feel Magical](/guides/ai-memory-ux-patterns)** — The six UX patterns that turn stored facts into perceived intelligence
 
 Your AI app doesn't need to forget. The tools to fix it are open-source, well-documented, and surprisingly easy to integrate. The question is which approach fits your use case — and that's what we'll cover next.
