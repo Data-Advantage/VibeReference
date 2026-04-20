@@ -71,6 +71,18 @@ export default async function CategoryPage({
         </div>
       </section>
 
+      {/* Intro prose */}
+      <section className="px-6 lg:px-8 pt-10">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">
+            What this section covers
+          </h2>
+          <p className="text-gray-700 text-base leading-relaxed">
+            {category.intro}
+          </p>
+        </div>
+      </section>
+
       {/* Topic grid */}
       <section className="px-6 lg:px-8 py-10">
         <div className="max-w-7xl mx-auto">
