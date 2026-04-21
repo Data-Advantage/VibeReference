@@ -248,3 +248,11 @@ Track these metrics to evaluate whether your delegation system is working:
 - **Delegate research with a prompt, not a topic.** Specific deliverables beat vague directions.
 - **Sequence subtasks, do not flood.** Three to five at a time, in priority order.
 - **Include reproduction steps and file paths.** Context is the difference between a one-session fix and a multi-session investigation.
+
+## See Also
+
+- [AI Agents vs Harnesses](./agents-vs-harnesses) — the canonical 5-concept stack
+- [Designing Agent Instructions](./designing-agent-instructions) — defining each agent's role/scope so delegation lines up
+- [AI Agent Orchestration](./ai-agent-orchestration) — orchestration patterns above the delegation layer
+- [Autonomous Companies](./autonomous-companies) — what a fully agent-run org looks like in practice
+- [Claude Code](./claude-code) — the harness most agents in this delegation chain run on

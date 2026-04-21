@@ -101,11 +101,19 @@ Ralph loops can extend beyond local development into CI — an agent monitors a 
 
 ## Relationship to Other Concepts
 
-- **Coding Harnesses**: The harness is what the Ralph loop runs on each iteration — it provides the "Look" step
-- **Agentic Coding**: Ralph loops are the execution mechanism; agentic coding is the broader paradigm
-- **Test-Driven Development**: TDD provides ideal conditions for Ralph loops — clear pass/fail signals
-- **OODA Loops**: Ralph loops are a software-specific adaptation of the Observe-Orient-Decide-Act military decision cycle
+- **Harness (canonical)**: The Harness *is* the Ralph loop runtime — it's what executes Reason → Act → Look → Patch every turn. The validation tools the "Look" step invokes (type checker, linter, tests) are **Tools** in the canonical stack, not the harness itself.
+- **Coding Harnesses (legacy term)**: The narrower industry usage — test scaffolding only — fits inside "Look" as a tool the harness calls. See the rewritten [Coding Harnesses](./coding-harnesses) for how the term has been narrowed.
+- **Agentic Coding**: Ralph loops are the execution mechanism the harness runs; [agentic coding](./agentic-coding) is the broader paradigm.
+- **Test-Driven Development**: TDD provides ideal conditions for Ralph loops — clear pass/fail signals.
+- **OODA Loops**: Ralph loops are a software-specific adaptation of the Observe-Orient-Decide-Act decision cycle.
 
 ## How It's Used in VibeReference
 
-Every coding task in the VibeReference workflow relies on Ralph loops. When you ask an AI agent to build a feature (Day 3) or fix a bug, the agent enters a Ralph loop — writing code, running the project's harness (`tsc --noEmit && next build`), reading errors, and fixing them. The quality of your coding harness directly determines how effective these loops are. A well-configured project with fast type checking and clear error messages enables agents to converge on working code in just a few iterations.
+Every coding task in the VibeReference workflow relies on Ralph loops. When you ask an AI agent to build a feature (Day 3) or fix a bug, the agent (a configured Claude Code or Cursor harness) enters a Ralph loop — writing code, running the project's validation suite (`tsc --noEmit && next build`), reading errors, and fixing them. The quality of those validation tools directly determines how effective these loops are. A well-configured project with fast type checking and clear error messages lets the harness converge on working code in just a few iterations.
+
+## See Also
+
+- [AI Agents vs Harnesses](./agents-vs-harnesses) — the canonical 5-concept stack
+- [The Harness Orchestration Loop](./agent-harness-feedback-loop) — the same loop, framed from the harness perspective
+- [Coding Harnesses](./coding-harnesses) — validation tooling that powers the "Look" step
+- [Agentic Coding](./agentic-coding) — the broader paradigm Ralph loops execute within

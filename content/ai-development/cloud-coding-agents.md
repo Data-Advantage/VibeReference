@@ -106,3 +106,11 @@ For Claude specifically, see the existing comparison: [Claude Code vs Cursor](/a
 - Jules is excellent for low-cost task automation if Gmail-only access is not a blocker.
 
 The tool to choose is the one that removes your biggest bottleneck this month.
+
+## See Also
+
+- [AI Agents vs Harnesses](./agents-vs-harnesses) — the canonical 5-concept stack (these products are cloud harnesses)
+- [Claude Code](./claude-code) — the local harness that also runs in the cloud
+- [Cursor](./cursor) and [Cursor Cloud Agents](./cursor-cloud-agents) — IDE harness with cloud-hosted sessions
+- [Designing Agent Instructions](./designing-agent-instructions) — what turns each cloud harness into a useful agent
+- [Multi-Agent Task Delegation](./multi-agent-task-delegation) — coordinating multiple cloud agents in flight
