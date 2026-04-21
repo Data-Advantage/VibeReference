@@ -4,6 +4,8 @@ Context engineering is the practice of designing and managing the full informati
 
 If prompt engineering is about asking the right question, context engineering is about building the right room for the conversation to happen in.
 
+> **Where this fits in the [5-concept stack](./agents-vs-harnesses).** Context is one of the **three primitives** in the canonical stack (alongside **Model** and **Tools**). The **Harness** assembles, prunes, and refreshes Context every turn; the **Agent** layer (role, mission, scope) gets baked into Context too. This article is the deep dive on the Context primitive — what it contains, how harnesses manage it, and how to engineer it well.
+
 ## Context Engineering vs Prompt Engineering
 
 | Aspect | Prompt Engineering | Context Engineering |
@@ -287,6 +289,14 @@ When the first-attempt success rate is high and corrections are rare, your conte
 - [Anthropic: Claude Code Best Practices](https://docs.anthropic.com/en/docs/claude-code/overview)
 - [Anthropic: Prompt Engineering Guide](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview)
 - [Cursor: Rules and Configuration](https://docs.cursor.com/context/rules)
+
+## See Also
+
+- [AI Agents vs Harnesses](./agents-vs-harnesses) — the canonical 5-concept stack (Context is one primitive)
+- [Designing Agent Instructions](./designing-agent-instructions) — encoding role/mission/scope in Context
+- [Building Harnesses for AI Agents](./building-harnesses-for-agents) — how the harness manages Context every turn
+- [AI Agent Memory Systems](./ai-agent-memory-systems) — persistent memory beyond the context window
+- [MCP (Model Context Protocol)](./mcp-model-context-protocol) — standardized tool exposure that ends up in Context
 
 ## How It's Used in VibeReference
 

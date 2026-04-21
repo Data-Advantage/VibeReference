@@ -6,6 +6,8 @@ If you are building solo, the right question is not "which one is smartest?" The
 
 This guide compares the major cloud coding agents in April 2026, then points you to deep-dive articles for each platform.
 
+> **A terminology note.** In the [5-concept stack](./agents-vs-harnesses), the products below are **Harnesses** — cloud runtimes that wire Model + Tools + Context into an autonomous loop. What the industry (and this article's title) call "cloud agents" are closer to cloud-hosted harness sessions pre-configured for generic coding work. A true **Agent** in the canonical sense adds a specific role, mission, and scope — which you layer on via instructions, rules files, or task assignments. We use "agent" in both senses below because that matches how the products describe themselves; when precision matters, the harness-vs-agent distinction is in [AI Agents vs Harnesses](./agents-vs-harnesses).
+
 ## The Contenders
 
 | Agent | Maker | Cloud interface | Core models | Launch |

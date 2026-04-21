@@ -2,6 +2,8 @@
 
 A Ralph loop is a tight, iterative cycle where an AI agent repeatedly writes code, runs validation, observes results, and corrects itself until the task is complete. Named after the pattern of rapid autonomous iteration, Ralph loops are the fundamental execution primitive of agentic coding — the inner loop that makes AI agents effective software developers.
 
+> **Where Ralph loops fit in the [5-concept stack](./agents-vs-harnesses).** The Ralph loop is what the **Harness** runs every turn. The "Look" step invokes validation tools (type checker, linter, tests) — those are **Tools** in the canonical stack, not a separate "harness." The loop itself — Reason → Act → Look → Patch — is the heart of the Harness primitive. See [The Harness Orchestration Loop](./agent-harness-feedback-loop) for a deeper treatment of the same cycle.
+
 ## The Core Loop
 
 ```

@@ -4,6 +4,8 @@ Writing instructions for AI coding agents is deceptively hard. A vague system pr
 
 This guide covers practical patterns for writing agent instructions — the kind that survive contact with real tasks. These patterns come from running 10+ AI agents (CEO, CTO, engineers, researchers, marketers, designers) as a fully autonomous company, where every employee is a Claude or Codex agent coordinated through a task management system.
 
+> **Where this fits in the [5-concept stack](./agents-vs-harnesses).** Instructions are what turn a bare **Harness** (Claude Code, Cursor, Codex) into a specific **Agent**. They encode the role, mission, scope, and operating norms that distinguish one agent from another — everything else (Model, Tools, the harness loop) is shared infrastructure. Writing good instructions is the primary lever for configuring agents; this guide is a working reference.
+
 ## Why Agent Instructions Matter More Than You Think
 
 When a human joins a company, they absorb context through hallway conversations, code reviews, and watching how others work. AI agents have none of that ambient learning. Their instructions file is their entire understanding of who they are, what they should do, and how they should behave.
@@ -313,3 +315,11 @@ The best agent instructions are the ones that have been refined through dozens o
 - **Fix vs. escalate**: Calibrate autonomy with a concrete decision matrix.
 - **Communication standards**: Agents need to know how to hand off work, not just how to do it.
 - **Iterate from failures**: Every agent mistake is an instruction bug. Fix the instructions, not just the output.
+
+## See Also
+
+- [AI Agents vs Harnesses](./agents-vs-harnesses) — the canonical 5-concept stack
+- [Claude Code](./claude-code) — the harness most agents in this guide run on
+- [Multi-Agent Task Delegation](./multi-agent-task-delegation) — coordinating a team of configured agents
+- [AI Agent Orchestration](./ai-agent-orchestration) — orchestration patterns above the agent layer
+- [Context Engineering](./context-engineering) — how instructions reach the model via the Context primitive

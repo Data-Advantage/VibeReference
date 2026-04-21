@@ -4,6 +4,8 @@ Agent orchestration is the practice of coordinating multiple AI agents to comple
 
 This is the difference between asking one person to do everything and building a team.
 
+> **Where this fits in the [5-concept stack](./agents-vs-harnesses).** Orchestration coordinates **Agents** — each one a configured **Harness** with its own role, mission, and scope. What the orchestration layer moves between workers isn't bare model calls; it's handoffs between specialized agents, each with their own Model/Tools/Context setup. A single coordinator agent (often with its own harness) delegates to other agents and routes their results. Distinguishing the agent layer from the harness layer is what keeps these diagrams honest.
+
 ## Why Orchestrate
 
 A single agent with a long prompt and many tools hits limits quickly:
@@ -218,3 +220,11 @@ Start with a single agent. Add orchestration when you hit specific limits — co
 ## How It's Used in VibeReference
 
 Agent orchestration is the architecture layer that enables complex AI workflows in SaaS applications. Whether you're building an AI-powered customer support system (router + specialist agents), a content pipeline (research → write → edit → publish), or an automated development workflow (plan → code → test → deploy), orchestration patterns determine how agents collaborate. Understanding these patterns lets you design systems that scale beyond what a single agent can handle.
+
+## See Also
+
+- [AI Agents vs Harnesses](./agents-vs-harnesses) — the canonical 5-concept stack
+- [Multi-Agent Task Delegation](./multi-agent-task-delegation) — delegation patterns between agents
+- [Designing Agent Instructions](./designing-agent-instructions) — configuring each agent in an orchestrated system
+- [Claude Managed Agents](./claude-managed-agents) — Anthropic's API for coordinator/sub-agent orchestration
+- [Building Harnesses for AI Agents](./building-harnesses-for-agents) — the harness layer underneath every orchestrated agent

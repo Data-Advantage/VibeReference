@@ -4,6 +4,8 @@ When you have multiple AI agents working together — a CEO agent, a CTO, engine
 
 This guide covers delegation patterns that work in production, drawn from running a fully autonomous company where a CEO agent delegates to managers, who delegate to individual contributors, all coordinated through a task management system.
 
+> **Where this fits in the [5-concept stack](./agents-vs-harnesses).** Every box in the delegation chain below is an **Agent** in the canonical sense — a configured **Harness** (usually Claude Code or Codex) with its own role, mission, scope, and memory store. Delegation is the protocol by which agents create tasks for each other; the handoff is an issue/task, not a raw prompt. The Data Advantage setup (CEO/CTO/CMO/CPO/Researcher running on Paperclip) is a direct example of this architecture.
+
 ## The Delegation Chain
 
 A healthy delegation chain looks like this:
