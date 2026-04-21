@@ -1,14 +1,16 @@
 # Claude Code vs Cursor
 
-Claude Code and Cursor are the two dominant AI coding tools in 2026, but they solve different problems. Claude Code is a terminal-native autonomous agent that excels at complex, multi-file tasks. Cursor is an AI-native IDE built for fast, flow-state editing with inline suggestions. Both cost $20/month at the Pro tier. Choosing between them — or using both — depends on how you work and what you're building.
+Claude Code and Cursor are the two dominant AI coding **harnesses** in 2026, but they solve different problems. Claude Code is a terminal-native harness that excels at complex, autonomous, multi-file tasks. Cursor is an IDE-embedded harness built for fast, flow-state editing with inline suggestions. Both cost $20/month at the Pro tier. Choosing between them — or using both — depends on how you work and what you're building.
+
+> **Both are harnesses, not agents.** In the [5-concept stack](./agents-vs-harnesses) (Model, Tools, Context, Harness, Agent), Claude Code and Cursor are both **Harnesses**: runtimes that wire a model + tools + context into an autonomous loop. The difference is form factor — Claude Code is a bare-terminal harness; Cursor is an IDE-embedded harness. The **Agent** layer is what you configure on top: a Claude Code session pointed at a specific repo with a specific `CLAUDE.md` is an agent; a Cursor Background Agent given a specific task is an agent. This article compares the two harnesses; the agent layer is identical in concept across both.
 
 ## The Core Difference
 
-Claude Code runs in your terminal. You describe what you want, and it autonomously edits files, runs commands, debugs errors, and iterates across your entire codebase. You don't need to point it at specific files or manually accept each change.
+Claude Code runs in your terminal. You describe what you want, and the harness autonomously edits files, runs commands, debugs errors, and iterates across your entire codebase. You don't need to point it at specific files or manually accept each change.
 
-Cursor is a VS Code fork with AI woven into every interaction. You get Tab autocomplete that predicts your next edit, inline chat for quick questions, and a Composer mode for larger multi-file changes — all inside a visual editor with diffs you can review line by line.
+Cursor is a VS Code fork with the harness woven into every interaction. You get Tab autocomplete that predicts your next edit, inline chat for quick questions, and a Composer mode for larger multi-file changes — all inside a visual editor with diffs you can review line by line.
 
-Think of it this way: Claude Code is an autonomous colleague who takes your instructions and delivers finished work. Cursor is a co-pilot sitting next to you, suggesting the next line as you type.
+Think of it this way: a Claude Code agent is an autonomous colleague who takes your instructions and delivers finished work. A Cursor session in tab-completion mode is a co-pilot sitting next to you, suggesting the next line as you type.
 
 ## Feature Comparison
 
@@ -101,3 +103,11 @@ At $20/month each, either tool pays for itself within the first hour of saved de
 | Want the highest benchmark accuracy | Claude Code |
 | Budget is tight, need free tier | Cursor (more generous free tier) |
 | Using both for maximum leverage | Claude Code + Cursor |
+
+## See Also
+
+- [AI Agents vs Harnesses](./agents-vs-harnesses) — the canonical 5-concept stack
+- [Claude Code](./claude-code) — terminal harness in depth
+- [Cursor](./cursor) — IDE harness in depth
+- [Designing Agent Instructions](./designing-agent-instructions) — configuring either harness into a specific agent
+- [Cloud Coding Agents](./cloud-coding-agents) — cloud harnesses beyond local Claude Code and Cursor

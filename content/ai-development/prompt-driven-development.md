@@ -2,6 +2,8 @@
 
 Prompt-driven development (PDD) is a software methodology where natural language prompts replace manual coding as the primary means of building software. Instead of writing code directly, developers craft prompts that describe desired behavior, architecture, and constraints — then AI generates the implementation. The prompt becomes the source of truth, much like a specification document that can be executed.
 
+> *In the 5-concept stack, PDD lives mostly at the **Context** layer — the prompt is the specification that enters the model's context window on each turn. The harness and agent layers determine whether the generated code actually runs, tests, and iterates. See [AI Agents vs Harnesses](./agents-vs-harnesses) and [Context Engineering](./context-engineering).*
+
 ## Core Principles
 
 - **Prompts as specs**: Your prompt is your specification. A well-written prompt produces working software on the first try.

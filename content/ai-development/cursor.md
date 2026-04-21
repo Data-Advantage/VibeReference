@@ -1,8 +1,10 @@
 # Cursor
 
-Cursor is an AI-first code editor built as a fork of VS Code — it looks and works like VS Code (same extensions, themes, keybindings) but rebuilds the editing experience around AI. Instead of bolting AI onto an existing editor through plugins, Cursor weaves AI into every interaction: autocomplete that predicts your next action across multiple lines, a composer that edits multiple files from natural language instructions, and autonomous agents that handle complex tasks while you focus on design decisions.
+Cursor is an AI-first code editor built as a fork of VS Code — it looks and works like VS Code (same extensions, themes, keybindings) but rebuilds the editing experience around AI. Instead of bolting AI onto an existing editor through plugins, Cursor wires a swappable model, a curated tool set, and an indexed codebase context window into the editor itself: autocomplete that predicts across files, a composer that edits multiple files from natural language, and an Agent mode that drives autonomous multi-file tasks.
 
 Built by Anysphere, Cursor has become the most widely adopted AI code editor, with over 80% developer awareness and 33% active usage as of 2025 surveys. It's the primary alternative to Claude Code for developers who prefer a visual editor over a terminal-first workflow.
+
+> **Where Cursor sits in the [5-concept stack](./agents-vs-harnesses).** Cursor is a **Harness**: it wires a selectable **Model** (Claude, GPT, Gemini), a built-in tool set (file edits, terminal, codebase index, MCP), and a managed **Context** window (indexed codebase, open files, chat history) into an editor-native autonomous loop. "Cursor Agent" and "Background Agents" are configured Cursor sessions pointed at specific tasks — i.e., **Agents** in the canonical sense. The IDE is the harness; each session you run is an agent.
 
 ## Why Developers Use Cursor
 
@@ -167,3 +169,11 @@ In Composer, switch to Agent mode for autonomous multi-file tasks. Describe what
 | Team code reviews | Cursor's built-in review features |
 
 Cursor is the best choice when you want AI deeply integrated into a visual editor. For terminal-first workflows and automation, Claude Code complements it well.
+
+## See Also
+
+- [AI Agents vs Harnesses](./agents-vs-harnesses) — the canonical 5-concept stack
+- [Claude Code](./claude-code) — terminal-first harness alternative
+- [Claude Code vs Cursor](./claude-code-vs-cursor) — comparing two harnesses
+- [Cursor Cloud Agents](./cursor-cloud-agents) — Cursor's cloud harness for delegated tasks
+- [Designing Agent Instructions](./designing-agent-instructions) — configuring Cursor into a specific agent

@@ -4,6 +4,8 @@ Augment Code Remote Agents take a different approach from most cloud coding tool
 
 For solo founders who are deeply technical and care about runtime control, this can be a serious advantage.
 
+> *In the 5-concept stack, Augment Code Remote Agents is a **Harness** — a cloud runtime with unusually open control over the environment where the Model, Tools, and Context run (SSH, custom scripts, isolated boxes). An Augment session scoped to a specific task is the **Agent**. See [AI Agents vs Harnesses](./agents-vs-harnesses) for the full stack.*
+
 ## What Augment Is Actually Good At
 
 Augment shines when your tasks are not just "write feature code," but also:

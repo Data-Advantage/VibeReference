@@ -4,6 +4,8 @@ GitHub Copilot is Microsoft's AI coding assistant — the most widely adopted AI
 
 Copilot works inside your existing editor (VS Code, JetBrains, Visual Studio) and connects directly to GitHub's pull request, issue, and actions workflows. For teams that center their development around GitHub, Copilot provides the tightest integration of any AI coding tool.
 
+> *In the 5-concept stack, Copilot (autocomplete, Chat, Workspace, Cloud Agent) is a family of **Harnesses** — each wires a Model, Tools, and Context into a different kind of agentic loop. When a Copilot Cloud Agent is pointed at a specific issue with a scoped role, that configured instance is an **Agent**. See [AI Agents vs Harnesses](./agents-vs-harnesses) for the full stack.*
+
 ## Why Developers Use Copilot
 
 - **Best-in-class autocomplete** — inline code completions that understand your project context and suggest multi-line blocks as you type

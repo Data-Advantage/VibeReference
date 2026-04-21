@@ -4,6 +4,8 @@ Claude Code hooks are automated actions that run at specific points during a Cla
 
 Hooks turn Claude Code from a conversational tool into a programmable development environment with guardrails.
 
+> *In the 5-concept stack, hooks configure the **Harness** (Claude Code). They do not change the Model or the prompt directly — they wire deterministic automation into the harness's agentic loop, typically enforcing rules that belong at the runtime layer rather than in Context. See [AI Agents vs Harnesses](./agents-vs-harnesses) for the full stack.*
+
 ## Why Use Hooks
 
 - **Enforce quality automatically**: Run linters, formatters, or tests after every file write

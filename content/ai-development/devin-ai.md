@@ -4,6 +4,8 @@ Devin remains the benchmark for "delegate a full software task lifecycle to an a
 
 For solo founders, Devin can feel like adding a junior-to-mid engineer on demand. But this leverage comes with real cost and review discipline requirements.
 
+> *In the 5-concept stack, Devin is a **Harness** — Cognition's proprietary runtime that wires Model + Tools + Context into an autonomous loop. It ships pre-configured with a role and mission ("autonomous software engineer"), which is why the industry (and this article's title) call it an "agent." See [AI Agents vs Harnesses](./agents-vs-harnesses) for the stricter distinction.*
+
 ## What Devin Does Better Than Most Competitors
 
 Many cloud coding agents still feel like task assistants. Devin is designed to operate as an autonomous executor.

@@ -2,6 +2,8 @@
 
 Vibe coding is a software development approach where the developer describes what they want in natural language and lets AI generate the implementation. Coined by Andrej Karpathy in early 2025, the term captures a style of development where you "give in to the vibes" — focusing on intent and feel rather than syntax and architecture. You describe the vibe of what you want, and the AI figures out the rest.
 
+> *In the 5-concept stack, vibe coding is a practice that lives mostly at the **Context** layer (how you describe intent to the harness) and depends on the Model's ability to turn that intent into working code. The harness and agent layers decide whether the result actually runs. See [AI Agents vs Harnesses](./agents-vs-harnesses) for the full stack.*
+
 ## Core Philosophy
 
 - **Intent over implementation**: Describe what the software should do, not how

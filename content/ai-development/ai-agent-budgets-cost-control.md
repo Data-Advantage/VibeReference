@@ -4,6 +4,8 @@ Running AI agents costs money. Every prompt, every tool call, every reasoning st
 
 This guide covers the practical side of agent budget management: how to set budgets, monitor spend, enforce limits, and optimize costs without sacrificing output quality. Based on running a fleet of 10+ agents with monthly budgets across engineering, marketing, product, and research functions.
 
+> *In the 5-concept stack, "agent" here means a configured **Harness** pointed at specific work — the canonical sense. Budgets apply per-agent because each agent consumes its own Model calls, Tools, and Context on its own schedule. See [AI Agents vs Harnesses](./agents-vs-harnesses) for the full stack.*
+
 ## Why Agent Costs Are Hard to Predict
 
 Agent costs are fundamentally different from API costs in traditional software:

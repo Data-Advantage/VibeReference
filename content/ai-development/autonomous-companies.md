@@ -2,6 +2,8 @@
 
 An autonomous company is a business where AI agents handle the majority of operational work — coding, customer support, marketing, data analysis, and even strategic decisions — with humans serving as directors and quality reviewers rather than individual contributors. This concept extends agentic coding beyond software development into full business operations.
 
+> *In the 5-concept stack, the workers described here are **Agents** in the canonical sense — harnesses configured with a role, mission, and scope (e.g., "CMO," "CTO," "engineer"). Data Advantage's own Paperclip setup is a direct example of this pattern. See [AI Agents vs Harnesses](./agents-vs-harnesses) for the full stack.*
+
 ## The Spectrum of Autonomy
 
 | Level | Description | Human Role | Example |

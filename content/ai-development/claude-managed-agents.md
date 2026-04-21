@@ -4,6 +4,8 @@ Claude Managed Agents is Anthropic's system for orchestrating multiple AI agents
 
 This is what makes complex AI workflows actually tractable for solo founders. One agent handles security review while another analyzes test coverage. A research agent gathers requirements while an implementation agent starts scaffolding. Tasks that would take hours in a single-agent loop finish in minutes with managed agents.
 
+> *In the 5-concept stack, "Managed Agents" is Anthropic's API-level term for sub-agents spawned by a parent agent. Each sub-agent is a configured **Harness** invocation with its own role and scope — which matches the canonical **Agent** definition used across VibeReference. See [AI Agents vs Harnesses](./agents-vs-harnesses) for the full stack.*
+
 ## What Are Claude Managed Agents
 
 A managed agent system has two layers:

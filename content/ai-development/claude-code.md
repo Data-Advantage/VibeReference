@@ -1,8 +1,10 @@
 # Claude Code
 
-Claude Code is Anthropic's agentic coding tool — a command-line AI assistant that reads your codebase, edits files, runs commands, manages git, and iterates on errors autonomously. Unlike chat-based AI assistants that suggest code for you to copy-paste, Claude Code operates directly in your development environment: it creates files, executes tests, debugs failures, and commits changes without you switching between tabs or terminals.
+Claude Code is Anthropic's agentic coding **harness** — a command-line runtime that wires a Claude model, a curated tool set, and a managed context window into an autonomous loop. It reads your codebase, edits files, runs commands, manages git, and iterates on errors without you switching between tabs or terminals.
 
-It ships as a CLI, a VS Code extension, a JetBrains plugin, a desktop app (Claude Code with CoWork), and a web interface at claude.ai/code. All share the same underlying capabilities — an AI agent that understands your full project context and takes action on it.
+It ships as a CLI, a VS Code extension, a JetBrains plugin, a desktop app (Claude Code with CoWork), and a web interface at claude.ai/code. All share the same underlying harness — same loop, same tools, different surfaces.
+
+> **Where Claude Code sits in the [5-concept stack](./agents-vs-harnesses).** Claude Code is the **Harness**: the runtime that wires Claude (the **Model**) and a fixed tool set (Read, Write, Edit, Bash, Glob, Grep, Agent, MCP) with a managed **Context** window (CLAUDE.md, conversation history, file reads, tool results). When you point a Claude Code session at a specific repo with a specific `CLAUDE.md` and role instructions, you've configured an **Agent**. The binary is the harness; each configured session is an agent. This article is about the harness.
 
 ## Why Developers Use Claude Code
 
@@ -70,7 +72,7 @@ All of this happens without you intervening at each step.
 
 ## The Agent Tool (Sub-Agents)
 
-Claude Code can launch **sub-agents** — parallel instances that handle independent tasks simultaneously. The Agent tool spawns specialized agents for:
+Claude Code can launch **sub-agents** — parallel sub-sessions of the harness, each with its own context and toolset, configured with a different role and pointed at a sub-task. They're agents in the canonical sense: configured harness instances pointed at specific work. The Agent tool spawns specialized agents for:
 
 - **Exploration** — searching codebases for patterns, finding files, answering architectural questions
 - **Planning** — designing implementation strategies before writing code
@@ -303,3 +305,12 @@ Claude Code reads your project, makes the changes, runs the tests, and iterates 
 | CI/CD automation | Claude Code headless + GitHub Actions |
 
 Claude Code excels at tasks that require understanding your full codebase and taking autonomous action. For inline autocomplete or visual design tools, other options may complement it better.
+
+## See Also
+
+- [AI Agents vs Harnesses](./agents-vs-harnesses) — the canonical 5-concept stack
+- [Cursor](./cursor) — IDE-embedded harness alternative to Claude Code
+- [Claude Code vs Cursor](./claude-code-vs-cursor) — comparing two harnesses
+- [Designing Agent Instructions](./designing-agent-instructions) — configuring Claude Code into a specific agent
+- [Claude Code Hooks](./claude-code-hooks) — programmable harness guardrails
+- [The Harness Orchestration Loop](./agent-harness-feedback-loop) — the loop the harness runs every turn

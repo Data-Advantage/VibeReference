@@ -4,6 +4,8 @@ OpenAI Codex Cloud is one of the easiest ways to start using asynchronous cloud 
 
 The tradeoff is straightforward: Codex has strong cloud fundamentals, but its cloud task support and integrations are still uneven compared with the most mature platforms.
 
+> *In the 5-concept stack, Codex Cloud is a **Harness** — OpenAI's cloud runtime that wires a Model (GPT-5), Tools, and Context into an agentic loop. A Codex Cloud task with a scoped goal is a configured **Agent**. See [AI Agents vs Harnesses](./agents-vs-harnesses) for the full stack.*
+
 ## What Codex Cloud Is Best At
 
 Codex Cloud is strongest when you want a practical cloud worker that can run tasks, create pull requests, and stay inside a clean Git workflow without lots of orchestration overhead.

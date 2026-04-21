@@ -4,6 +4,8 @@ GitHub Copilot Cloud Agent is not "Copilot autocomplete in the browser." It is a
 
 For solo founders, the headline is simple: this is the cheapest serious entry point with strong production workflow integration.
 
+> *In the 5-concept stack, Copilot Cloud Agent is a cloud **Harness** — GitHub's runtime that wires a Model, Tools, and Context into an autonomous loop triggered by issues or PRs. A Cloud Agent instance pointed at a specific assignment is a configured **Agent**. See [AI Agents vs Harnesses](./agents-vs-harnesses) for the full stack.*
+
 ## What Makes Copilot Cloud Agent Different
 
 Most cloud coding agents try to become your entire engineering operating system. Copilot Cloud Agent does something narrower and often more useful: it plugs directly into GitHub issues, branches, and pull requests with minimal process change.

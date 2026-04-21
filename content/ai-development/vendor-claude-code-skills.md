@@ -4,6 +4,8 @@ The major infrastructure vendors are publishing their own Claude Code skills, Cu
 
 This guide covers every official AI coding skill and context file published by major vendors — what it includes, where to find it, and how to install it.
 
+> *In the 5-concept stack, skills and context files configure the **Harness** (Claude Code, Cursor, etc.) and turn it into a specific **Agent** with a defined role and scope. They are pre-packaged Context. See [AI Agents vs Harnesses](./agents-vs-harnesses) for the full stack.*
+
 ## What are vendor-published skills?
 
 When you build with Claude Code, Cursor, or other AI coding tools, the AI only knows about your stack if you tell it. Configuration files fill that gap:

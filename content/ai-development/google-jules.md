@@ -4,6 +4,8 @@ Google Jules is one of the most interesting cloud coding agents for solo founder
 
 The main catch is not technical. It is account access: Jules currently targets Gmail users, with Workspace and enterprise support still limited.
 
+> *In the 5-concept stack, Jules is a **Harness** — Google's cloud runtime that wires a Model, Tools, and Context into a task-based agentic loop. A Jules task with a scoped goal is a configured **Agent**. See [AI Agents vs Harnesses](./agents-vs-harnesses) for the full stack.*
+
 ## What Jules Is Optimized For
 
 Jules feels less like "an AI pair programmer" and more like a task runner for software work:
