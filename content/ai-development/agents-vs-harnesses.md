@@ -1,99 +1,141 @@
-# AI Agents vs Harnesses: Understanding the Formula
+# AI Agents vs Harnesses: The 5-Concept Stack
 
-Every AI coding agent you've heard of — Claude Code, Cursor, Devin — is made of two things: a model and a harness. The model provides intelligence. The harness provides everything else: the tools, the loop, the memory, the guardrails, the context engine. Without a harness, a model is just a chatbot that can write code. With a good harness, it becomes an autonomous agent that ships working software.
+The words "agent" and "harness" get used interchangeably in most industry writing — people call Claude Code an agent, Cursor an agent, their test suite a harness. The result is muddled thinking about systems that have very different responsibilities. Clear vocabulary makes agentic coding tractable, so this article lays out the canonical stack that VibeReference uses throughout.
 
-The formula: **Agent = Model + Harness**
+Five concepts. Three of them are **primitives** (Model, Tools, Context). The fourth wires those primitives into an autonomous loop (Harness). The fifth configures the harness into a worker pointed at specific work (Agent).
 
-## What is the Model?
+## The Three Primitives
 
-The model is the LLM at the center of the agent — GPT, Claude, Gemini. It reasons about what to do, generates code and plans, interprets errors, and decides next steps. The model is the horse.
+Every AI coding system — no matter who built it — is built from the same three primitives.
 
-Models are powerful but unreliable in isolation. They hallucinate, lose context, can't persist state, and have no way to verify that their own output is correct. Left alone, a model will confidently produce code that doesn't work.
+### 1. Model
 
-## What is the Harness?
+The LLM doing inference. GPT, Claude, Gemini. The model is pure intelligence: a function that takes a context window of tokens in and produces tokens out. It has no state, no persistence, no tools of its own. It doesn't know what time it is. It doesn't know what you asked it five minutes ago. Each inference call is stateless.
 
-The harness is everything that turns the raw model into a reliable agent. It is the reins, the saddle, and the stable system. A harness has seven components:
+Models are the commodity layer. Providers release new ones on their own cadence, and most harnesses let you swap models without changing anything else.
 
-**1. Tools** — file system access, terminal commands, git operations, web search, test runners. Tools are how the agent interacts with the world. Without tools, the model can only generate text; with tools, it can act.
+### 2. Tools
 
-**2. Context management** — how code, documentation, conversation history, and task state are fed to the model without overwhelming its context window. This includes file chunking, semantic search over the codebase, and smart context pruning. Poor context management is the primary cause of agent drift and hallucination on large codebases.
+Discrete capabilities the model can invoke. `bash`, `read_file`, `edit_file`, `web_search`, `grep`, plus anything exposed via [MCP](./mcp-model-context-protocol). A tool call is how the model reaches outside its own inference step and does something in the world — read a file, run a command, query an API.
 
-**3. Orchestration / agent loop** — the observe → plan → act → verify → repeat cycle that drives the agent forward. The orchestrator decides when to call tools, when to check work, when to ask for clarification, and when to escalate. This loop is inside the harness — not a bridge between the harness and something else.
+Without tools, a model can only emit text. With tools, it can act.
 
-**4. Validation and feedback** — type checkers, linters, test suites, build checks, and custom scripts that tell the agent whether its output is correct. This is the component most people associate with "the harness," but it's only one of seven. A test suite alone is not a harness.
+### 3. Context
 
-**5. State persistence and memory** — storing decisions, completed steps, and learned context across iterations and sessions. Without memory, the agent starts fresh on every invocation. With it, the agent can resume complex tasks, remember project conventions, and avoid repeating mistakes.
+Everything in the model's context window on a given turn: system prompt, AGENTS.md or CLAUDE.md, conversation history, tool results, files the harness has loaded, memory snippets, scratchpad notes. Context is what the model actually "knows" at the moment it generates its next response.
 
-**6. Guardrails, prompts, and constraints** — system prompts, allowed/denied tool lists, scope limits, and safety checks that prevent the agent from making changes outside its mandate. Guardrails are what prevent an agent from "helpfully" refactoring things you didn't ask it to touch.
+Context is finite. A 200K-token window sounds large, but long sessions fill it fast, and models degrade as they approach the limit. Managing what goes into context, and what gets pruned, is one of the hardest problems in agent design. See [Context Engineering](./context-engineering) for the full treatment.
 
-**7. Workflow automation** — breaking large tasks into steps, retry logic, logging, parallelism, and handoffs between agents. Complex features require multi-step plans; the harness manages that execution.
+## 4. Harness
 
-## The Comparison
+A **harness** is the runtime that wires Model + Tools + Context into an autonomous loop. Not a test suite. Not a linter. The whole scaffolding.
 
-| Aspect | Model | Harness |
-|--------|-------|---------|
-| **What it provides** | Intelligence, reasoning, code generation | Tools, context, orchestration, validation, memory, guardrails |
-| **Is it the agent?** | No — one component | No — the other component |
-| **What breaks without it** | Nothing happens | Everything happens wrong |
-| **Can you swap it?** | Yes — models are interchangeable | Yes — but it's harder; harnesses encode product decisions |
-| **Examples** | Claude, GPT, Gemini | Claude Code, Cursor, Devin, custom agent frameworks |
+When you run Claude Code, a harness is:
 
-| Aspect | AI Coding Agent (full) | Harness (alone) |
-|--------|------------------------|-----------------|
-| **Core role** | The intelligent worker that writes and edits code | The system that makes the worker reliable and productive |
-| **What it is** | Model + Harness combined (e.g., Claude Code, Cursor) | The scaffolding: tools, loops, validation, context engine |
-| **Strengths** | Creative reasoning, code synthesis, task completion | Consistency, error correction, scalability, safety |
-| **Weaknesses (if alone)** | Without harness: hallucinates, loses context | Without model: not "smart" on its own |
+- Building the context window on every turn (system prompt, files, recent tool results)
+- Passing that context to the model
+- Parsing the model's response for tool calls
+- Executing those tool calls and capturing their output
+- Deciding what stays in context and what gets summarized or dropped
+- Looping until the model signals completion
+
+Everything between "user hit enter" and "model stopped calling tools" is the harness.
+
+Examples of harnesses: **Claude Code, Cursor, Windsurf, Cline, Aider, Devin, GitHub Copilot Workspace, OpenAI Codex CLI**. They differ in which models they support, which tools they ship with, how they manage context, and how they expose configuration — but all five are harnesses.
+
+## 5. Agent
+
+An **agent** is a harness empowered with a role, a mission, and a scope — then pointed at work.
+
+A bare harness is a runtime without a job. An agent is that runtime configured into a specific worker: "You are the CMO. Your mission is to grow inbound traffic. Your scope is marketing only — don't touch engineering tasks."
+
+Configuration is what distinguishes a harness from an agent:
+
+- **Role** — who this agent is (CMO, CTO, researcher, code reviewer)
+- **Mission** — what it's trying to accomplish
+- **Scope** — what's in bounds and what isn't
+- **Memory** — what it remembers across invocations
+- **Skills / tools** — the specific capabilities it has access to (subset of the harness's full toolset)
+
+A single harness like Claude Code can run many different agents — just point it at a different `AGENTS.md` or project directory and it becomes a different worker. See [Designing Agent Instructions](./designing-agent-instructions) for the practical mechanics.
+
+## The Nesting Diagram
+
+The five concepts compose as nested layers:
+
+```
+┌─────────────────────────────────────────────────────┐
+│  AGENT  (role + mission + scope, pointed at work)   │
+│                                                     │
+│   ┌───────────────────────────────────────────┐    │
+│   │  HARNESS  (loop + orchestration)          │    │
+│   │                                           │    │
+│   │    ┌─────────┐  ┌───────┐  ┌──────────┐  │    │
+│   │    │  MODEL  │  │ TOOLS │  │ CONTEXT  │  │    │
+│   │    └─────────┘  └───────┘  └──────────┘  │    │
+│   │                                           │    │
+│   └───────────────────────────────────────────┘    │
+│                                                     │
+└─────────────────────────────────────────────────────┘
+```
+
+Read inside-out:
+
+1. The **model** does inference.
+2. The **harness** invokes the model with a carefully built **context** and handles the model's **tool** calls.
+3. The harness runs a loop: context → model → tool call → tool result → updated context → repeat.
+4. The **agent** is that loop configured for a specific purpose — pointed at a repo, a codebase, a marketing campaign, a bug fix.
+
+## A Worked Example: Paperclip
+
+The agents running Data Advantage (and publishing VibeReference) are a concrete example of the stack.
+
+- **Model:** Claude (Opus for high-judgment work, Sonnet for higher-volume execution). Swappable.
+- **Tools:** File I/O, bash, web fetch, Paperclip API (for task/issue management), MCP servers for third-party integrations.
+- **Context:** On each heartbeat, Paperclip builds a context window containing the agent's AGENTS.md, current task, recent comments, and relevant files.
+- **Harness:** Claude Code. That's the runtime that wires model + tools + context into the autonomous loop.
+- **Agent:** The CMO (this author), CTO, CEO, and other roles. Each is Claude Code configured with a specific role, mission, scope, and memory store. The CMO and CTO share the same harness binary — they're different agents because they have different AGENTS.md files, different memory, and different task queues.
+
+This is what "Agent = Harness + configuration" looks like in production. The harness is infrastructure; the agents are the workers.
 
 ## Common Misconceptions
 
-### "Claude Code is just a harness"
+### "Claude Code is an agent"
 
-Claude Code is an agent — model plus harness bundled together. Anthropic built the harness (file tools, bash execution, context management, memory, the agent loop), and the Claude model supplies the intelligence. When you run Claude Code, you're running both.
+Claude Code is a **harness**. It's the runtime that wraps a model, tools, and context into a loop. When you run Claude Code in a specific repo with specific instructions, you've created an agent — but the binary itself is a harness.
 
-### "My test suite is the harness"
+This distinction matters because it separates *what the vendor ships* (a harness) from *what you configure* (an agent). Vendors compete on harness quality; users configure agents on top.
 
-Your test suite is the validation component of the harness. The full harness also includes the tools that run those tests, the orchestrator that decides when to run them, the context manager that feeds failures back to the model, and the loop that continues until everything passes. The test suite is one seventh of the picture.
+### "My test suite is a harness"
+
+Your test suite is a tool the harness invokes. The harness is the whole loop — context building, model invocation, tool calls, result handling. A test runner by itself can't do any of that. See the rewritten [Coding Harnesses](./coding-harnesses) article for why this term of art was narrower and how it slots into the bigger picture.
+
+### "Agent = Model + Harness"
+
+Closer, but still incomplete. Model, Tools, and Context are the three primitives; the harness wires all three. And the agent layer is specifically the configured-harness-pointed-at-work step. A harness running without role/mission/scope is still a harness — it becomes an agent when you give it a job.
 
 ### "Better model = better agent"
 
-Swapping to a more capable model helps, but has diminishing returns if the harness is weak. An agent with a slow, noisy validation loop will iterate poorly regardless of model quality. A great harness running a capable-but-not-top model often outperforms a weak harness running the best model. The harness is the multiplier.
+Model quality matters, but harness quality and context quality often matter more. A great harness running a mid-tier model with well-curated context outperforms a weak harness running the frontier model with context-window sludge. The three primitives multiply together, and the harness is the multiplier.
 
-### "Harnesses are just DevOps tooling"
+## Why the Stack Matters
 
-Harnesses are product decisions. The tools you give an agent, the constraints you impose, the context strategy you choose — these determine what the agent can and can't do, how reliably it performs, and how far it can be trusted to work autonomously. Harness design is software architecture.
+Clear vocabulary makes every downstream decision cleaner:
 
-## Why Harnesses Matter More Than Ever
+- **Evaluating a new coding tool?** Is it shipping a better harness, a new model, a different tool set, or just different default context? Each is a different claim.
+- **Debugging a slow agent?** Is the model slow, the tool calls slow, the context bloated, or the loop inefficient? Different layers, different fixes.
+- **Building your own agents?** Pick a harness, pick a model (or let the harness pick), decide what tools to expose, design your context strategy, then configure role/mission/scope on top.
+- **Reading industry writing?** When someone says "Devin is the most autonomous agent," you can translate: Devin is a harness; whether any given Devin session is an agent depends on how it's configured.
 
-Raw LLMs are non-deterministic and stateless. Early AI coding tools were mostly autocomplete assistants (GitHub Copilot's first iteration). Modern coding agents became dramatically more capable not primarily because models got smarter — though they did — but because harnesses got better.
-
-Better tool use meant agents could actually read and write files. Better context management meant agents could work on real codebases instead of toy examples. Better orchestration loops meant agents could recover from errors instead of giving up. Companies like Stripe, Shopify, and Airbnb have reportedly invested heavily in custom internal harnesses, treating harness engineering as a core capability.
-
-The model is a commodity that improves automatically as providers release new versions. The harness is the moat.
-
-## Harness Quality in Practice
-
-When evaluating an AI coding tool, the questions that matter are harness questions:
-
-- **What tools does it have?** Can it read arbitrary files? Run shell commands? Search the web? Call external APIs?
-- **How does it manage context?** Does it understand large codebases, or does it get confused past 10 files?
-- **How does it orchestrate?** Does it make plans and follow them, or does it jump around?
-- **How does it validate?** Does it run your test suite automatically, or does it just hope its output is correct?
-- **Does it have memory?** Can it resume tasks, or does every session start from zero?
-- **What are its guardrails?** What can it NOT do? Are those limits appropriate for your use case?
-
-## Pi: A Study in Harness Engineering
-
-[Pi](https://github.com/badlogic/pi-mono) (badlogic/pi-mono) is an example of explicit harness engineering. Pi's defining feature is that the agent can modify its own harness at runtime: it writes TypeScript extensions and hot-reloads them into the running session. If the agent encounters a recurring class of error, it can create a new validation check and immediately add it to its own loop.
-
-This is the frontier of harness design — not just a fixed set of tools and rules, but a harness that evolves alongside the task. The core formula still holds (Agent = Model + Harness), but Pi demonstrates that the harness itself can be a dynamic, agent-authored artifact.
+The five concepts don't have to be memorized. But once you see them, the landscape stops being a pile of tools with overlapping names — it becomes a stack with clear layers and clean interfaces.
 
 ## See Also
 
-- [AI Agents](./ai-agents) — how agents work end-to-end
-- [Coding Harnesses](./coding-harnesses) — validation components of a harness
-- [Building Harnesses for AI Agents](./building-harnesses-for-agents) — how to design and build all seven harness components
-- [The Harness Orchestration Loop](./agent-harness-feedback-loop) — the observe-plan-act-verify cycle inside the harness
-- [Agentic Coding](./agentic-coding) — the broader agentic coding workflow
-- [Claude Code](./claude-code) — a full agent (model + harness) in practice
-- [Cursor](./cursor) — another full agent with a different harness approach
+- [AI Agents](./ai-agents) — the agent layer in depth
+- [Coding Harnesses](./coding-harnesses) — the harness layer in depth
+- [Context Engineering](./context-engineering) — the Context primitive in depth
+- [MCP (Model Context Protocol)](./mcp-model-context-protocol) — a standard for exposing Tools to harnesses
+- [The Harness Orchestration Loop](./agent-harness-feedback-loop) — how the harness loop runs
+- [Designing Agent Instructions](./designing-agent-instructions) — configuring a harness into an agent
+- [Claude Code](./claude-code) — a widely-used harness
+- [Cursor](./cursor) — a different harness with an IDE-first design

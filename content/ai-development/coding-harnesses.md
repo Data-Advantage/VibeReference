@@ -1,95 +1,102 @@
 # Coding Harnesses
 
-A coding harness is the set of automated checks — linters, type checkers, test suites, and build scripts — that wrap around your codebase and provide instant feedback on whether code changes are correct. In agentic coding, harnesses are critical because they let AI agents self-correct: the agent writes code, runs the harness, sees failures, and fixes them automatically.
+A coding harness is the runtime scaffolding that wires a model, a set of tools, and a managed context window into an autonomous loop that can write, edit, and ship code. Claude Code, Cursor, Windsurf, Cline, Aider, Devin, GitHub Copilot Workspace, and OpenAI Codex CLI are all coding harnesses. They differ in model support, shipped tools, context strategy, and UX surface, but they solve the same problem: turning a stateless LLM into a workflow that can actually build software.
 
-## Why Harnesses Matter for AI Development
+## Harness vs. Agent vs. Validation Scripts
 
-Without a harness, an AI agent is coding blind. It generates code but has no way to verify correctness. With a harness, the agent enters a productive loop:
+"Harness" has been used three different ways in the industry. It's worth naming each and pointing to the canonical one.
 
-```
-Write code → Run harness → See errors → Fix errors → Run harness → Pass → Done
-```
+- **Harness (this article, canonical)** — the runtime that wires Model + Tools + Context into an agentic loop. Claude Code is a harness.
+- **Agent** — a harness configured with a role, mission, and scope. Claude Code pointed at a specific repo with a specific AGENTS.md is an agent. See [AI Agents vs Harnesses](./agents-vs-harnesses) for the full 5-concept stack.
+- **"Harness" as validation scripts** — earlier industry writing sometimes used "coding harness" to mean the linters, type checkers, and test runners that the agent runs after each change. Those are **tools the harness invokes**, not the harness itself. We call this layer the **validation loop** and cover it in [The Harness Orchestration Loop](./agent-harness-feedback-loop).
 
-This is the difference between an agent that produces plausible-looking code and one that produces working code.
+This article is about the canonical harness — the runtime. Wherever you hear "coding harness," translate to "the runtime that wraps model, tools, and context."
 
-## Components of a Good Coding Harness
+## What a Harness Does
 
-### Type Checking
-```bash
-npx tsc --noEmit
-```
-Catches type errors, missing imports, incorrect function signatures. Fast, comprehensive, and the single most valuable harness component for TypeScript projects.
+A harness is responsible for five things on every turn:
 
-### Linting
-```bash
-npx next lint
-# or
-npx eslint .
-```
-Catches code style issues, unused variables, accessibility problems, and common mistakes.
+### 1. Build the context window
 
-### Unit Tests
-```bash
-npx vitest run
-# or
-npm test
-```
-Validates that individual functions and components behave correctly.
+Gather the system prompt, agent instructions (AGENTS.md / CLAUDE.md), relevant files, recent tool results, memory snippets, and user input. Decide what stays, what gets summarized, and what gets dropped. This is one of the hardest parts — done badly, the model either lacks information it needs or drowns in irrelevant tokens.
 
-### Build Verification
-```bash
-npm run build
-```
-Ensures the full application compiles and generates output without errors.
+### 2. Invoke the model
 
-### End-to-End Tests
-```bash
-npx playwright test
-```
-Validates complete user workflows in a real browser environment.
+Pass the context to the model and get a response back. Different harnesses support different models: Claude Code is Claude-native, Cursor lets you pick from a menu of models, Aider supports nearly everything via LiteLLM. The model is a primitive the harness orchestrates — see [AI Agents vs Harnesses](./agents-vs-harnesses) for why they're separate layers.
 
-## Harness Design Principles
+### 3. Parse tool calls
 
-- **Fast**: The harness should run in seconds, not minutes. Agents iterate dozens of times — slow harnesses kill productivity.
-- **Deterministic**: Same code should produce same results. Flaky tests confuse agents.
-- **Informative**: Error messages should clearly indicate what's wrong and where. Stack traces and line numbers help agents fix issues.
-- **Comprehensive**: Cover the critical paths. The more your harness catches, the less manual review you need.
-- **Incremental**: Run only the checks relevant to changed files when possible.
+The model's response may include tool calls: `read_file`, `bash`, `edit`, `web_search`, [MCP](./mcp-model-context-protocol) calls, and so on. The harness parses these, validates their arguments, and dispatches them.
 
-## Setting Up a Minimal Harness
+### 4. Execute tools and capture results
 
-For a Next.js + TypeScript project (like VibeReference), a minimal effective harness:
+Actually run the tool (read the file, execute the bash command, fetch the web page) and capture its output. Inject that output back into context for the next turn.
 
-```json
-{
-  "scripts": {
-    "check": "tsc --noEmit && next lint && next build",
-    "test": "vitest run",
-    "harness": "npm run check && npm run test"
-  }
-}
-```
+### 5. Loop until done
 
-## Harness Tiers
+Keep cycling context → model → tool call → result → context until the model signals completion, a user interrupts, or a guardrail fires. See [The Harness Orchestration Loop](./agent-harness-feedback-loop) for the observe → plan → act → verify structure inside that loop.
 
-| Tier | Speed | What It Catches | When to Run |
-|------|-------|-----------------|-------------|
-| **Type check** | ~5s | Type errors, missing imports | Every change |
-| **Lint** | ~10s | Style issues, common bugs | Every change |
-| **Unit tests** | ~30s | Logic errors, regressions | Every feature |
-| **Build** | ~60s | Compilation issues, config problems | Before commit |
-| **E2E tests** | ~5min | Integration issues, UI bugs | Before deploy |
+## What's Inside a Harness
 
-## Harnesses for AI Agents
+All harnesses ship with the same conceptual pieces, though implementations vary.
 
-When configuring tools like Claude Code or Cursor, you can specify harness commands that the agent runs automatically:
+- **Model client** — HTTP layer to one or more LLM providers. Handles retries, streaming, token accounting.
+- **Tool registry** — the set of tools the model can invoke. File I/O, bash, search, web fetch, plus user-extensible ones (MCP servers, custom skills).
+- **Context manager** — builds the context window each turn. Decides file chunking, history truncation, summarization, and priority.
+- **Loop orchestrator** — the observe → plan → act → verify cycle. Sequences model calls and tool calls, handles errors and retries.
+- **Permissions / guardrails** — what the agent may and may not do. Which tools are always allowed, which require approval, which are banned. Path-level permissions. Cost caps.
+- **Memory** — persistence across turns and across sessions. Files, scratchpads, dedicated memory stores.
+- **Configuration surface** — how users shape the harness into an agent. AGENTS.md, CLAUDE.md, skills, hooks, MCP servers.
 
-- **Pre-commit hooks**: Run type checks and linting before any commit
-- **Test commands**: Tell the agent which test command to run after making changes
-- **Build verification**: Have the agent verify the full build succeeds before declaring a task complete
+These aren't seven separate harnesses — they're the parts a single harness is built from.
 
-The tighter the feedback loop, the better the agent performs. An agent with a 5-second type check harness will outperform one with only a 60-second build step.
+## Popular Coding Harnesses
 
-## How It's Used in VibeReference
+| Harness | Interface | Model coverage | Distinctive choice |
+|---|---|---|---|
+| [Claude Code](./claude-code) | CLI, IDE extension | Claude only | Skills + hooks + AGENTS.md; bare-terminal by default |
+| [Cursor](./cursor) | Dedicated IDE (VS Code fork) | Multi-provider | IDE-first; tight integration with editor state and diffs |
+| [Windsurf](./windsurf) | Dedicated IDE | Multi-provider | Cascade flow; emphasis on codebase-aware actions |
+| [Cline](./cursor) | VS Code extension | Multi-provider | Open source; minimal defaults |
+| [Aider](./agentic-coding) | CLI | Very broad (via LiteLLM) | Git-native; each change is a commit |
+| [Devin](./devin-ai) | Web / Slack | Proprietary internal model stack | Remote, session-based; targets autonomous work |
+| [OpenAI Codex CLI](./openai-codex-cloud) | CLI + cloud | GPT family | CLI + managed cloud variant |
+| [GitHub Copilot Workspace](./github-copilot-cloud-agent) | GitHub-native | GPT family | PR-driven; CI is the validation loop |
 
-VibeReference uses TypeScript strict mode, Next.js built-in linting, and static export builds as its coding harness. When AI agents make changes to the codebase, running `npm run build` validates that all pages generate correctly, all types are sound, and all imports resolve. This harness enables confident iteration — agents can make changes and immediately verify correctness without human intervention.
+Each is a different point in harness design space. Terminal vs. IDE vs. cloud. Single-provider vs. multi-provider. Local execution vs. sandboxed remote VMs. Permissive defaults vs. approval-gated.
+
+## How to Evaluate a Harness
+
+The questions worth asking:
+
+- **Context strategy.** How does it load files and prune history? How well does it handle large codebases?
+- **Tool surface.** What tools ship? How extensible is the tool layer (MCP? skills? custom commands?)
+- **Model flexibility.** Can you swap models without switching tools? Useful when providers ship new models.
+- **Permissions model.** What can the agent do without asking? What requires approval? Can you add project-specific rules?
+- **Configuration surface.** Is there a sensible way to encode project conventions (AGENTS.md, CLAUDE.md)? Can you layer user + project + session configuration?
+- **Loop ergonomics.** When the agent's validation step fails, does it get a clear error back? How tight is the inner loop?
+- **Cost control.** Can you set budgets, see token accounting, cap runaway sessions?
+- **Memory.** Does the harness persist meaningful state across sessions?
+
+The loud differentiators (which IDE, which brand) matter less than these. A well-configured Aider beats a poorly-configured Cursor on most tasks.
+
+## Harnesses Are the Moat
+
+Frontier models are a commodity — providers release new ones every few months, and most harnesses support swapping. What's hard is harness engineering: context management, tool design, loop orchestration, permissions, and configuration surface. Companies investing in AI-native coding (Stripe, Shopify, Airbnb, and a long list of startups) are pouring resources into custom harnesses more than custom models.
+
+For individuals and teams who aren't building their own, the question is which off-the-shelf harness fits: terminal-first (Claude Code, Aider), IDE-first (Cursor, Windsurf), or cloud/remote (Devin, Codex Cloud, Copilot Workspace). The right answer depends on the workflow, not the logo.
+
+## How VibeReference Uses Harnesses
+
+The agents that write and publish VibeReference content run on Claude Code as their harness. Each agent (CMO, CTO, CEO, researcher) is Claude Code plus a specific AGENTS.md, a specific memory store, and a specific task queue on Paperclip. Swapping to a different harness would mean re-implementing the agent configuration on that platform, but the agents' roles and missions would remain the same. That separation is why clear vocabulary matters: the harness is infrastructure, the agents are the workers, and the Model/Tools/Context primitives are the raw materials.
+
+## See Also
+
+- [AI Agents vs Harnesses](./agents-vs-harnesses) — the 5-concept stack
+- [The Harness Orchestration Loop](./agent-harness-feedback-loop) — the observe → plan → act → verify cycle inside a harness
+- [AI Agents](./ai-agents) — the agent layer
+- [Context Engineering](./context-engineering) — the Context primitive
+- [MCP (Model Context Protocol)](./mcp-model-context-protocol) — a standard protocol for tool extension
+- [Claude Code](./claude-code) — a terminal-first harness
+- [Cursor](./cursor) — an IDE-first harness
+- [Designing Agent Instructions](./designing-agent-instructions) — how to configure a harness into an agent
