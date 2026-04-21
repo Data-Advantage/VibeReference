@@ -6,6 +6,8 @@ For short tasks, this does not matter. For long-running projects where agents wo
 
 This guide covers practical approaches to giving agents persistent memory — what works, what does not, and how to implement memory systems that actually improve agent performance.
 
+> *In the 5-concept stack, memory is a sub-component of **Context** (the third primitive). What you persist and reload between sessions determines what the model actually knows on each turn. See [AI Agents vs Harnesses](./agents-vs-harnesses) for how Context fits alongside Model, Tools, Harness, and Agent.*
+
 ## Why Agents Need Memory
 
 Without persistent memory, agents exhibit predictable failure modes:

@@ -4,6 +4,8 @@ Cursor Cloud Agents are no longer just an extension of the IDE. They are a full 
 
 If you are a solo founder trying to increase shipped output without losing review confidence, Cursor is one of the strongest options in 2026.
 
+> *In the 5-concept stack, Cursor Cloud Agents are **Harness** instances running in the cloud. When you point one at a specific task with a role and scope (via a prompt, rules file, or issue assignment), that configured instance is the **Agent** — even though the product name bundles the two. See [AI Agents vs Harnesses](./agents-vs-harnesses) for the full stack.*
+
 ## What Makes Cursor Cloud Agents Different
 
 Most cloud coding tools can run background tasks and open pull requests. Cursor adds two layers that matter in practice:

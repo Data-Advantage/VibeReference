@@ -4,6 +4,8 @@ Windsurf (Cascade) has carved out a distinct position in the cloud coding agent 
 
 For solo founders, it is one of the few tools that can start cheap and still grow into enterprise requirements if your product later sells into regulated buyers.
 
+> *In the 5-concept stack, Windsurf (Cascade) is a **Harness** — the runtime that wires a Model, Tools, and Context into an agentic loop. An "agent" on Windsurf is the harness plus a role, mission, and scope. See [AI Agents vs Harnesses](./agents-vs-harnesses) for the full stack.*
+
 ## Why Windsurf Stands Out
 
 Windsurf is rarely the noisiest product in agent conversations, but it is often one of the most practical:

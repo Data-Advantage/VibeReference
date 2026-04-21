@@ -1,8 +1,10 @@
 # Building Harnesses for AI Coding Agents
 
-A harness is not a test suite. It's not a linter. It's the entire system that wraps around the model and makes it behave like a reliable agent — tools, context management, the execution loop, validation, memory, guardrails, and workflow automation. Building a good harness is the highest-leverage thing you can do to improve your agent's output quality. It matters more than picking the right model.
+A harness is not a test suite. It's not a linter. It's the runtime that wires the **Model**, **Tools**, and **Context** primitives into an autonomous loop, and then exposes the configuration surface that turns that loop into a specific **Agent**. Building a good harness — or knowing how to configure one well — is the highest-leverage thing you can do to improve your agent's output quality. It matters more than picking the right model.
 
-This guide covers all seven components of a harness and how to build each one for a solo founder using AI coding tools like Claude Code or Cursor on a TypeScript/Next.js project.
+> **Where this fits in the [5-concept stack](./agents-vs-harnesses).** Model, Tools, and Context are the three primitives. The **Harness** is the runtime that wires them together. The **Agent** is that harness configured with role, mission, and scope, then pointed at work. The seven components below are not parallel to the stack — they're the *responsibilities* the harness layer takes on (and the surfaces it exposes for agent-level configuration).
+
+This guide covers seven concrete responsibilities of a coding harness — Tools, Context Management, Orchestration, Validation, Memory, Guardrails, and Workflow Automation — and how to build or configure each one for a solo founder using harnesses like Claude Code or Cursor on a TypeScript/Next.js project.
 
 ## Why the Harness Determines Output Quality
 
@@ -18,7 +20,7 @@ A great model with a weak harness produces inconsistent, drift-prone output. A c
 
 ## Component 1: Tools
 
-Tools are what let the agent act in the world. Without them, the model is generating text with no way to verify it. The minimum viable tool set for a coding agent:
+Tools are one of the three primitives in the canonical stack — discrete capabilities the model can invoke. The harness's job here is to expose, gate, and configure them. Without tools, the model is generating text with no way to verify it. The minimum viable tool set for a coding agent:
 
 - **File read/write** — read any file, create new files, edit existing ones
 - **Shell execution** — run arbitrary commands (npm, git, node, tsc)
@@ -41,7 +43,7 @@ Expanded tool sets include web search, external API calls, browser automation, a
 
 ## Component 2: Context Management
 
-Context management is how the harness feeds the right information to the model without exhausting its context window. This is the component that most determines whether an agent can work on a real codebase.
+Context is the third primitive — everything in the model's context window on a given turn. Context management is how the harness assembles, prunes, and refreshes that window without exhausting it. This is the component that most determines whether an agent can work on a real codebase. See [Context Engineering](./context-engineering) for the full treatment of the Context primitive.
 
 Problems without good context management:
 - Agent writes code that duplicates existing functionality it didn't know about
@@ -257,11 +259,12 @@ This gives you: tools (built into Claude Code), context management (CLAUDE.md), 
 
 This doesn't replace a well-designed static harness. You still need your context management, guardrails, and base validation configured before the agent starts. But it shows that harness components — especially validation — can be dynamic artifacts that the agent authors and improves, not just fixed infrastructure you build once.
 
-The formula stays constant: Agent = Model + Harness. What changes is who builds the harness — and Pi suggests the answer can sometimes be the agent itself.
+The stack stays constant: Model, Tools, Context, Harness, Agent. What changes is who builds (or extends) the harness — and Pi suggests the answer can sometimes be the agent itself.
 
 ## See Also
 
-- [AI Agents vs Harnesses](./agents-vs-harnesses) — the model + harness formula explained
+- [AI Agents vs Harnesses](./agents-vs-harnesses) — the canonical 5-concept stack
+- [Context Engineering](./context-engineering) — the Context primitive in depth
 - [Coding Harnesses](./coding-harnesses) — validation component fundamentals
 - [The Harness Orchestration Loop](./agent-harness-feedback-loop) — the observe-plan-act-verify cycle in depth
 - [Agentic Coding](./agentic-coding) — the broader agentic development workflow

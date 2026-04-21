@@ -2,6 +2,8 @@
 
 AI pair programming is a development practice where a human developer works alongside an AI assistant in real-time, combining human creativity and judgment with AI speed and breadth of knowledge. Unlike traditional pair programming with two humans, AI pair programming offers an always-available partner that can generate code, explain concepts, spot bugs, and suggest alternatives instantly.
 
+> *In the 5-concept stack, pair-programming tools like GitHub Copilot, Cursor, and Claude Code are **Harnesses** — they wire a Model, Tools, and Context into an interactive loop alongside the developer. See [AI Agents vs Harnesses](./agents-vs-harnesses) for the full stack.*
+
 ## How It Works
 
 The human and AI take complementary roles:

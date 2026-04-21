@@ -4,6 +4,8 @@ The harness doesn't just validate code. It runs a loop: observe the current stat
 
 The loop is not a bridge between the agent and the harness. It lives inside the harness. The harness is what runs it.
 
+> **Where this fits in the stack.** VibeReference uses a [5-concept stack](./agents-vs-harnesses): **Model**, **Tools**, **Context** (the three primitives), **Harness** (the runtime that wires them into a loop), and **Agent** (a harness configured with role, mission, and scope). This article is about the **Harness** layer — specifically, the loop that the harness runs every turn. When you watch Claude Code or Cursor work, you're watching their harness execute this loop.
+
 ## The Cycle
 
 ```
@@ -20,7 +22,7 @@ Pass? ──YES──→ Task complete (or next sub-task)
 [back to Observe with new error context]
 ```
 
-When you watch Claude Code or Cursor work, you're watching this cycle execute in real time. The agent reads a file, writes a function, runs `tsc --noEmit`, reads the type error, adjusts the code, runs again. Three cycles, four cycles, ten cycles — until the validation passes.
+When you watch Claude Code or Cursor work, you're watching this cycle execute in real time. The harness reads a file, the model writes a function, the harness runs `tsc --noEmit`, the model reads the type error, adjusts the code, runs again. Three cycles, four cycles, ten cycles — until the validation passes.
 
 This is the loop. The harness runs it. You configure it.
 
@@ -231,8 +233,8 @@ This instruction, combined with well-configured validation scripts, creates a lo
 
 ## See Also
 
-- [AI Agents vs Harnesses](./agents-vs-harnesses) — the model + harness formula
-- [Building Harnesses for AI Agents](./building-harnesses-for-agents) — how to build all seven harness components
+- [AI Agents vs Harnesses](./agents-vs-harnesses) — the canonical 5-concept stack
+- [Building Harnesses for AI Agents](./building-harnesses-for-agents) — what the harness layer wires together
 - [Coding Harnesses](./coding-harnesses) — validation fundamentals
 - [AI Agents](./ai-agents) — how agents work
 - [Claude Code](./claude-code) — loop configuration via CLAUDE.md

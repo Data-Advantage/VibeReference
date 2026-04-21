@@ -2,6 +2,8 @@
 
 Human-in-the-loop (HITL) is a design pattern where AI systems operate autonomously but pause at critical decision points for human review and approval. In agentic coding, HITL defines the boundary between what the AI handles independently and what requires human judgment — balancing speed with safety.
 
+> *In the 5-concept stack, HITL gates are typically implemented at the **Harness** layer (approval prompts, permission hooks, dangerous-tool blocks) and configured into specific **Agents** through their role and scope. See [AI Agents vs Harnesses](./agents-vs-harnesses) for the full stack.*
+
 ## Why HITL Matters
 
 AI agents are powerful but imperfect. They can:
