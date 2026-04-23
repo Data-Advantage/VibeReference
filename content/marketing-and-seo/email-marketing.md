@@ -28,4 +28,6 @@ Email marketing is a digital marketing strategy that involves sending targeted m
 
 ## How It's Used in VibeReference
 
-In Day 4 of the VibeReference workflow, you'll develop comprehensive email marketing sequences for your SaaS application. This includes planning welcome sequences for free users, onboarding sequences for paid users, and re-engagement sequences for inactive users. Effective email marketing helps drive user activation, engagement, and conversion throughout your application's lifecycle. 
+In Day 4 of the VibeReference workflow, you'll develop comprehensive email marketing sequences for your SaaS application. This includes planning welcome sequences for free users, onboarding sequences for paid users, and re-engagement sequences for inactive users. Effective email marketing helps drive user activation, engagement, and conversion throughout your application's lifecycle.
+
+Drafting the actual copy for welcome, onboarding, and re-engagement sequences is usually the step that slows founders down. Running your ICP doc and brand voice through an [AI writing tool for email sequences](https://fastwrite.ai) produces first drafts that match your positioning, so the human step becomes editing tone rather than writing from scratch.
