@@ -92,7 +92,7 @@ Tools like Profound, Peec.ai, and Otterly.AI track these metrics. You can also r
 
 1. **Audit your top 20 pages.** For each, count quotations, statistics, and named entities. Score them.
 2. **Pick five queries you want to be cited for.** Test each in ChatGPT, Claude, Perplexity, and Google AI Overviews. Record current cited sources.
-3. **Rewrite three pages per month** using the lifts above: add quotes, add stats, add entities, restructure for extraction.
+3. **Rewrite three pages per month** using the lifts above: add quotes, add stats, add entities, restructure for extraction. Tools like [AI-assisted content generation](https://fastwrite.ai) pipelines can bake these GEO lifts — entity density, citation counts, and extractable structure — into first drafts before a human editor touches them.
 4. **Re-test the queries quarterly.** Track which pages move from uncited to cited.
 5. **Add a `/llms.txt`** file to your site so AI crawlers can navigate your content efficiently.
 
