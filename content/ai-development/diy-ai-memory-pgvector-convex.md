@@ -31,9 +31,9 @@ Pick your embedding model before your stack. Changing dimensions later means re-
 | `text-embedding-3-small` | 1536 | $0.02 | 62.3 | Most indie apps |
 | `text-embedding-3-large` | 3072 | $0.13 | 64.6 | When quality matters more than cost |
 
-For most apps, **`text-embedding-3-small` at 1536 dims** is the right default. OpenAI lists it at $0.02 per 1M tokens, and 1536 dimensions fits comfortably in pgvector, Supabase, and Convex indexes ([OpenAI model pricing](https://platform.openai.com/docs/models/text-embedding-3-small)).
+For most apps, **`text-embedding-3-small` at 1536 dims** is the right default. OpenAI lists it at $0.02 per 1M tokens, and 1536 dimensions fits comfortably in pgvector, Supabase, and Convex indexes ([OpenAI API pricing](https://platform.openai.com/docs/pricing/)).
 
-Current pgvector is stronger on filtered memory search than older advice suggests. The official changelog lists 0.8.2 as current; 0.8.0 added iterative scans and better cost estimation for filtered HNSW/IVFFlat queries ([pgvector changelog](https://github.com/pgvector/pgvector/blob/master/CHANGELOG.md)). Use HNSW for most memory search, and IVFFlat only when faster builds and lower memory matter more than recall.
+Current pgvector is stronger on filtered memory search than older advice suggests. The official release notes list 0.8.2 as current; 0.8.0 added iterative scans and better cost estimation for filtered HNSW/IVFFlat queries ([pgvector 0.8.2 release](https://github.com/pgvector/pgvector/releases/tag/v0.8.2)). Use HNSW for most memory search, and IVFFlat only when faster builds and lower memory matter more than recall.
 
 ---
 
@@ -67,6 +67,8 @@ Convex supports dimensions from 2 to 4096, up to 4 vector indexes per table, and
 
 ```typescript
 // convex/memories.ts
+"use node";
+
 import { action, internalMutation, internalQuery } from "./_generated/server";
 import { v } from "convex/values";
 import OpenAI from "openai";
@@ -354,20 +356,19 @@ What you want to store are **extracted facts**: durable, first-person statements
 Here's a fact-extraction prompt you can ship:
 
 ```
-You are a memory extraction assistant. Given a conversation turn, extract 0-3 durable facts about the user.
+You are a memory extraction system. Extract only atomic, verifiable facts about the user.
 
 Rules:
-- Only extract facts that will still be relevant in future sessions (preferences, goals, constraints, background)
-- Ignore questions, commands, and task-specific details that won't generalize
-- Write each fact as a first-person statement: "I prefer...", "I am...", "I use..."
-- If there are no durable facts, return an empty array
+- Output ONLY this JSON object: { "facts": string[] }.
+- Include preferences, plans, relationships, expertise, and durable stated facts.
+- Exclude questions, opinions, chit-chat, secrets, and one-off tasks.
+- Write each fact as a short first-person statement: "I prefer...", "I am...", "I use...".
+- If nothing is worth storing, return { "facts": [] }.
 
 Conversation turn:
 <turn>
 {{message}}
 </turn>
-
-Return JSON: { "facts": ["fact 1", "fact 2"] }
 ```
 
 This pattern — LLM-driven fact extraction into atomic statements — is how Mem0 works at its core ([Mem0 LangChain integration](https://docs.mem0.ai/integrations/langchain)). The open-source library is worth reading even if you're not using the managed service: it shows how to handle deduplication, contradiction resolution, and fact eviction.
@@ -418,9 +419,9 @@ Infrastructure cost dominates, not embedding API cost:
 | Convex vector search (Professional) | $25/developer/mo | ~$50/mo + usage | ~$200/mo + usage |
 | Fly.io Postgres | ~$10-40/mo | ~$40-90/mo | ~$150/mo + compute |
 | Mem0 managed (for reference) | free or $19/mo | $249/mo | enterprise/custom |
-| Zep Flex (for reference) | $125/mo | $125/mo + credits | Flex Plus or enterprise |
+| Zep Flex (for reference) | free or $25/mo | $25/mo + credits | Flex Plus ($475/mo) or enterprise |
 
-At 1K–10K MAU, DIY beats managed services by 5–10x on cost. The gap narrows above 100K MAU when Postgres infrastructure starts scaling. Treat the table as an order-of-magnitude model and check official pages before budgeting ([Supabase billing docs](https://supabase.com/docs/guides/platform/billing-faq), [Convex pricing](https://www.convex.dev/pricing), [Fly pricing](https://fly.io/docs/about/pricing/), [Mem0 pricing](https://mem0.ai/pricing), [Zep pricing](https://www.getzep.com/pricing/)).
+At 1K–10K MAU, DIY beats managed services by 5–10x on cost. The gap narrows above 100K MAU when Postgres infrastructure starts scaling. Treat the table as an order-of-magnitude model and check official pages before budgeting ([Supabase billing docs](https://supabase.com/docs/guides/platform/billing-on-supabase), [Convex pricing](https://www.convex.dev/pricing), [Fly Managed Postgres pricing](https://fly.io/docs/mpg/#pricing), [OpenAI pricing](https://platform.openai.com/docs/pricing/), [Mem0 pricing](https://mem0.ai/pricing), [Zep pricing](https://www.getzep.com/pricing/)).
 
 ---
 
@@ -461,4 +462,4 @@ Start with whichever matches your existing stack. The extraction prompt and inje
 
 Related: [Vector Databases](/backend-and-data/vector-databases) · [Supabase AI Docs](https://supabase.com/docs/guides/ai) · [Convex Vector Search](https://docs.convex.dev/search/vector-search)
 
-Primary sources: [pgvector repo](https://github.com/pgvector/pgvector), [pgvector changelog](https://github.com/pgvector/pgvector/blob/master/CHANGELOG.md), [PostgreSQL pgvector 0.8.0 release note](https://www.postgresql.org/about/news/pgvector-080-released-2952/), [Convex vector search docs](https://docs.convex.dev/search/vector-search), [Convex pricing](https://www.convex.dev/pricing), [Supabase pgvector docs](https://supabase.com/docs/guides/database/extensions/pgvector), [Supabase automatic embeddings](https://supabase.com/docs/guides/ai/automatic-embeddings), [Supabase billing docs](https://supabase.com/docs/guides/platform/billing-faq), [OpenAI embeddings model page](https://platform.openai.com/docs/models/text-embedding-3-small), [Drizzle pgvector guide](https://orm.drizzle.team/docs/guides/vector-similarity-search), [Fly pricing](https://fly.io/docs/about/pricing/), [Mem0 pricing](https://mem0.ai/pricing), [Zep pricing](https://www.getzep.com/pricing/).
+Primary sources: [pgvector repo](https://github.com/pgvector/pgvector), [pgvector 0.8.2 release](https://github.com/pgvector/pgvector/releases/tag/v0.8.2), [PostgreSQL pgvector 0.8.2 release note](https://www.postgresql.org/about/news/pgvector-082-released-3245/), [Convex vector search docs](https://docs.convex.dev/search/vector-search), [Convex limits](https://docs.convex.dev/production/state/limits), [Convex pricing](https://www.convex.dev/pricing), [Supabase pgvector docs](https://supabase.com/docs/guides/database/extensions/pgvector), [Supabase automatic embeddings](https://supabase.com/docs/guides/ai/automatic-embeddings), [Supabase HNSW indexes](https://supabase.com/docs/guides/ai/vector-indexes/hnsw-indexes), [Supabase billing docs](https://supabase.com/docs/guides/platform/billing-on-supabase), [OpenAI embeddings guide](https://platform.openai.com/docs/guides/embeddings), [OpenAI pricing](https://platform.openai.com/docs/pricing/), [Drizzle pgvector guide](https://orm.drizzle.team/docs/guides/vector-similarity-search), [Fly Managed Postgres](https://fly.io/docs/mpg/#pricing), [Mem0 pricing](https://mem0.ai/pricing), [Zep pricing](https://www.getzep.com/pricing/).
