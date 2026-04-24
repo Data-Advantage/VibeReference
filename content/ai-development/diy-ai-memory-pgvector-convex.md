@@ -9,6 +9,8 @@ You don't need Pinecone to give your AI app memory. If you're already on Postgre
 
 This is the DIY path: semantic search over a `memories` table you own and control. It won't replace a dedicated memory service for complex cases (temporal knowledge graphs, entity deduplication, multi-hop reasoning). But for the most common use case — remembering what users told you and surfacing the relevant context at the start of each session — it works, it's fast, and it costs almost nothing.
 
+For "pgvector AI memory," "Convex vector search," or "Supabase AI memory," the rule is the same: build AI memory as a small database feature. The right DIY AI memory database is usually your existing stack.
+
 ## The 4-Step Pattern
 
 Every AI memory system, DIY or managed, reduces to four steps:
@@ -22,16 +24,16 @@ That's it. The implementation differs by database, but the pattern is identical 
 
 ## Choosing an Embedding Model
 
-Before picking a stack, pick your embedding model. It determines your vector dimensions, which you set once and can't change without re-embedding everything.
+Pick your embedding model before your stack. Changing dimensions later means re-embedding everything.
 
 | Model | Dims | Cost / 1M tokens | MTEB Score | Best for |
 |---|---|---|---|---|
 | `text-embedding-3-small` | 1536 | $0.02 | 62.3 | Most indie apps |
 | `text-embedding-3-large` | 3072 | $0.13 | 64.6 | When quality matters more than cost |
-| Cohere `embed-v4` | 1024 | $0.01 | 63.1 | Multilingual apps, tight budget |
-| Voyage `voyage-4` | 1024 | $0.06 | 65.1 | Code and domain-specific retrieval |
 
-For most apps, **`text-embedding-3-small` at 1536 dims** is the right default. It delivers 96% of the quality of the large model at 15% of the cost, and 1536 dimensions fits comfortably in any vector index ([OpenAI embedding announcement](https://openai.com/index/new-embedding-models-and-api-updates/)).
+For most apps, **`text-embedding-3-small` at 1536 dims** is the right default. OpenAI lists it at $0.02 per 1M tokens, and 1536 dimensions fits comfortably in pgvector, Supabase, and Convex indexes ([OpenAI model pricing](https://platform.openai.com/docs/models/text-embedding-3-small)).
+
+Current pgvector is stronger on filtered memory search than older advice suggests. The official changelog lists 0.8.2 as current; 0.8.0 added iterative scans and better cost estimation for filtered HNSW/IVFFlat queries ([pgvector changelog](https://github.com/pgvector/pgvector/blob/master/CHANGELOG.md)). Use HNSW for most memory search, and IVFFlat only when faster builds and lower memory matter more than recall.
 
 ---
 
@@ -159,6 +161,14 @@ create table memories (
   created_at timestamptz default now()
 );
 
+alter table memories enable row level security;
+
+create policy "Users can manage own memories"
+on memories
+for all
+using (auth.uid() = user_id)
+with check (auth.uid() = user_id);
+
 -- HNSW index for fast ANN search
 create index on memories
   using hnsw (embedding extensions.halfvec_cosine_ops)
@@ -265,6 +275,12 @@ For high-write workloads, Supabase's [automatic embeddings guide](https://supaba
 If you're running Postgres yourself on [Fly.io](https://fly.io/docs/mpg/) or Railway, you can use Drizzle's native pgvector support.
 
 ### Schema
+
+Add the extension in a migration before Drizzle creates the table:
+
+```sql
+CREATE EXTENSION IF NOT EXISTS vector;
+```
 
 ```typescript
 // db/schema.ts
@@ -398,13 +414,13 @@ Infrastructure cost dominates, not embedding API cost:
 
 | Stack | 1K MAU | 10K MAU | 100K MAU |
 |---|---|---|---|
-| Supabase pgvector (Pro) | ~$35/mo | ~$60/mo | ~$150/mo |
-| Convex vector search (Pro) | ~$25/mo | ~$50/mo + usage | ~$200/mo + usage |
-| Fly.io Managed Postgres | ~$38/mo (1 node) | ~$82/mo (3-node) | ~$164/mo + compute |
-| Mem0 managed (for reference) | $19/mo (50K memories) | $249/mo (Pro) | custom |
-| Zep Flex (for reference) | $25/mo | $25/mo + credits | custom |
+| Supabase pgvector (Pro) | ~$25-35/mo | ~$50-75/mo | ~$150/mo |
+| Convex vector search (Professional) | $25/developer/mo | ~$50/mo + usage | ~$200/mo + usage |
+| Fly.io Postgres | ~$10-40/mo | ~$40-90/mo | ~$150/mo + compute |
+| Mem0 managed (for reference) | free or $19/mo | $249/mo | enterprise/custom |
+| Zep Flex (for reference) | $125/mo | $125/mo + credits | Flex Plus or enterprise |
 
-At 1K–10K MAU, DIY beats managed services by 5–10x on cost. The gap narrows above 100K MAU when Postgres infrastructure costs start scaling. Self-hosted Postgres on Fly.io is cheapest; Supabase and Convex add managed-service convenience ([Supabase pricing](https://supabase.com/pricing), [Convex pricing](https://www.convex.dev/pricing)).
+At 1K–10K MAU, DIY beats managed services by 5–10x on cost. The gap narrows above 100K MAU when Postgres infrastructure starts scaling. Treat the table as an order-of-magnitude model and check official pages before budgeting ([Supabase billing docs](https://supabase.com/docs/guides/platform/billing-faq), [Convex pricing](https://www.convex.dev/pricing), [Fly pricing](https://fly.io/docs/about/pricing/), [Mem0 pricing](https://mem0.ai/pricing), [Zep pricing](https://www.getzep.com/pricing/)).
 
 ---
 
@@ -444,3 +460,5 @@ Start with whichever matches your existing stack. The extraction prompt and inje
 - **Article 5**: [Temporal Memory with Zep](/ai-development/zep-temporal-memory)
 
 Related: [Vector Databases](/backend-and-data/vector-databases) · [Supabase AI Docs](https://supabase.com/docs/guides/ai) · [Convex Vector Search](https://docs.convex.dev/search/vector-search)
+
+Primary sources: [pgvector repo](https://github.com/pgvector/pgvector), [pgvector changelog](https://github.com/pgvector/pgvector/blob/master/CHANGELOG.md), [PostgreSQL pgvector 0.8.0 release note](https://www.postgresql.org/about/news/pgvector-080-released-2952/), [Convex vector search docs](https://docs.convex.dev/search/vector-search), [Convex pricing](https://www.convex.dev/pricing), [Supabase pgvector docs](https://supabase.com/docs/guides/database/extensions/pgvector), [Supabase automatic embeddings](https://supabase.com/docs/guides/ai/automatic-embeddings), [Supabase billing docs](https://supabase.com/docs/guides/platform/billing-faq), [OpenAI embeddings model page](https://platform.openai.com/docs/models/text-embedding-3-small), [Drizzle pgvector guide](https://orm.drizzle.team/docs/guides/vector-similarity-search), [Fly pricing](https://fly.io/docs/about/pricing/), [Mem0 pricing](https://mem0.ai/pricing), [Zep pricing](https://www.getzep.com/pricing/).
