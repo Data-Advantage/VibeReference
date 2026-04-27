@@ -190,7 +190,7 @@ export default async function TopicPage({
                     <Link
                       key={r.slug}
                       href={`/${category}/${r.slug}`}
-                      className="block border border-gray-200 rounded-lg p-3 hover:border-blue-300 hover:shadow-sm transition-all bg-white"
+                      className="block border border-gray-200 rounded-lg p-3 hover:border-blue-300 hover:shadow-xs transition-all bg-white"
                     >
                       <p className="font-medium text-gray-900 text-sm">
                         {r.title}
@@ -236,7 +236,7 @@ export default async function TopicPage({
                 <Link
                   key={r.slug}
                   href={`/${category}/${r.slug}`}
-                  className="block border border-gray-200 rounded-lg p-4 hover:border-blue-300 hover:shadow-sm transition-all bg-white"
+                  className="block border border-gray-200 rounded-lg p-4 hover:border-blue-300 hover:shadow-xs transition-all bg-white"
                 >
                   <p className="font-medium text-gray-900 text-sm">
                     {r.title}

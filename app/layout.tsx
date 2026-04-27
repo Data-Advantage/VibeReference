@@ -62,7 +62,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-background text-foreground font-sans antialiased`}>
-        <header className="border-b border-gray-200 sticky top-0 bg-white/95 backdrop-blur-sm z-20 px-6 lg:px-8">
+        <header className="border-b border-gray-200 sticky top-0 bg-white/95 backdrop-blur-xs z-20 px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="flex items-center justify-between h-14">
               <Link

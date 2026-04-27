@@ -1,6 +1,14 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme inline {
+  --color-background: #f9fafb;
+  --color-foreground: #111827;
+  --color-border: #e5e7eb;
+  --color-muted: #6b7280;
+  --color-accent: #2563eb;
+  --color-accent-hover: #1d4ed8;
+}
 
 @layer base {
   :root {
@@ -10,8 +18,6 @@
     --color-muted: #6b7280;
     --color-accent: #2563eb;
     --color-accent-hover: #1d4ed8;
-    --font-sans: var(--font-geist-sans), system-ui, sans-serif;
-    --font-mono: var(--font-geist-mono), monospace;
   }
 
   html {
