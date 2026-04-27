@@ -5,8 +5,7 @@ import { remark } from "remark";
 import remarkGfm from "remark-gfm";
 import remarkHtml from "remark-html";
 
-const ROOT = process.cwd();
-const CONTENT_DIR = path.join(ROOT, "content");
+const CONTENT_DIR = path.join(process.cwd(), "content");
 
 /* ------------------------------------------------------------------ */
 /*  Category definitions                                               */
@@ -259,7 +258,7 @@ export function getCategory(slug: string): Category | undefined {
 }
 
 export async function getTopicContent(topic: Topic): Promise<string> {
-  const filePath = path.join(ROOT, topic.source.dir, topic.source.file);
+  const filePath = path.join(CONTENT_DIR, topic.category, topic.source.file);
   const raw = fs.readFileSync(filePath, "utf8");
   const { content } = matter(raw);
   return mdToHtml(content);

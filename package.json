@@ -11,9 +11,9 @@
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
     "gray-matter": "^4.0.3",
-    "next": "15.5.14",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "next": "16.2.4",
+    "react": "19.2.5",
+    "react-dom": "19.2.5",
     "remark": "^15.0.1",
     "remark-gfm": "^4.0.0",
     "remark-html": "^16.0.1"
@@ -21,11 +21,16 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4.2.4",
     "@tailwindcss/typography": "^0.5.19",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "postcss": "^8.5.1",
+    "@types/node": "^20.19.39",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "postcss": "^8.5.12",
     "tailwindcss": "^4.2.4",
     "typescript": "5.9.3"
+  },
+  "overrides": {
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "postcss": "$postcss"
   }
 }
