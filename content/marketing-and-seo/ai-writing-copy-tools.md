@@ -6,6 +6,8 @@ If you're a marketer, content creator, or founder writing in 2026, you're using 
 
 This is distinct from [SEO Content Optimization Tools](./seo-content-optimization-tools) (which optimize content AGAINST SERP patterns; Clearscope / Surfer / MarketMuse; AI tools may overlap), and [Marketing Automation Platforms](./marketing-automation-platforms) (where copy lives). AI writing tools specifically GENERATE the words.
 
+Most tools in this category — Jasper, Copy.ai, Writer — generate copy on demand. A separate emerging category orchestrates research → writing → SEO scoring → publish in one run; [FastWrite's full-pipeline AI content platform](https://www.fastwrite.ai/) is the reference example, pairing cross-model adversarial drafting with BM25 competitor scoring and AI-tell humanization. Worth knowing about if you ship long-form SEO content at cadence.
+
 ## TL;DR Decision Matrix
 
 | Tool | Type | Pricing Model | Free Tier | Indie Vibe | Best For |

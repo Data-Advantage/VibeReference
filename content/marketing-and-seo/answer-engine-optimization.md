@@ -125,3 +125,5 @@ A simple five-minute audit:
 AEO complements the SEO work in Day 4 of the VibeReference workflow. After you've built keyword targets and content briefs, layer AEO on top: phrase your H2s as questions, write 40–60 word lead answers, add `FAQPage` and `HowTo` schema, and audit competing snippets. Pair AEO with [Generative Engine Optimization](/marketing-and-seo/generative-engine-optimization) so your pages win both Google answer surfaces and LLM citations.
 
 When scaling AEO-structured content across a site, an [AI writing pipeline for SEO and AEO](https://fastwrite.ai) can draft question-shaped H2s and 40–60 word lead answers at batch volume, so the structural lifts above become a default rather than a manual review step.
+
+Once AEO content is live, measurement is the next problem — tracking whether your pages actually surface inside answer engines. A practical primer on [measuring citations in ChatGPT, Perplexity, and AI Overviews](https://www.fastwrite.ai/blog/ai-search-visibility-citation-tracking) walks through which tools and signals to monitor.
