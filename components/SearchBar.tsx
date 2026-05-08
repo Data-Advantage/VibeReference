@@ -41,10 +41,6 @@ export default function SearchBar({ items }: { items: SearchItem[] }) {
     return () => document.removeEventListener("mousedown", handleClick);
   }, []);
 
-  useEffect(() => {
-    setSelected(0);
-  }, [query]);
-
   function handleKeyDown(e: React.KeyboardEvent) {
     if (e.key === "ArrowDown") {
       e.preventDefault();
@@ -66,6 +62,7 @@ export default function SearchBar({ items }: { items: SearchItem[] }) {
         value={query}
         onChange={(e) => {
           setQuery(e.target.value);
+          setSelected(0);
           setOpen(true);
         }}
         onFocus={() => setOpen(true)}
