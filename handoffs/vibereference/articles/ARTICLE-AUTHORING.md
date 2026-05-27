@@ -1,45 +1,8 @@
-# Article Authoring Guide
+# Article Authoring — moved
 
-Quick reference for writing and formatting articles in the VibeReference content directory.
+This file used to hold the minimal article-authoring rules for VibeReference. As of 2026-05-27 (DAT-4978), the canonical playbook lives at:
 
-## See Also Links
+- [`/ARTICLE-AUTHORING.md`](../../../ARTICLE-AUTHORING.md) — quick map and non-negotiables
+- [`/skills/vibereference-article/SKILL.md`](../../../skills/vibereference-article/SKILL.md) — full workflow, templates, and references
 
-Use clean paths — **no `.md` extension**:
-
-```md
-## See Also
-
-- [AI Agents](./ai-agents) — what agents are and how they work
-- [Coding Harnesses](./coding-harnesses) — how to build effective harnesses
-```
-
-**Not this:**
-```md
-- [AI Agents](./ai-agents.md)  ← broken URL on production
-```
-
-The remark pipeline (`lib/directory.ts`) automatically strips `.md` extensions as a safety net, but authors should use clean paths from the start to keep content readable and consistent.
-
-## Inline Links
-
-Same rule applies to inline links within paragraph text:
-
-```md
-An [AI agent](./ai-agents) is a system that operates autonomously in a loop.
-```
-
-## Required Frontmatter Fields
-
-```md
----
-title: "Article Title"
-description: "SEO meta description (~155 chars)"
----
-```
-
-## Article Structure
-
-1. `# H1 Title` — one per article, matches the filename slug
-2. Lead paragraph — no heading, 1-2 sentences, answers the core question
-3. `## H2 Sections` — main content sections
-4. `## See Also` — cross-links at the bottom, use clean paths (no `.md`)
+This stub remains so legacy links keep resolving. Update your bookmark to the canonical location above.
