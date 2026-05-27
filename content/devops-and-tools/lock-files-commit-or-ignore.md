@@ -90,6 +90,17 @@ pnpm install --frozen-lockfile
 
 **Key behavior:** pnpm has a built-in advantage for lock file management — it handles merge conflicts more gracefully than npm or Yarn. After a conflicted merge, running `pnpm install` automatically regenerates a clean `pnpm-lock.yaml` from the merged `package.json`. No manual conflict resolution needed in most cases.
 
+### Bun: `bun.lock`
+
+Bun's text-format lockfile, default since Bun 1.2. Replaces the older binary `bun.lockb` with a human-readable, diff-friendly format.
+
+```bash
+# Install from lock file exactly
+bun install --frozen-lockfile
+```
+
+**Key behavior:** `--frozen-lockfile` refuses to mutate `bun.lock` and errors out if `package.json` has drifted from it — the right default for CI. If you still have `bun.lockb`, upgrade to Bun 1.2+ and migrate. See [Should You Commit bun.lock?](./should-you-commit-bun-lock) for details.
+
 ### Ruby: `Gemfile.lock`
 
 Bundler's lock file. Same principle as JavaScript lock files — pins exact gem versions.
