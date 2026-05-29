@@ -142,7 +142,7 @@ go mod tidy
 
 ### Rust: `Cargo.lock`
 
-Cargo's lock file. This is the one ecosystem with a meaningful exception.
+Cargo's lock file. The old rule was "commit for binaries, ignore for libraries," but the Cargo team updated that guidance in August 2023.
 
 ```bash
 # Build (generates/uses Cargo.lock)
@@ -151,9 +151,9 @@ cargo build
 
 **For applications:** Commit `Cargo.lock`. You want reproducible builds.
 
-**For libraries:** Don't commit `Cargo.lock`. When someone depends on your library, they generate their own lock file that pins the entire dependency tree. Your library's `Cargo.lock` is irrelevant to consumers and creates unnecessary merge conflicts during development.
+**For libraries:** Recommended to commit, since the 2023 guidance update. Downstream consumers never see it (Cargo strips `Cargo.lock` from published tarballs), so committing only affects your own contributors and CI — where determinism is almost always worth more than testing against the latest transitive versions on every run.
 
-This is an explicit recommendation from the Rust team, not just community convention.
+See [Should You Commit Cargo.lock?](./should-you-commit-cargo-lock) for the full rationale, workspace handling, and the `--locked` vs `--frozen` distinction.
 
 ## Handling merge conflicts in lock files
 
@@ -254,7 +254,7 @@ Is this a lock file? (package-lock.json, yarn.lock, pnpm-lock.yaml, etc.)
 | `Gemfile.lock` | Bundler (Ruby) | Yes |
 | `poetry.lock` | Poetry (Python) | Yes |
 | `go.sum` | Go Modules | Yes |
-| `Cargo.lock` | Cargo (Rust) | Apps: yes. Libraries: no. |
+| `Cargo.lock` | Cargo (Rust) | Apps: yes. Libraries: recommended (since 2023 guidance update). |
 
 The answer hasn't changed in years, and it won't change. Lock files are how you guarantee reproducible builds. Commit them.
 
