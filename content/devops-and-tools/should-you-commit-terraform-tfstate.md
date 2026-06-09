@@ -1,6 +1,6 @@
 ---
 title: "Should You Commit terraform.tfstate to Your Git Repository?"
-description: "No, never. terraform.tfstate stores live infrastructure state in plaintext — including secrets. Here's why, how to use a remote backend, and what to do if it's already committed."
+description: "Never commit terraform.tfstate: it stores live infrastructure state and secrets in plaintext. Use a remote backend and rotate exposed credentials fast."
 ---
 
 # Should You Commit terraform.tfstate?
