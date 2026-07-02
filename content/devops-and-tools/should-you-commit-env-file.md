@@ -1,6 +1,6 @@
 ---
 title: "Should You Commit Your .env File to Git?"
-description: "No — a .env file with real secrets never belongs in Git. Here's the rule, the .env.example exception, the framework .local conventions, and how to rotate leaked keys."
+description: "No — never commit a .env file with real secrets. Use .env.example for placeholders, keep .local files ignored, and rotate keys after leaks."
 ---
 
 # Should You Commit .env to Git?
