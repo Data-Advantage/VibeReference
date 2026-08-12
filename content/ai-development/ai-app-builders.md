@@ -211,6 +211,7 @@ The category sits next to several adjacent tools and patterns covered elsewhere 
 - **Agent SDKs**: [Claude Agent SDK](/ai-development/claude-agent-sdk), [AI SDK](/ai-development/ai-sdk)
 - **UI generation specifically**: [v0](/frontend/v0)
 - **Browser automation for AI agents**: [Browserbase](/ai-development/browserbase)
+- **Pairwise app-builder decisions**: [Lovable vs Bolt](/ai-development/lovable-vs-bolt)
 
 ## Further reading
 
