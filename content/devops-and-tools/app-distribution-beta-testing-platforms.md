@@ -2,7 +2,7 @@
 
 [⬅️ DevOps & Tools Overview](../devops-and-tools/)
 
-If you ship a mobile app in 2026 and need to get builds to QA, beta testers, internal teammates, or stakeholder review before App Store / Play Store release, this is the consolidated comparison of distribution + beta-testing platforms. The category split that matters: **store-native testing** (TestFlight for iOS, Google Play Internal Testing for Android — free, integrated, mandatory for store submission), **cross-platform distribution** (Firebase App Distribution, Diawi, Expo EAS — for ad-hoc builds outside the store flow), and **end-to-end CI + distribution** (Codemagic, Bitrise — build pipelines that include distribution as one step).
+If you ship a mobile app in 2026 and need to get builds to QA, beta testers, internal teammates, or stakeholder review before App Store / Play Store release, this is the consolidated comparison of distribution + beta-testing platforms. The category split that matters: **store-native testing** (TestFlight for iOS, Google Play Internal Testing for Android — free, integrated, mandatory for store submission), **cross-platform distribution** (Firebase App Distribution, Diawi, Expo EAS — for ad-hoc builds outside the store flow), and **end-to-end CI + distribution** (Codemagic, Bitrise, Appcircle — build pipelines that include distribution as one step).
 
 Microsoft retired App Center (May 2025). The category re-shaped around Firebase App Distribution + the alternatives. This guide reflects the post-App-Center landscape.
 
@@ -24,6 +24,7 @@ Microsoft retired App Center (May 2025). The category re-shaped around Firebase 
 | **End-to-End CI + Distribution** | | | | | | |
 | Codemagic | Mobile CI/CD with distribution | Free (500 build min/mo) | $0.04-0.07/min | Both | Very high | Mobile-first CI/CD with distribution |
 | Bitrise | Mobile CI/CD | Free trial; 200 builds | $36+/mo | Both | High | Mobile-first CI/CD |
+| Appcircle | Mobile CI/CD + testing distribution + enterprise app store | Free Starter (20 builds/mo) | Free (Corporate plan: custom) | Both | High | Mobile CI/CD with a cloud or self-hosted option |
 | GitHub Actions + Fastlane | DIY pipeline | Free public; paid private | Free for many use cases | Both | High | Teams already on GitHub |
 | GitLab CI + Fastlane | DIY pipeline | Free + paid | Bundled with GitLab | Both | High | GitLab-aligned |
 | CircleCI + Fastlane | DIY pipeline | Free tier | $15+/mo | Both | Medium | CI-aligned |
@@ -37,9 +38,9 @@ Microsoft retired App Center (May 2025). The category re-shaped around Firebase 
 The first decision is **which distribution channel for which audience**:
 - **App store reviewers / external beta testers**: TestFlight (iOS) + Google Play Internal/Closed Testing (Android). Mandatory; free; the only path for App Store submission.
 - **Internal team / QA / dogfooding**: Firebase App Distribution (most use cases) or Diawi (quick share)
-- **CI builds going somewhere**: Codemagic or Bitrise (mobile-first) or GitHub Actions (general-purpose)
+- **CI builds going somewhere**: Codemagic, Bitrise or Appcircle (mobile-first) or GitHub Actions (general-purpose)
 
-Most teams use **all three** in parallel — store-native for store pre-launch testing, Firebase App Distribution for daily-build internal QA, GitHub Actions / Codemagic / Bitrise for the CI orchestration that delivers builds to all of them.
+Most teams use **all three** in parallel — store-native for store pre-launch testing, Firebase App Distribution for daily-build internal QA, GitHub Actions / Codemagic / Bitrise / Appcircle for the CI orchestration that delivers builds to all of them.
 
 ## Decide What You Need First
 
@@ -66,6 +67,7 @@ You want one pipeline that: builds → tests → distributes to TestFlight + Fir
 
 - **Codemagic** for React Native / Flutter / native iOS+Android — mobile-first, opinionated workflows
 - **Bitrise** for similar; older; some say more mature
+- **Appcircle** for CI/CD, testing distribution and an enterprise app store in one platform; cloud or self-hosted
 - **GitHub Actions + Fastlane** for teams already on GitHub; flexibility; some setup work
 - **Xcode Cloud** for pure iOS / Apple-aligned shops; cheap; only iOS
 
@@ -242,6 +244,31 @@ Use Bitrise when:
 - Existing investment / established workflows
 - Team prefers Bitrise's UX
 
+### Appcircle
+
+Mobile CI/CD and app distribution platform. Covers build, code signing, testing distribution, an enterprise app store, CodePush and store publishing.
+
+Strengths:
+
+- **Self-hosted option**: runs fully on-prem (Kubernetes, OpenShift, Docker, Podman) for regulated teams
+- Built-in testing distribution plus an Enterprise App Store for branded in-house app distribution outside public stores
+- Signing identity management (iOS certificates, provisioning profiles, Android keystores)
+- CodePush service for React Native OTA updates
+- Publishes to TestFlight, App Store, Google Play, Huawei AppGallery and Microsoft Intune
+- Free Starter plan (20 builds/mo, 100 testing distribution downloads/mo)
+
+Weaknesses:
+
+- Paid plans are custom-quoted annual licenses; no self-serve per-minute pricing
+- Free tier is limited (1 concurrent build, 30-min build limit, no App Store or Intune publishing)
+- Smaller community than GitHub Actions
+
+Use Appcircle when:
+
+- You want CI/CD, testing distribution and an in-house app store in one platform
+- Compliance or data residency requires a self-hosted pipeline
+- Migrating off App Center and need both distribution and a CodePush replacement
+
 ### GitHub Actions + Fastlane
 
 DIY mobile CI on GitHub. Fastlane handles the iOS / Android signing + upload primitives; GitHub Actions runs them.
@@ -388,8 +415,8 @@ Add: dedicated build infrastructure, code-signing automation via Match, automate
 ### Enterprise Mobile Team
 
 - TestFlight + Play Console
-- Firebase App Distribution (free) or self-hosted equivalent
-- Codemagic / Bitrise / Jenkins (custom $$$)
+- Firebase App Distribution (free) or self-hosted equivalent (e.g. Appcircle Enterprise App Store)
+- Codemagic / Bitrise / Appcircle / Jenkins (custom $$$)
 - Dedicated DevX team owning build infrastructure
 - Total: $1K-10K+/mo
 
@@ -397,7 +424,7 @@ Add: dedicated build infrastructure, code-signing automation via Match, automate
 
 1. **Are you submitting to App Store / Play Store?**
    - Yes: TestFlight + Play Console testing tracks (mandatory)
-   - No (e.g. enterprise internal-only): Firebase App Distribution alone is fine
+   - No (e.g. enterprise internal-only): Firebase App Distribution alone is fine; Appcircle Enterprise App Store if you need a branded in-house store or self-hosting
 
 2. **What's your CI / build setup?**
    - GitHub-based + flexible: GitHub Actions + Fastlane
@@ -411,9 +438,10 @@ Add: dedicated build infrastructure, code-signing automation via Match, automate
 
 4. **Migration from App Center?**
    - Yes: Firebase App Distribution (most common path)
+   - Need distribution + CodePush replacement in one place: Appcircle
 
 5. **Need OTA updates without store re-review?**
-   - Expo / RN: EAS Update
+   - Expo / RN: EAS Update or Appcircle CodePush
    - Native: not really possible (CodePush is dead; AppCenter is dead)
 
 ## Verdict
